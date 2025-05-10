@@ -1397,36 +1397,44 @@ if SMODS.Mods["Tier3Sub"] then
 end
 local voucheritems = {
 	voucher_atlas,
+	-- Cryptid Normal Vouchers
 	copies,
 	tag_printer,
-	triple,
-	quadruple,
-	quintuple,
+	pairing,
+	repair_man,
+	double_vision,
+	double_slit,
+	stickyhand,
+	grapplinghook,
+	command_prompt,
+	satellite_uplink,
+	-- Vanilla T3s
 	overstock_multi,
 	massproduct,
 	curate,
 	rerollexchange,
+	-- Crystal Ball T3 Placeholder
+	-- Telescope T3 Placeholder
 	dexterity,
 	threers,
 	tacclimator,
 	pacclimator,
 	moneybean,
 	fabric,
+	-- Magic Trick T3 Placeholder
 	asteroglyph,
+	-- Director's Cut T3 Placeholder
 	blankcanvas,
+	-- Cryptid T3s
 	clone_machine,
-	stickyhand,
-	grapplinghook,
-	hyperspacetether,
-	command_prompt,
-	satellite_uplink,
-	quantum_computing,
-	pairing,
-	repair_man,
 	pairamount_plus,
-	double_vision,
-	double_slit,
 	double_down,
+	hyperspacetether,
+	quantum_computing,
+	
+	triple,
+	quadruple,
+	quintuple,
 }
 return {
 	name = "Vouchers",
