@@ -3830,41 +3830,7 @@ return {
 			},
 		},
 		Voucher = {
-			v_cry_asteroglyph = {
-				name = "Asteroglyph",
-				text = {
-					"Set Ante to {C:attention}#1#{}",
-				},
-				unlock = {
-					"Reach Ante {C:attention}36",
-				},
-			},
-			v_cry_blankcanvas = {
-				name = "Blank Canvas",
-				text = {
-					"{C:attention}+#1#{} hand size",
-				},
-				unlock = {
-					"Reduce your {C:attention}handsize",
-					"to {C:attention}0",
-				},
-			},
-			v_cry_clone_machine = {
-				name = "Clone Machine",
-				text = {
-					"Double Tags become",
-					"{C:attention}Quintuple Tags{} and",
-					"are {C:attention}4X{} as common",
-				},
-			},
-			v_cry_command_prompt = {
-				name = "Command Prompt",
-				text = {
-					"{C:cry_code}Code{} cards",
-					"can appear",
-					"in the {C:attention}shop{}",
-				},
-			},
+			-- Standard Vouchers
 			v_cry_copies = {
 				name = "Copies",
 				text = {
@@ -3873,38 +3839,33 @@ return {
 					"{C:attention}2X{} as common",
 				},
 			},
-			v_cry_curate = {
-				name = "Curate",
+			v_cry_tag_printer = {
+				name = "Tag Printer",
 				text = {
-					"All cards",
-					"appear with",
-					"an {C:dark_edition}Edition{}",
-				},
-				unlock = {
-					"Discover",
-					"all {C:attention}Editions",
+					"Double Tags become",
+					"{C:attention}Quadruple Tags{} and",
+					"are {C:attention}3X{} as common",
 				},
 			},
-			v_cry_dexterity = {
-				name = "Dexterity",
+			v_cry_pairing = {
+				name = "Pairing",
 				text = {
-					"Permanently",
-					"gain {C:blue}+#1#{} hand#<s>1#",
-					"each round",
-				},
-				unlock = {
-					"Play {C:attention}5000{}",
-					"{C:attention}Playing Cards{}",
-					"in total",
+					"{C:attention}Retrigger{} all M Jokers",
+					"if played hand is a {C:attention}Pair",
 				},
 			},
-			v_cry_double_down = {
-				name = "Double Down",
+			v_cry_repair_man = {
+				name = "Repair Man",
 				text = {
-					"After every round,",
-					"{X:dark_edition,C:white} X1.5 {} to all values",
-					"on the back of",
-					"{C:dark_edition}Double-Sided{} cards",
+					"{C:attention}Retrigger{} all M Jokers",
+					"if played hand contains a {C:attention}Pair",
+				},
+			},
+			v_cry_double_vision = {
+				name = "Double Vision",
+				text = {
+					"{C:dark_edition}Double-Sided{} cards appear",
+					"{C:attention}4X{} more frequently",
 				},
 			},
 			v_cry_double_slit = {
@@ -3915,48 +3876,37 @@ return {
 					"Arcana Packs",
 				},
 			},
-			v_cry_double_vision = {
-				name = "Double Vision",
+			v_cry_stickyhand = {
+				name = "Sticky Hand",
 				text = {
-					"{C:dark_edition}Double-Sided{} cards appear",
-					"{C:attention}4X{} more frequently",
+					"{C:attention}+#1#{} card selection limit",
 				},
 			},
-			v_cry_fabric = {
-				name = "Universal Fabric",
+			v_cry_grapplinghook = {
+				name = "Grappling Hook",
 				text = {
-					"{C:dark_edition}+#1#{} Joker slot#<s>1#",
-				},
-				unlock = {
-					"Redeem {C:dark_edition}Antimatter",
-					"{C:attention}10{} times",
+					"{C:attention}+#1#{} card selection limit",
+					"{C:inactive,s:0.7}You can do a lot more with this than you think.{}",
 				},
 			},
-			v_cry_massproduct = {
-				name = "Mass Production",
+			v_cry_command_prompt = {
+				name = "Command Prompt",
 				text = {
-					"All cards and packs",
-					"in shop cost {C:attention}$1{}",
-				},
-				unlock = {
-					"Redeem {C:attention}25",
-					"{C:attention}Vouchers",
-					"in one run",
+					"{C:cry_code}Code{} cards",
+					"can appear",
+					"in the {C:attention}shop{}",
 				},
 			},
-			v_cry_moneybean = {
-				name = "Money Beanstalk",
+			v_cry_satellite_uplink = {
+				name = "Satellite Uplink",
 				text = {
-					"Raise the cap on",
-					"interest earned in",
-					"each round to {C:money}$#1#{}",
-				},
-				unlock = {
-					"Max out the",
-					"{C:attention}interest earnings{}",
-					"for the {C:attention}whole run",
+					"{C:cry_code}Code{} cards may",
+					"appear in any of",
+					"the {C:attention}Celestial Packs{}",
 				},
 			},
+
+			-- T3 Vouchers
 			v_cry_overstock_multi = {
 				name = "Multistock",
 				text = {
@@ -3971,49 +3921,28 @@ return {
 					"in one run",
 				},
 			},
-			v_cry_pacclimator = {
-				name = "Planet Acclimator",
+			v_cry_massproduct = {
+				name = "Mass Production",
 				text = {
-					"{C:planet}Planet{} cards appear",
-					"{C:attention}X#1#{} more frequently",
-					"in the shop",
-					"Allows control of the",
-					"shop's {C:planet}Planet Rate{}",
-					"{C:inactive}(Check {C:attention}Run Info{C:inactive})",
+					"All cards and packs",
+					"in shop cost {C:attention}$1{}",
 				},
 				unlock = {
-					"Buy {C:attention}100{} {C:planet}Planet",
-					"cards total in",
-					"the shop",
+					"Redeem {C:attention}25",
+					"{C:attention}Vouchers",
+					"in one run",
 				},
 			},
-			v_cry_pairamount_plus = {
-				name = "Pairamount Plus",
+			v_cry_curate = {
+				name = "Curate",
 				text = {
-					"{C:attention}Retrigger{} all M Jokers",
-					"once for every Pair",
-					"{C:attention}contained{} in played hand",
+					"All cards",
+					"appear with",
+					"an {C:dark_edition}Edition{}",
 				},
-			},
-			v_cry_pairing = {
-				name = "Pairing",
-				text = {
-					"{C:attention}Retrigger{} all M Jokers",
-					"if played hand is a {C:attention}Pair",
-				},
-			},
-			v_cry_quantum_computing = {
-				name = "Quantum Computing",
-				text = {
-					"All future {C:cry_code}Code{} cards each",
-					"have {C:cry_code}+#1#{} Multiuse",
-				},
-			},
-			v_cry_repair_man = {
-				name = "Repair Man",
-				text = {
-					"{C:attention}Retrigger{} all M Jokers",
-					"if played hand contains a {C:attention}Pair",
+				unlock = {
+					"Discover",
+					"all {C:attention}Editions",
 				},
 			},
 			v_cry_rerollexchange = {
@@ -4029,27 +3958,47 @@ return {
 					"in one run",
 				},
 			},
-			v_cry_satellite_uplink = {
-				name = "Satellite Uplink",
+			-- RESERVATION FOR CRYSTAL BALL T3
+			-- RESERVATION FOR TELESCOPE T3
+			-- v_cry_scope = {
+			-- 	name = "Galactic Scope",
+			-- 	text = {
+			-- 		"Create the {C:planet}Planet",
+			-- 		"card for played",
+			-- 		"{C:attention}poker hand{}",
+			-- 		"{C:inactive}(Must have room){}",
+			-- 	},
+			-- 	unlock = {
+			-- 		"Use {C:attention}50{} {C:planet}Planet",
+			-- 		"cards from",
+			-- 		"{C:attention}Booster Packs{}",
+			-- 		"in one run",
+			-- 	},
+			-- },
+			v_cry_dexterity = {
+				name = "Dexterity",
 				text = {
-					"{C:cry_code}Code{} cards may",
-					"appear in any of",
-					"the {C:attention}Celestial Packs{}",
-				},
-			},
-			v_cry_scope = {
-				name = "Galactic Scope",
-				text = {
-					"Create the {C:planet}Planet",
-					"card for played",
-					"{C:attention}poker hand{}",
-					"{C:inactive}(Must have room){}",
+					"Permanently",
+					"gain {C:blue}+#1#{} hand#<s>1#",
+					"each round",
 				},
 				unlock = {
-					"Use {C:attention}50{} {C:planet}Planet",
-					"cards from",
-					"{C:attention}Booster Packs{}",
-					"in one run",
+					"Play {C:attention}5000{}",
+					"{C:attention}Playing Cards{}",
+					"in total",
+				},
+			},
+			v_cry_threers = {
+				name = "The 3 Rs",
+				text = {
+					"Permanently",
+					"gain {C:red}+#1#{} discard#<s>1#",
+					"each round",
+				},
+				unlock = {
+					"Discard {C:attention}5000{}",
+					"{C:attention}Playing Cards{}",
+					"in total",
 				},
 			},
 			v_cry_tacclimator = {
@@ -4068,38 +4017,90 @@ return {
 					"the shop",
 				},
 			},
-			v_cry_tag_printer = {
-				name = "Tag Printer",
+			v_cry_pacclimator = {
+				name = "Planet Acclimator",
 				text = {
-					"Double Tags become",
-					"{C:attention}Quadruple Tags{} and",
-					"are {C:attention}3X{} as common",
-				},
-			},
-			v_cry_threers = {
-				name = "The 3 Rs",
-				text = {
-					"Permanently",
-					"gain {C:red}+#1#{} discard#<s>1#",
-					"each round",
+					"{C:planet}Planet{} cards appear",
+					"{C:attention}X#1#{} more frequently",
+					"in the shop",
+					"Allows control of the",
+					"shop's {C:planet}Planet Rate{}",
+					"{C:inactive}(Check {C:attention}Run Info{C:inactive})",
 				},
 				unlock = {
-					"Discard {C:attention}5000{}",
-					"{C:attention}Playing Cards{}",
-					"in total",
+					"Buy {C:attention}100{} {C:planet}Planet",
+					"cards total in",
+					"the shop",
 				},
 			},
-			v_cry_stickyhand = {
-				name = "Sticky Hand",
+			v_cry_moneybean = {
+				name = "Money Beanstalk",
 				text = {
-					"{C:attention}+#1#{} card selection limit",
+					"Raise the cap on",
+					"interest earned in",
+					"each round to {C:money}$#1#{}",
+				},
+				unlock = {
+					"Max out the",
+					"{C:attention}interest earnings{}",
+					"for the {C:attention}whole run",
 				},
 			},
-			v_cry_grapplinghook = {
-				name = "Grappling Hook",
+			v_cry_fabric = {
+				name = "Universal Fabric",
 				text = {
-					"{C:attention}+#1#{} card selection limit",
-					"{C:inactive,s:0.7}You can do a lot more with this than you think.{}",
+					"{C:dark_edition}+#1#{} Joker slot#<s>1#",
+				},
+				unlock = {
+					"Redeem {C:dark_edition}Antimatter",
+					"{C:attention}10{} times",
+				},
+			},
+			-- RESERVATION FOR MAGIC TRICK T3
+			v_cry_asteroglyph = {
+				name = "Asteroglyph",
+				text = {
+					"Set Ante to {C:attention}#1#{}",
+				},
+				unlock = {
+					"Reach Ante {C:attention}36",
+				},
+			},
+			-- RESERVATION FOR DIRECTOR'S CUT T3
+			v_cry_blankcanvas = {
+				name = "Blank Canvas",
+				text = {
+					"{C:attention}+#1#{} hand size",
+				},
+				unlock = {
+					"Reduce your {C:attention}handsize",
+					"to {C:attention}0",
+				},
+			},
+			-- Cryptid Voucher T3
+			v_cry_clone_machine = {
+				name = "Clone Machine",
+				text = {
+					"Double Tags become",
+					"{C:attention}Quintuple Tags{} and",
+					"are {C:attention}4X{} as common",
+				},
+			},
+			v_cry_pairamount_plus = {
+				name = "Pairamount Plus",
+				text = {
+					"{C:attention}Retrigger{} all M Jokers",
+					"once for every Pair",
+					"{C:attention}contained{} in played hand",
+				},
+			},
+			v_cry_double_down = {
+				name = "Double Down",
+				text = {
+					"After every round,",
+					"{X:dark_edition,C:white} X1.5 {} to all values",
+					"on the back of",
+					"{C:dark_edition}Double-Sided{} cards",
 				},
 			},
 			v_cry_hyperspacetether = {
@@ -4108,6 +4109,13 @@ return {
 					"{C:attention}+#1#{} card selection limit",
 					"All selected cards contribute power",
 					"to {C:attention}Ascended Hands{}",
+				},
+			},
+			v_cry_quantum_computing = {
+				name = "Quantum Computing",
+				text = {
+					"All future {C:cry_code}Code{} cards each",
+					"have {C:cry_code}+#1#{} Multiuse",
 				},
 			},
 		},
