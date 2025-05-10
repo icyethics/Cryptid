@@ -2452,7 +2452,6 @@ local demicolon = {
 				card.ability.demicoloncompat = "Incompatible"
 				card.ability.check = false
 				card.ability.colour = G.C.RARITY.cry_candy
-				
 			end
 		end
 	end,
