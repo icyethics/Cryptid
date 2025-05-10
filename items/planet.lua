@@ -199,7 +199,6 @@ local universe = {
 	generate_ui = 0,
 }
 
-
 -- Planet.lua
 -- 1 in 5 to upgrade Every poker hand
 local planetlua = {
@@ -1224,7 +1223,6 @@ local kaikki = {
 }
 -- order 166 reserved for suit planet of TEFD, None and Sol
 
-
 function Cryptid.suit_level_up(card, copier, number, poker_hands, message)
 	local used_consumable = copier or card
 	if not number then
@@ -1257,27 +1255,26 @@ function Cryptid.suit_level_up(card, copier, number, poker_hands, message)
 		{ mult = 0, chips = 0, handname = "", level = "" }
 	)
 end
-local planet_cards = { 
-	abelt, 
-	void, 
-	marsmoons, 
+local planet_cards = {
+	abelt,
+	void,
+	marsmoons,
 	-- reserved for None
 	universe,
-	
-	planetlua, 
+
+	planetlua,
 	nstar,
 
-	
-	sunplanet,  
-	ruutu, 
+	sunplanet,
+	ruutu,
 	risti,
-	hertta, 
-	pata, 
-	kaikki,  
+	hertta,
+	pata,
+	kaikki,
 	-- reserved for tefd/none/sol suit planet
 }
-return { 
-	name = "Planets", 
-	init = function() end, 
-	items = planet_cards, 
+return {
+	name = "Planets",
+	init = function() end,
+	items = planet_cards,
 }
