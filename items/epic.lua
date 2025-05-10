@@ -2443,7 +2443,7 @@ local demicolon = {
 			if m[1] and not m[2] then
 				card.ability.demicoloncompat = "Compatible"
 				card.ability.check = true
-				card.ability.colour = G.C.RARITY.cry_candy
+				card.ability.colour = G.C.SECONDARY_SET.Enhanced
 			elseif m[2] then
 				card.ability.demicoloncompat = "Dangerous!"
 				card.ability.check = true
@@ -2451,7 +2451,7 @@ local demicolon = {
 			else
 				card.ability.demicoloncompat = "Incompatible"
 				card.ability.check = false
-				card.ability.colour = G.C.RARITY.cry_candy
+				card.ability.colour = G.C.SUITS.Spades
 			end
 		end
 	end,
