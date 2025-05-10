@@ -516,9 +516,9 @@ return {
 			},
 			c_cry_malware = {
 				name = "://MALWARE",
-				text = { 
-					"Add {C:dark_edition}Glitched{} to all", 
-					"cards {C:cry_code}held in hand" 
+				text = {
+					"Add {C:dark_edition}Glitched{} to all",
+					"cards {C:cry_code}held in hand",
 				},
 			},
 			c_cry_nperror = {
@@ -725,9 +725,9 @@ return {
 			},
 			c_cry_semicolon = {
 				name = ";//",
-				text = { 
-					"Ends current non-Boss {C:cry_code}Blind{}", 
-					"{C:cry_code}without{} cashing out" 
+				text = {
+					"Ends current non-Boss {C:cry_code}Blind{}",
+					"{C:cry_code}without{} cashing out",
 				},
 			},
 		},
