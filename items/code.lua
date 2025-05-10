@@ -46,7 +46,7 @@ local pack1 = { -- Program Pack, 1/2
 	pos = { x = 0, y = 0 },
 	config = { extra = 2, choose = 1 },
 	cost = 4,
-	order = 132,
+	order = 805,
 	weight = 0.96,
 	create_card = function(self, card)
 		return create_card("Code", G.pack_cards, nil, nil, true, true, nil, "cry_program_1")
@@ -91,7 +91,7 @@ local pack2 = { -- Program Pack Alt, 1/2
 	pos = { x = 1, y = 0 },
 	config = { extra = 2, choose = 1 },
 	cost = 4,
-	order = 133,
+	order = 806,
 	weight = 0.96,
 	create_card = function(self, card)
 		return create_card("Code", G.pack_cards, nil, nil, true, true, nil, "cry_program_2")
@@ -136,7 +136,7 @@ local packJ = { -- Jumbo Program Pack, 1/4
 	pos = { x = 2, y = 0 },
 	config = { extra = 4, choose = 1 },
 	cost = 6,
-	order = 134,
+	order = 807,
 	weight = 0.48,
 	create_card = function(self, card)
 		return create_card("Code", G.pack_cards, nil, nil, true, true, nil, "cry_program_j")
@@ -181,7 +181,7 @@ local packM = { -- Mega Program Pack, 2/4
 	pos = { x = 3, y = 0 },
 	config = { extra = 4, choose = 2 },
 	cost = 8,
-	order = 135,
+	order = 808,
 	weight = 0.12,
 	create_card = function(self, card)
 		return create_card("Code", G.pack_cards, nil, nil, true, true, nil, "cry_program_m")
@@ -217,12 +217,13 @@ local console = { -- Console Tag, gives a free Program Pack
 	dependencies = {
 		items = {
 			"p_cry_code_normal_1",
+			"set_cry_code",
 		},
 	},
 	object_type = "Tag",
 	atlas = "tag_cry",
 	name = "cry-Console Tag",
-	order = 256,
+	order = 609,
 	pos = { x = 3, y = 2 },
 	config = { type = "new_blind_choice" },
 	key = "console",
@@ -287,7 +288,7 @@ local crash = { -- ://Crash, 1/6 to ACE, otherwise crash; determined by run seed
 	no_collection = true,
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 0,
+	order = 400,
 	can_use = function(self, card)
 		return true
 	end,
@@ -865,7 +866,7 @@ local keygen = { -- ://Keygen, create a Perishable Banana voucher, destroy the p
 	pos = { x = 12, y = 5 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 1,
+	order = 401,
 	can_use = function(self, card)
 		return true
 	end,
@@ -967,7 +968,7 @@ local payload =
 		end,
 		cost = 4,
 		atlas = "atlasnotjokers",
-		order = 2,
+		order = 402,
 		can_use = function(self, card)
 			return true
 		end,
@@ -1005,7 +1006,7 @@ local exploit =
 		atlas = "atlasnotjokers",
 		pos = { x = 8, y = 3 },
 		cost = 4,
-		order = 3,
+		order = 403,
 		config = { cry_multiuse = 2, extra = { enteredhand = "" } }, -- i don't think this ever uses config...?
 		loc_vars = function(self, info_queue, card)
 			return { vars = { Cryptid.safe_get(card, "ability", "cry_multiuse") or self.config.cry_multiuse } }
@@ -1312,7 +1313,7 @@ local malware = { -- ://Malware, apply Glitched edition to held in hand cards
 	config = {},
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 4,
+	order = 404,
 	can_use = function(self, card)
 		return #G.hand.cards > 0
 	end,
@@ -1384,7 +1385,7 @@ local crynperror = { -- ://NPERROR, add last played hand back to your hand, mult
 	pos = { x = 10, y = 5 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 5,
+	order = 405,
 	config = { cry_multiuse = 2 },
 	can_use = function(self, card)
 		return G.GAME.last_hand_played_cards and (Cryptid.safe_get(G.GAME, "blind", "in_blind")) -- TODO: work in boosters
@@ -1435,7 +1436,7 @@ local rework =
 		key = "rework",
 		name = "cry-Rework",
 		atlas = "atlasnotjokers",
-		order = 6,
+		order = 406,
 		pos = { x = 10, y = 3 },
 		cost = 4,
 		loc_vars = function(self, info_queue)
@@ -1518,7 +1519,7 @@ local rework_tag =
 		object_type = "Tag",
 		atlas = "tag_cry",
 		name = "cry-Rework Tag",
-		order = 19,
+		order = 610,
 		pos = { x = 0, y = 3 },
 		config = { type = "store_joker_create" },
 		key = "rework",
@@ -1601,7 +1602,7 @@ local merge =
 		atlas = "atlasnotjokers",
 		pos = { x = 7, y = 2 },
 		cost = 4,
-		order = 7,
+		order = 407,
 		can_use = function(self, card)
 			if #G.hand.highlighted ~= 1 + (card.area == G.hand and 1 or 0) then
 				return false
@@ -1710,7 +1711,7 @@ local commit = { -- ://Commit, destroys a selected joker and creates a different
 	atlas = "atlasnotjokers",
 	pos = { x = 8, y = 2 },
 	cost = 4,
-	order = 8,
+	order = 408,
 	can_use = function(self, card)
 		if not G.GAME.modifiers.cry_beta then
 			return #G.jokers.highlighted == 1
@@ -1797,7 +1798,7 @@ local machinecode = { -- ://MACHINECODE, creates a random Glitched consumable
 	pos = { x = 7, y = 3 },
 	cost = 3,
 	atlas = "atlasnotjokers",
-	order = 9,
+	order = 409,
 	can_use = function(self, card)
 		return true
 	end,
@@ -2066,7 +2067,7 @@ local spaghetti = { -- ://Spaghetti, creates a random Glitched food joker
 	key = "spaghetti",
 	name = "cry-Spaghetti",
 	atlas = "atlasnotjokers",
-	order = 10,
+	order = 410,
 	pos = { x = 12, y = 2 },
 	cost = 4,
 	loc_vars = function(self, info_queue, card)
@@ -2110,7 +2111,7 @@ local seed = { -- ://Seed, gives any card Rigged (TODO: make it work when used i
 	pos = { x = 10, y = 1 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 11,
+	order = 411,
 	can_use = function(self, card)
 		--the card itself and one other card
 		return #G.jokers.highlighted
@@ -2205,7 +2206,7 @@ local patch = { -- ://Patch, removes all visible debuffs
 	key = "patch",
 	name = "cry-patch",
 	atlas = "atlasnotjokers",
-	order = 12,
+	order = 412,
 	config = {},
 	pos = { x = 8, y = 4 },
 	cost = 4,
@@ -2324,7 +2325,7 @@ local cryupdate = { -- ://Update, TBD, missing art
 	pos = { x = 6, y = 4 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 13,
+	order = 413,
 	can_use = function(self, card)
 		return false
 	end,
@@ -2367,7 +2368,7 @@ local hook = { -- Hook://, applies Hooked to two jokers
 	config = {},
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 14,
+	order = 414,
 	can_use = function(self, card)
 		if not G.GAME.modifiers.cry_beta then
 			return (#G.jokers.highlighted == 2 and #G.consumeables.highlighted == 1)
@@ -2488,7 +2489,7 @@ local oboe = { -- ://Off By One, the next opened booster pack has +1/+1 slots/se
 	key = "oboe",
 	name = "cry-oboe",
 	atlas = "atlasnotjokers",
-	order = 15,
+	order = 415,
 	config = { extra = { choices = 1 } },
 	pos = { x = 9, y = 3 },
 	cost = 4,
@@ -2534,7 +2535,7 @@ local assemble = { -- ://Assemble, add the number of jokers to selected cards +m
 	pos = { x = 11, y = 5 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 16,
+	order = 416,
 	can_use = function(self, card)
 		if not G.GAME.modifiers.cry_beta then
 			return (#G.hand.highlighted > 0 and #G.jokers.cards > 0)
@@ -2581,7 +2582,7 @@ local inst =
 		key = "inst",
 		name = "cry-Inst",
 		atlas = "atlasnotjokers",
-		order = 17,
+		order = 417,
 		pos = { x = 10, y = 4 },
 		cost = 4,
 		can_bulk_use = true,
@@ -2658,7 +2659,7 @@ local revert = { -- ://Revert, loads the game state from the end of the last bos
 	config = {},
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 18,
+	order = 418,
 	can_use = function(self, card)
 		return G.GAME.cry_revert
 	end,
@@ -2721,7 +2722,7 @@ local cryfunction =
 		atlas = "atlasnotjokers",
 		pos = { x = 11, y = 0 },
 		cost = 4,
-		order = 19,
+		order = 419,
 		loc_vars = function(self, info_queue, card)
 			lclze = function(index)
 				local func_card = (G.GAME.cry_function_cards or G.GAME.cry_last_used_consumeables)[index]
@@ -2884,7 +2885,7 @@ local run = { -- ://Run, visit a shop mid-blind
 	pos = { x = 12, y = 0 },
 	cost = 3,
 	atlas = "atlasnotjokers",
-	order = 20,
+	order = 420,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind") and not G.GAME.USING_RUN
 	end,
@@ -2997,7 +2998,7 @@ local class = { -- ://Class, change a selected card's enhancement to one of your
 	atlas = "atlasnotjokers",
 	pos = { x = 11, y = 1 },
 	cost = 4,
-	order = 21,
+	order = 421,
 	config = { max_highlighted = 1, extra = { enteredrank = "" } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { Cryptid.safe_get(card, "ability", "max_highlighted") or self.config.max_highlighted } }
@@ -3286,7 +3287,7 @@ local global = { -- ://Global, gives a selected card the Global sticker
 	pos = { x = 7, y = 5 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 22,
+	order = 422,
 	can_use = function(self, card)
 		if not G.GAME.modifiers.cry_beta then
 			if #G.consumeables.highlighted == 0 then
@@ -3391,7 +3392,7 @@ local variable = { -- ://Variable, change 2 selected cards' ranks to one of your
 	atlas = "atlasnotjokers",
 	pos = { x = 9, y = 1 },
 	cost = 4,
-	order = 23,
+	order = 423,
 	config = { max_highlighted = 2, extra = { enteredrank = "" } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { Cryptid.safe_get(card, "ability", "max_highlighted") or self.config.max_highlighted } }
@@ -3693,7 +3694,7 @@ local crylog =
 		pos = { x = 12, y = 4 },
 		cost = 4,
 		atlas = "atlasnotjokers",
-		order = 5,
+		order = 424,
 		can_use = function(self, card)
 			return false
 		end,
@@ -3729,7 +3730,7 @@ local quantify = { -- ://Quantify, TBD
 	pos = { x = 9, y = 5 },
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 25,
+	order = 425,
 	can_use = function(self, card)
 		return false
 	end,
@@ -3763,7 +3764,7 @@ local divide = { -- ://Divide, halves item costs in shop
 	key = "divide",
 	name = "cry-Divide",
 	atlas = "atlasnotjokers",
-	order = 26,
+	order = 426,
 	pos = { x = 9, y = 2 },
 	cost = 4,
 	can_use = function(self, card)
@@ -3828,7 +3829,7 @@ local multiply = { -- ://Multiply, doubles a joker's values until the end of the
 	key = "multiply",
 	name = "cry-Multiply",
 	atlas = "atlasnotjokers",
-	order = 27,
+	order = 427,
 	pos = { x = 10, y = 2 },
 	cost = 4,
 	can_use = function(self, card)
@@ -3893,7 +3894,7 @@ local delete = {
 	key = "delete",
 	name = "cry-Delete",
 	atlas = "atlasnotjokers",
-	order = 28,
+	order = 428,
 	pos = { x = 11, y = 2 },
 	cost = 4,
 	config = { cry_multiuse = 3 },
@@ -4009,7 +4010,7 @@ local alttab = { -- ://Alt-Tab, creates the current blind's Tag
 	key = "alttab",
 	name = "cry-Alttab",
 	atlas = "atlasnotjokers",
-	order = 29,
+	order = 429,
 	config = {},
 	pos = { x = 11, y = 4 },
 	cost = 4,
@@ -4108,7 +4109,7 @@ local ctrl_v = { -- ://Ctrl-V, creates a copy of a selected playing card or cons
 	key = "ctrl_v",
 	name = "cry-Ctrl-V",
 	atlas = "atlasnotjokers",
-	order = 30,
+	order = 430,
 	config = {},
 	pos = { x = 9, y = 4 },
 	cost = 4,
@@ -4212,7 +4213,7 @@ local reboot = { -- ://Reboot, shuffle all cards into deck, then reset Hands and
 	config = {},
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 31,
+	order = 431,
 	can_use = function(self, card)
 		return G.STATE == G.STATES.SELECTING_HAND
 	end,
@@ -4266,7 +4267,7 @@ local semicolon = { -- ://;, Ends the current non-boss blind, skips cash out
 	config = {},
 	cost = 4,
 	atlas = "atlasnotjokers",
-	order = 32,
+	order = 432,
 	can_use = function(self, card)
 		return G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.boss
 	end,
@@ -4341,45 +4342,6 @@ local automaton = {
 		delay(0.6)
 	end,
 }
-local green_seal = {
-	dependencies = {
-		items = {
-			"set_cry_code",
-		},
-	},
-	object_type = "Seal",
-	name = "cry-Green-Seal",
-	key = "green",
-	badge_colour = HEX("12f254"), --same as code cards
-	atlas = "cry_misc",
-	pos = { x = 1, y = 2 },
-	order = 604,
-	calculate = function(self, card, context)
-		if context.cardarea == "unscored" and context.main_scoring then
-			for k, v in ipairs(context.scoring_hand) do
-				v.cry_green_incompat = true
-			end
-			for k, v in ipairs(context.full_hand) do
-				if not v.cry_green_incompat then
-					G.E_MANAGER:add_event(Event({
-						func = function()
-							if G.consumeables.config.card_limit > #G.consumeables.cards then
-								local c = create_card("Code", G.consumeables, nil, nil, nil, nil, nil, "cry_green_seal")
-								c:add_to_deck()
-								G.consumeables:emplace(c)
-								v:juice_up()
-							end
-							return true
-						end,
-					}))
-				end
-			end
-			for k, v in ipairs(context.scoring_hand) do
-				v.cry_green_incompat = nil
-			end
-		end
-	end,
-}
 local source = {
 	cry_credits = {
 		idea = {
@@ -4449,6 +4411,45 @@ local source = {
 		end
 	end,
 }
+local green_seal = {
+	dependencies = {
+		items = {
+			"set_cry_code",
+		},
+	},
+	object_type = "Seal",
+	name = "cry-Green-Seal",
+	key = "green",
+	badge_colour = HEX("12f254"), --same as code cards
+	atlas = "cry_misc",
+	pos = { x = 1, y = 2 },
+	order = 604,
+	calculate = function(self, card, context)
+		if context.cardarea == "unscored" and context.main_scoring then
+			for k, v in ipairs(context.scoring_hand) do
+				v.cry_green_incompat = true
+			end
+			for k, v in ipairs(context.full_hand) do
+				if not v.cry_green_incompat then
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							if G.consumeables.config.card_limit > #G.consumeables.cards then
+								local c = create_card("Code", G.consumeables, nil, nil, nil, nil, nil, "cry_green_seal")
+								c:add_to_deck()
+								G.consumeables:emplace(c)
+								v:juice_up()
+							end
+							return true
+						end,
+					}))
+				end
+			end
+			for k, v in ipairs(context.scoring_hand) do
+				v.cry_green_incompat = nil
+			end
+		end
+	end,
+}
 local encoded = {
 	cry_credits = {
 		idea = {
@@ -4471,7 +4472,7 @@ local encoded = {
 	object_type = "Back",
 	name = "cry-Encoded",
 	key = "encoded",
-	order = 257,
+	order = 2515,
 	pos = { x = 2, y = 5 },
 	atlas = "atlasdeck",
 	apply = function(self)
