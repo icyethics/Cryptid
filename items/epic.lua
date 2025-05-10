@@ -2440,7 +2440,7 @@ local demicolon = {
 				end
 			end
 			local m = Cryptid.demicolonGetTriggerable(other_joker)
-			if m[1] then
+			if m[1] and not m[2] then
 				card.ability.demicoloncompat = "Compatible"
 				card.ability.check = true
 				card.ability.colour = G.C.RARITY.cry_candy
@@ -2452,6 +2452,7 @@ local demicolon = {
 				card.ability.demicoloncompat = "Incompatible"
 				card.ability.check = false
 				card.ability.colour = G.C.RARITY.cry_candy
+				
 			end
 		end
 	end,
