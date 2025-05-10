@@ -2408,7 +2408,7 @@ local demicolon = {
 										ref_table = card,
 										align = "m",
 										-- colour = (check and G.C.cry_epic or G.C.JOKER_GREY),
-										colour = G.C.RARITY.cry_candy,
+										colour = card.ability.colour,
 										r = 0.05,
 										padding = 0.08,
 										func = "blueprint_compat",
@@ -2443,12 +2443,16 @@ local demicolon = {
 			if m[1] then
 				card.ability.demicoloncompat = "Compatible"
 				card.ability.check = true
+				card.ability.colour = G.C.RARITY.cry_candy
 			elseif m[2] then
 				card.ability.demicoloncompat = "Dangerous!"
 				card.ability.check = true
+				card.ability.colour = G.C.MULT
 			else
 				card.ability.demicoloncompat = "Incompatible"
 				card.ability.check = false
+				card.ability.colour = G.C.RARITY.cry_candy
+				
 			end
 		end
 	end,
