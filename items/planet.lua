@@ -15,6 +15,7 @@ local abelt = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
+			"set_cry_planet",
 		},
 	},
 	object_type = "Consumable",
@@ -63,6 +64,7 @@ local void = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
+			"set_cry_planet",
 		},
 	},
 	object_type = "Consumable",
@@ -111,6 +113,7 @@ local marsmoons = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
+			"set_cry_planet",
 		},
 	},
 	object_type = "Consumable",
@@ -167,6 +170,7 @@ local universe = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
+			"set_cry_planet",
 		},
 	},
 	object_type = "Consumable",
