@@ -1431,7 +1431,7 @@ local voucheritems = {
 	double_down,
 	hyperspacetether,
 	quantum_computing,
-	
+
 	triple,
 	quadruple,
 	quintuple,
