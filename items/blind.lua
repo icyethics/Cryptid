@@ -625,6 +625,7 @@ local pin = {
 				and card.config.center.rarity ~= 2
 				and card.config.center.rarity ~= 1
 				and card.config.center.rarity ~= 5
+				and card.config.center.rarity ~= nil
 			)
 		then
 			return true
