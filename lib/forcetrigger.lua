@@ -28,6 +28,7 @@ function Cryptid.demicolonGetTriggerable(card)
 end
 
 function Cryptid.forcetrigger(card, context)
+	if not card then return {} end
 	local results = {}
 	local check = Cryptid.forcetriggerVanillaCheck(card)
 	G.E_MANAGER:add_event(Event({
