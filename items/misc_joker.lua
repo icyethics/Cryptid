@@ -2279,7 +2279,7 @@ local nosound = {
 	key = "nosound",
 	config = {
 		extra = { retriggers = 3 },
-		immutable = { max_retriggers = 25 },
+		immutable = { max_retriggers = 40 },
 	},
 	pos = { x = 2, y = 1 },
 	atlas = "atlasone",
