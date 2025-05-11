@@ -149,7 +149,7 @@ local happyhouse = {
 					or (
 						CardSleeves
 						and G.GAME.selected_sleeve
-						--	and G.GAME.selected_sleeve ~= "sleeve_cry_antimatter_sleeve"	TODO: Add check if Antimatter sleeve gets added
+						and G.GAME.selected_sleeve ~= "sleeve_cry_antimatter_sleeve"
 						and G.GAME.selected_sleeve ~= "sleeve_cry_equilibrium_sleeve"
 					)
 				)
@@ -8063,7 +8063,7 @@ local fractal = {
 	end,
 	remove_from_deck = function(self, card, from_debuff)
 		G.hand.config.highlighted_limit = G.hand.config.highlighted_limit - card.ability.extra
-		if G.hand.config.highlighted_limit < 5 then
+		if to_big(G.hand.config.highlighted_limit) < to_big(5) then
 			G.hand.config.highlighted_limit = 5
 		end
 		if not G.GAME.before_play_buffer then
