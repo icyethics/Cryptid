@@ -63,12 +63,12 @@ function Cryptid.pointerblistifytype(target, key, remove) -- eg: blacklists a ce
 		if Cryptid.pointerblisttype[target] then
 			for index, value in ipairs(Cryptid.pointerblisttype[target]) do
 				if key == value then
-					table.remove(Cryptid.pointerblisttype[target], Cryptid.pointerblisttype[target][index])
+					table.remove(Cryptid.pointerblisttype[target], index)
 					return true
 				end
 			end
 			if key == nil then
-				table.remove(Cryptid.pointerblisttype, Cryptid.pointerblisttype[target])
+				Cryptid.pointerblisttype[target] = nil
 				return true
 			end
 		end
