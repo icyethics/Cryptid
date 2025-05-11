@@ -302,10 +302,6 @@ local instability = {
 	end,
 }
 
-
-
-
-
 -- Blessing
 -- Creates a random Consumeable
 local blessing = {
@@ -429,16 +425,6 @@ local azure_seal = {
 		end
 	end,
 }
-
-
-
-
-
-
-
-
-
-
 
 -- Packs
 local meme_digital_hallucinations_compat = {
@@ -709,11 +695,6 @@ local baneful1 = {
 	cry_digital_hallucinations = cursed_digital_hallucinations_compat,
 }
 -- 810-812 reserved for more Baneful packs if they come
-
-
-
-
-
 
 -- Editions start at 900, haven't decided on order yet
 
@@ -2291,8 +2272,6 @@ local meld = {
 		return G.GAME.used_vouchers.v_cry_double_slit
 	end,
 }
-
-
 
 -- Absolute
 -- Can't be sold, destroyed, Absolute can't be removed
