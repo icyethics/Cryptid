@@ -198,7 +198,7 @@ local abstract = {
 	overrides_base_rank = true, --enhancement do not generate in grim, incantation, etc...
 	replace_base_card = true, --So no base chips and no image
 	atlas = "cry_misc",
-	order = 205
+	order = 205,
 	pos = { x = 3, y = 0 },
 	shatters = true, --SMODS has a new "shatters" function
 	force_no_face = true, --true = always face, false = always face
