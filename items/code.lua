@@ -21,8 +21,8 @@ local code_digital_hallucinations_compat = {
 		G.consumeables:emplace(ccard)
 	end,
 }
-
-local pack1 = { -- Program Pack, 1/2
+ -- Program Pack, 1/2
+local pack1 = {
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -66,8 +66,8 @@ local pack1 = { -- Program Pack, 1/2
 	group_key = "k_cry_program_pack",
 	cry_digital_hallucinations = code_digital_hallucinations_compat,
 }
-
-local pack2 = { -- Program Pack Alt, 1/2
+-- Program Pack Alt, 1/2
+local pack2 = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -111,8 +111,8 @@ local pack2 = { -- Program Pack Alt, 1/2
 	group_key = "k_cry_program_pack",
 	cry_digital_hallucinations = code_digital_hallucinations_compat,
 }
-
-local packJ = { -- Jumbo Program Pack, 1/4
+-- Jumbo Program Pack, 1/4
+local packJ = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -156,8 +156,8 @@ local packJ = { -- Jumbo Program Pack, 1/4
 	group_key = "k_cry_program_pack",
 	cry_digital_hallucinations = code_digital_hallucinations_compat,
 }
-
-local packM = { -- Mega Program Pack, 2/4
+-- Mega Program Pack, 2/4
+local packM = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -201,8 +201,9 @@ local packM = { -- Mega Program Pack, 2/4
 	group_key = "k_cry_program_pack",
 	cry_digital_hallucinations = code_digital_hallucinations_compat,
 }
-
-local console = { -- Console Tag, gives a free Program Pack
+-- Console Tag
+-- Gives a free Program Pack
+local console = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -262,8 +263,9 @@ local console = { -- Console Tag, gives a free Program Pack
 		end
 	end,
 }
-
-local crash = { -- ://Crash, 1/6 to ACE, otherwise crash; determined by run seed rather than current seed
+-- ://Crash
+-- 1/6 to ACE, otherwise crash; determined by run seed rather than current seed
+local crash = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -437,6 +439,7 @@ local crash = { -- ://Crash, 1/6 to ACE, otherwise crash; determined by run seed
 					"[recursion]",
 					"://SHART",
 					"It's converging time.",
+					"Demitrigger!",
 					"This is the last error message.",
 				}
 				function corruptString(str)
@@ -841,8 +844,9 @@ local crash = { -- ://Crash, 1/6 to ACE, otherwise crash; determined by run seed
 		}
 	end,
 }
-
-local keygen = { -- ://Keygen, create a Perishable Banana voucher, destroy the previous Keygen voucher if exists
+-- ://Keygen,
+-- Create a Perishable Banana voucher, destroy the previous Keygen voucher if exists
+local keygen = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -938,9 +942,10 @@ local keygen = { -- ://Keygen, create a Perishable Banana voucher, destroy the p
 		}))
 	end,
 }
-
+-- ://Payload
+-- Triple interest gained on next cash out, stacks exponentially (multiplicative on modest)
 local payload =
-	{ -- ://Payload, triple interest gained on next cash out, stacks exponentially (multiplicative on modest)
+	{
 		cry_credits = {
 			idea = {
 				"Mjiojio",
@@ -980,9 +985,10 @@ local payload =
 			G.GAME.cry_payload = to_big((G.GAME.cry_payload or 1)) * to_big(card.ability.interest_mult) ^ to_big(number)
 		end,
 	}
-
+ -- ://Exploit
+-- Choose a hand, next hand is forced to that hand regardless of cards played, +1 asc power for that hand, multi-use 2
 local exploit =
-	{ -- ://Exploit, choose a hand, next hand is forced to that hand regardless of cards played, +1 asc power for that hand, multi-use 2
+	{
 		cry_credits = {
 			idea = {
 				"Mjiojio",
@@ -1287,8 +1293,9 @@ local exploit =
 			end
 		end,
 	}
-
-local malware = { -- ://Malware, apply Glitched edition to held in hand cards
+-- ://Malware
+-- Apply Glitched edition to held in hand cards
+local malware = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -1360,8 +1367,9 @@ local malware = { -- ://Malware, apply Glitched edition to held in hand cards
 		end
 	end,
 }
-
-local crynperror = { -- ://NPERROR, add last played hand back to your hand, multi-use 2
+-- ://NPERROR
+-- Add last played hand back to your hand, multi-use 2
+local crynperror = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -1412,9 +1420,10 @@ local crynperror = { -- ://NPERROR, add last played hand back to your hand, mult
 		end
 	end,
 }
-
+-- ://Rework
+-- Destroy a selected joker, create a Rework Tag of that joker with an upgraded edition via collection
 local rework =
-	{ -- ://Rework, destroy a selected joker, create a Rework Tag of that joker with an upgraded edition via collection
+	{ 
 		cry_credits = {
 			idea = {
 				"HexaCryonic",
@@ -1497,9 +1506,10 @@ local rework =
 			}))
 		end,
 	}
-
+-- Rework Tag
+-- Upgraded edition refers to the next edition along in the collection; base -> foil -> holo -> poly -> negative -> etc
 local rework_tag =
-	{ -- Rework Tag, upgraded edition refers to the next edition along in the collection; base -> foil -> holo -> poly -> negative -> etc
+	{ 
 		cry_credits = {
 			idea = {
 				"HexaCryonic",
@@ -1576,9 +1586,10 @@ local rework_tag =
 			return false
 		end,
 	}
-
+-- ://Merge 
+-- Merges a selected consumable and playing card, destroying the consumable and turning the playing card into a CCD of that consumable
 local merge =
-	{ -- ://Merge, merges a selected consumable and playing card, destroying the consumable and turning the playing card into a CCD of that consumable
+	{ 
 		cry_credits = {
 			idea = {
 				"HexaCryonic",
@@ -1686,8 +1697,9 @@ local merge =
 			}))
 		end,
 	}
-
-local commit = { -- ://Commit, destroys a selected joker and creates a different joker of the same rarity
+-- ://Commit 
+-- Destroys a selected joker and creates a different joker of the same rarity
+local commit = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -1773,8 +1785,9 @@ local commit = { -- ://Commit, destroys a selected joker and creates a different
 		}))
 	end,
 }
-
-local machinecode = { -- ://MACHINECODE, creates a random Glitched consumable
+-- ://MACHINECODE
+-- Creates a random Glitched consumable
+local machinecode = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -2044,8 +2057,9 @@ local machinecode = { -- ://MACHINECODE, creates a random Glitched consumable
 		end
 	end,
 }
-
-local spaghetti = { -- ://Spaghetti, creates a random Glitched food joker
+-- ://Spaghetti 
+-- Creates a random Glitched food joker
+local spaghetti = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -2086,8 +2100,10 @@ local spaghetti = { -- ://Spaghetti, creates a random Glitched food joker
 		G.jokers:emplace(card)
 	end,
 }
-
-local seed = { -- ://Seed, gives any card Rigged (TODO: make it work when used in shop)
+-- ://Seed
+-- Gives any card Rigged 
+-- (TODO: make it work when used in shop)
+local seed = { 
 	cry_credits = {
 		idea = {
 			"Mjiojio",
@@ -2152,7 +2168,8 @@ local seed = { -- ://Seed, gives any card Rigged (TODO: make it work when used i
 		end
 	end,
 }
-local rigged = { -- Rigged sticker, forces the top odds of a random chance to be 1e100
+-- Rigged sticker, guarantees listed odds (most of the time)
+local rigged = { 
 	dependencies = {
 		items = {
 			"c_cry_seed",
@@ -2194,8 +2211,9 @@ local rigged = { -- Rigged sticker, forces the top odds of a random chance to be
 		card.hover_tilt = card.hover_tilt * 2
 	end,
 }
-
-local patch = { -- ://Patch, removes all visible debuffs
+-- ://Patch 
+-- Removes all visible debuffs, flips cards face up
+local patch = { 
 	dependencies = {
 		items = {
 			"set_cry_code",
@@ -2300,8 +2318,8 @@ local patch = { -- ://Patch, removes all visible debuffs
 		end
 	end,
 }
-
-local cryupdate = { -- ://Update, TBD, missing art
+ -- ://Update, TBD, missing art
+local cryupdate = {
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -2336,8 +2354,9 @@ local cryupdate = { -- ://Update, TBD, missing art
 
 	-- end,
 } -- UNIMPLEMENTED
-
-local hook = { -- Hook://, applies Hooked to two jokers
+-- Hook:// 
+-- Applies Hooked to two jokers
+local hook = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -2414,7 +2433,9 @@ local hook = { -- Hook://, applies Hooked to two jokers
 		end
 	end,
 }
-local hooked = { -- When a joker is naturally triggered, force-trigger the hooked joker
+-- Hooked Sticker
+-- When a joker is naturally triggered, Force-Trigger the hooked joker
+local hooked = { 
 	dependencies = {
 		items = {
 			"set_cry_code",
@@ -2466,8 +2487,9 @@ local hooked = { -- When a joker is naturally triggered, force-trigger the hooke
 		end
 	end,
 }
-
-local oboe = { -- ://Off By One, the next opened booster pack has +1/+1 slots/selections
+-- ://Off By One 
+-- The next opened booster pack has +1/+1 slots/selections
+local oboe = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -2510,8 +2532,9 @@ local oboe = { -- ://Off By One, the next opened booster pack has +1/+1 slots/se
 		G.GAME.cry_oboe = (G.GAME.cry_oboe or 0) + (card.ability.extra.choices * number)
 	end,
 }
-
-local assemble = { -- ://Assemble, add the number of jokers to selected cards +mult (like how the cards give +chips)
+-- ://Assemble 
+-- Add the number of jokers to selected hand's +mult
+local assemble = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -2558,9 +2581,10 @@ local assemble = { -- ://Assemble, add the number of jokers to selected cards +m
 		end
 	end,
 }
-
+-- ://Instantiate 
+-- Draw 2 cards; one with selected card's rank and the other with selected card's suit (if possible)
 local inst =
-	{ -- ://Instantiate, draw 2 cards; one with selected card's rank and the other with selected card's suit (if possible)
+	{ 
 		cry_credits = {
 			idea = {
 				"HexaCryonic",
@@ -2633,8 +2657,9 @@ local inst =
 			end
 		end,
 	}
-
-local revert = { -- ://Revert, loads the game state from the end of the last boss blind, at cash out
+-- ://Revert 
+-- Loads the game state from the end of the last boss blind, at cash out
+local revert = { 
 	cry_credits = {
 		idea = {
 			"Mjiojio",
@@ -2696,9 +2721,10 @@ local revert = { -- ://Revert, loads the game state from the end of the last bos
 		end
 	end,
 }
-
+-- Function://
+-- Saves the last 3 consumables used on first use, every use thereafter creates a copy of all 3 of those
 local cryfunction =
-	{ -- Function://, Saves the last 3 consumables used on first use, every use thereafter creates a copy of all 3 of those
+	{ 
 		cry_credits = {
 			idea = {
 				"HexaCryonic",
@@ -2804,7 +2830,9 @@ local cryfunction =
 			end
 		end,
 	}
-local function_sticker = { -- TODO write this
+-- Function:// Sticker
+-- When used, creates the next saved Function:// card 
+local function_sticker = { 
 	dependencies = {
 		items = {
 			"c_cry_cryfunction",
@@ -2860,8 +2888,9 @@ local function_sticker = { -- TODO write this
 		}
 	end,
 }
-
-local run = { -- ://Run, visit a shop mid-blind
+-- ://Run 
+-- visit a shop mid-blind
+local run = { 
 	cry_credits = {
 		idea = {
 			"Mjiojio",
@@ -2973,8 +3002,9 @@ local run = { -- ://Run, visit a shop mid-blind
 		end
 	end,
 }
-
-local class = { -- ://Class, change a selected card's enhancement to one of your choosing (or nil)
+ -- ://Class 
+-- Change a selected card's enhancement to one of your choosing (or nil)
+local class = {
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -3261,8 +3291,9 @@ local class = { -- ://Class, change a selected card's enhancement to one of your
 		end
 	end,
 }
-
-local global = { -- ://Global, gives a selected card the Global sticker
+-- ://Global 
+-- Gives a selected card the Global sticker
+local global = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -3315,8 +3346,11 @@ local global = { -- ://Global, gives a selected card the Global sticker
 		end
 	end,
 }
+ -- Global sticker
+-- Always drawn on blind start or when booster pack opened 
+-- (before hand drawn, also drawn in packs like celestial that you typically wouldn't)
 local global_sticker =
-	{ -- Global sticker, always drawn on blind start or when booster pack opened (before hand drawn, also drawn in packs like celestial that you typically wouldn't)
+	{
 		dependencies = {
 			items = {
 				"c_cry_global",
@@ -3367,8 +3401,9 @@ local global_sticker =
 			end
 		end,
 	}
-
-local variable = { -- ://Variable, change 2 selected cards' ranks to one of your choosing
+-- ://Variable 
+-- Change 2 selected cards' ranks to one of your choosing
+local variable = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -3668,9 +3703,14 @@ local variable = { -- ://Variable, change 2 selected cards' ranks to one of your
 		end
 	end,
 }
-
+-- ://Log
+-- View one of: 
+-- Next ante's blinds/vouchers, 
+-- next 5 cards/packs in shop, 
+-- draw order for current blind (if in blind), 
+-- Multi-use 2
 local crylog =
-	{ -- ://Log, View one of: Next ante's blinds/vouchers, next 5 cards/packs in shop, draw order for current blind (if in blind), Multi-use 2
+	{ 
 		cry_credits = {
 			idea = {
 				"HexaCryonic",
@@ -3705,17 +3745,18 @@ local crylog =
 
 		-- end,
 	} -- UNIMPLEMENTED
-
-local quantify = { -- ://Quantify, TBD
+-- ://Quantify
+-- Jokerize! an object
+local quantify = { 
 	cry_credits = {
 		idea = {
-			"?",
+			"HexaCryonic",
 		},
 		art = {
 			"?",
 		},
 		code = {
-			"Nova",
+			"Unimplemented (but will be Nova probably)",
 		},
 	},
 	dependencies = {
@@ -3741,8 +3782,9 @@ local quantify = { -- ://Quantify, TBD
 
 	-- end,
 } -- MISSING ART!!! -- UNIMPLEMENTED
-
-local divide = { -- ://Divide, halves item costs in shop
+-- ://Divide,
+-- Halves item costs in shop
+local divide = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -3806,8 +3848,9 @@ local divide = { -- ://Divide, halves item costs in shop
 		end
 	end,
 }
-
-local multiply = { -- ://Multiply, doubles a joker's values until the end of the round (exponentially)
+-- ://Multiply
+-- Doubles a joker's values until the end of the round (exponentially)
+local multiply = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -3870,7 +3913,8 @@ local multiply = { -- ://Multiply, doubles a joker's values until the end of the
 	end,
 }
 
--- ://Delete, Banish a selected card in shop; it will no longer appear normally (can still be created via pointer or other means)
+-- ://Delete
+-- Banish a selected card in shop; it will no longer appear normally (can still be created via pointer or other means)
 local delete = {
 	cry_credits = {
 		idea = {
@@ -3947,20 +3991,6 @@ local delete = {
 
 		G.GAME.cry_banished_keys[c.config.center.key] = true
 
-		-- blanket ban all boosters of a specific type (disabled because why does this exist)
-		-- if a == G.shop_booster then
-		-- 	local _center = c.config.center
-		-- 	for k, v in pairs(G.P_CENTER_POOLS.Booster) do
-		-- 		if
-		-- 			_center.kind == v.kind
-		-- 			and _center.config.extra == v.config.extra
-		-- 			and _center.config.choose == v.config.choose
-		-- 		then
-		-- 			G.GAME.cry_banished_keys[v.key] = true
-		-- 		end
-		-- 	end
-		-- end
-
 		if _p then
 			for k, v in pairs(G.P_CARDS) do
 				-- bans a specific rank AND suit
@@ -3987,8 +4017,9 @@ local delete = {
 		end
 	end,
 }
-
-local alttab = { -- ://Alt-Tab, creates the current blind's Tag
+-- ://Alt-Tab
+-- Creates the current blind's Tag
+local alttab = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -4086,8 +4117,9 @@ local alttab = { -- ://Alt-Tab, creates the current blind's Tag
 		delay(1.1)
 	end,
 }
-
-local ctrl_v = { -- ://Ctrl-V, creates a copy of a selected playing card or consumable
+-- ://Ctrl-V
+-- Creates a copy of a selected playing card or consumable
+local ctrl_v = { 
 	cry_credits = {
 		idea = {
 			"ItsFlowwey",
@@ -4187,8 +4219,9 @@ local ctrl_v = { -- ://Ctrl-V, creates a copy of a selected playing card or cons
 		end
 	end,
 }
-
-local reboot = { -- ://Reboot, shuffle all cards into deck, then reset Hands and Discards to default values
+-- ://Reboot
+-- Shuffle all cards into deck, then reset Hands and Discards to default values
+local reboot = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -4241,8 +4274,9 @@ local reboot = { -- ://Reboot, shuffle all cards into deck, then reset Hands and
 		}))
 	end,
 }
-
-local semicolon = { -- ://;, Ends the current non-boss blind, skips cash out
+-- ://;
+-- Ends the current non-boss blind, skips cash out
+local semicolon = { 
 	cry_credits = {
 		idea = {
 			"HexaCryonic",
@@ -4291,6 +4325,8 @@ local semicolon = { -- ://;, Ends the current non-boss blind, skips cash out
 	end,
 }
 
+-- Automaton (Tarot)
+-- Creates a random Code card
 local automaton = {
 	cry_credits = {
 		idea = {
@@ -4342,6 +4378,8 @@ local automaton = {
 		delay(0.6)
 	end,
 }
+-- Source (Spectral)
+-- Gives a selected playing card Green Seal
 local source = {
 	cry_credits = {
 		idea = {
@@ -4411,6 +4449,8 @@ local source = {
 		end
 	end,
 }
+-- Green Seal
+-- Creates a Code card when played and unscoring
 local green_seal = {
 	dependencies = {
 		items = {
@@ -4450,6 +4490,8 @@ local green_seal = {
 		end
 	end,
 }
+-- Encoded Deck
+-- Start with Code Joker and Copy/Paste, all cards in shop are Code cards
 local encoded = {
 	cry_credits = {
 		idea = {
@@ -4476,9 +4518,9 @@ local encoded = {
 	pos = { x = 2, y = 5 },
 	atlas = "atlasdeck",
 	apply = function(self)
-		G.GAME.joker_rate = 0
-		G.GAME.planet_rate = 0
-		G.GAME.tarot_rate = 0
+		G.GAME.joker_rate = 1
+		G.GAME.planet_rate = 1
+		G.GAME.tarot_rate = 1
 		G.GAME.code_rate = 1e100
 		G.E_MANAGER:add_event(Event({
 			func = function()
@@ -4519,6 +4561,8 @@ local encoded = {
 		end
 	end,
 }
+-- Code Joker
+-- Creates a Negative Code card when starting blind
 local CodeJoker = {
 	dependencies = {
 		items = {
@@ -4604,6 +4648,8 @@ local CodeJoker = {
 		end
 	end,
 }
+-- Copy/Paste
+-- When a Code card is used, create a copy (once/round modest/mainline)
 local copypaste = {
 	dependencies = {
 		items = {
@@ -4727,6 +4773,8 @@ local copypaste = {
 		},
 	},
 }
+-- Cut
+-- Destroys a Code card and gains 0.5 Xmult when leaving shop
 local cut = {
 	dependencies = {
 		items = {
@@ -4837,6 +4885,8 @@ local cut = {
 		},
 	},
 }
+-- Blender
+-- Creates a random Consumeable when Code card used
 local blender = {
 	dependencies = {
 		items = {
@@ -4883,6 +4933,8 @@ local blender = {
 		},
 	},
 }
+-- Python
+-- Gains 0.15 Xmult when Code card used
 local python = {
 	dependencies = {
 		items = {
