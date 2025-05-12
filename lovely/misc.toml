@@ -495,3 +495,30 @@ pattern = "if #self.highlighted >= self.config.highlighted_limit then"
 position = "at"
 payload = "if to_big(#self.highlighted) >= to_big(self.config.highlighted_limit) then"
 match_indent = true
+
+#Fix bignum values sometimes crashing the game for some reason idfk
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = """
+text = (amt <-0.01 and '-' or '')..localize("$")..tostring(math.abs(amt))
+colour = amt <-0.01 and G.C.RED or G.C.MONEY
+"""
+position = "at"
+payload = """
+text = (to_big(amt) < to_big(-0.01) and '-' or '')..localize("$")..tostring(math.abs(amt))
+colour = to_big(amt) < to_big(-0.01) and G.C.RED or G.C.MONEY
+"""
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = """
+if amt > 0 or amt < 0 then
+"""
+position = "at"
+payload = """
+if to_big(amt) ~= to_big(0) then
+"""
+match_indent = true
