@@ -105,20 +105,6 @@ end
 '''
 match_indent = true
 
-## Add state for EVAL
-
-[[patches]]
-[patches.pattern]
-target = "game.lua"
-pattern = '''if self.STATE == self.STATES.ROUND_EVAL then'''
-position = "before"
-payload = '''
-if self.STATE == self.STATES.CRY_MAKE_A_DECISION then
-	self:make_a_decision(dt)
-end
-'''
-match_indent = true
-
 ## Always be able to add cursed Jokers
 [[patches]]
 [patches.pattern]
