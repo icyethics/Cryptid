@@ -802,6 +802,7 @@ local decision = {
 		--Booster will contain:
 		--4 cursed Jokers
 		--1 "tarot" to banish the rightmost joker
+		G.GAME.cry_make_a_decision = true
 		G.E_MANAGER:add_event(Event({
 			trigger = "before",
 			func = function()
