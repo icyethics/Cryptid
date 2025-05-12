@@ -556,7 +556,7 @@ return {
 				name = "FUNCTION://",
 				text = {
 					"Saves the {C:cry_code}Last Three{} consumables used,",
-					"using this card again creates a copy of",
+					"every future use creates a copy of",
 					"the first with a {C:cry_code}Function://{} sticker",
 				},
 			},
