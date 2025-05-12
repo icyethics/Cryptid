@@ -953,11 +953,6 @@ local conduit = {
 	end,
 }
 
-
-
-
-
-
 local white_hole = {
 	cry_credits = {
 		idea = {
@@ -1077,10 +1072,6 @@ local white_hole = {
 		)
 	end,
 }
-
-
-
-
 
 local typhoon = {
 	cry_credits = {
@@ -1233,8 +1224,6 @@ local summoning = {
 		delay(0.6)
 	end,
 }
-
-
 
 local spectrals = {
 	lock,
