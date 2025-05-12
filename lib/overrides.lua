@@ -1466,23 +1466,23 @@ local banefulSkipPenalty = G.FUNCS.skip_booster
 G.FUNCS.skip_booster = function(e)
 	--Imported from my Epic Decision and also works in Polterworx and with unpleasant card, in the event youc an still skip with all eternals/cursed jokers
 	local obj = SMODS.OPENED_BOOSTER.config.center
-    -- local obj2 = G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss]
-    if obj.unskippable and type(obj.unskippable) == "function" and obj:unskippable() == true then
-        if G.GAME.blind then
+	-- local obj2 = G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss]
+	if obj.unskippable and type(obj.unskippable) == "function" and obj:unskippable() == true then
+		if G.GAME.blind then
 			--Unplesant card will continously spam, so that will do for now without patching that; it is "unpleasant" after all;
-            -- play_sound('cancel', 0.8, 1)
-            -- local text = localize('k_nope_ex')
-            -- attention_text({
-            --     scale = 0.9, text = text, hold = 0.75, align = 'cm', offset = {x = 0,y = -2.7},major = G.play,colour = obj2.boss_colour or G.C.RED
-            -- })
+			-- play_sound('cancel', 0.8, 1)
+			-- local text = localize('k_nope_ex')
+			-- attention_text({
+			--     scale = 0.9, text = text, hold = 0.75, align = 'cm', offset = {x = 0,y = -2.7},major = G.play,colour = obj2.boss_colour or G.C.RED
+			-- })
 			G.GAME.blind:wiggle()
-            G.GAME.blind.triggered = true
-        end
-        if e and e.disable_button then
-            e.disable_button = nil
-           -- print("disble")
-        end
-    else
+			G.GAME.blind.triggered = true
+		end
+		if e and e.disable_button then
+			e.disable_button = nil
+			-- print("disble")
+		end
+	else
 		if SMODS.OPENED_BOOSTER.config.center.cry_baneful_punishment then
 			if not G.GAME.banned_keys then
 				G.GAME.banned_keys = {}
@@ -1496,7 +1496,10 @@ G.FUNCS.skip_booster = function(e)
 			if G.jokers and G.jokers.cards then
 				for i = #G.jokers.cards, 1, -1 do
 					if
-						not (G.jokers.cards[i].ability.eternal or G.jokers.cards[i].config.center.rarity == "cry_cursed")
+						not (
+							G.jokers.cards[i].ability.eternal
+							or G.jokers.cards[i].config.center.rarity == "cry_cursed"
+						)
 					then
 						c = G.jokers.cards[i]
 						break
