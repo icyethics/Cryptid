@@ -790,21 +790,3 @@ function Cryptid.cry_rankname_to_id(rankname)
 	end
 	return nil
 end
-
---The decision: Open GUI to make a decision then open a baneful buffoon pack (or)
-function Game:make_a_decision(dt)
-	if self.buttons then
-		self.buttons:remove()
-		self.buttons = nil
-	end
-	if self.shop and not G.GAME.USING_CODE then
-		self.shop:remove()
-		self.shop = nil
-	end
-
-	if not G.STATE_COMPLETE then
-		G.STATE_COMPLETE = true
-		G.GAME.cry_make_a_decision = true
-		G.GAME.blind:cry_before_cash()
-	end
-end
