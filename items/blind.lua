@@ -327,7 +327,7 @@ local clock = {
 	pos = { x = 0, y = 1 },
 	mult = 0,
 	boss = {
-		min = 2,
+		min = 1,
 		max = 10,
 	},
 	config = {
@@ -347,6 +347,8 @@ local clock = {
 	end,
 	cry_ante_base_mod = function(self, dt)
 		if G.SETTINGS.paused then
+			return 0
+		elseif G.GAME.round == 0 and G.GAME.skips == 0 then
 			return 0
 		else
 			return 0.1 * (dt * math.min(G.SETTINGS.GAMESPEED, 4) / 4) / 3
@@ -457,6 +459,7 @@ local hammer = {
 		if card.area ~= G.jokers and not G.GAME.blind.disabled then
 			if
 				not SMODS.has_no_rank(card)
+				and not SMODS.has_enhancement(card, "m_cry_abstract")
 				and (
 					card.base.value == "3"
 					or card.base.value == "5"
@@ -492,6 +495,7 @@ local magic = {
 		if card.area ~= G.jokers and not G.GAME.blind.disabled then
 			if
 				not SMODS.has_no_rank(card)
+				and not SMODS.has_enhancement(card, "m_cry_abstract")
 				and (
 					card.base.value == "2"
 					or card.base.value == "4"
@@ -1506,11 +1510,18 @@ local obsidian_orb = {
 		end
 	end,
 	cry_before_cash = function(self)
+		local decision_made = false
 		for k, _ in pairs(G.GAME.defeated_blinds) do
 			s = G.P_BLINDS[k]
 			if s.cry_before_cash then
+				decision_made = true
 				s:cry_before_cash()
 			end
+		end
+		if not decision_made then
+			G.GAME.cry_make_a_decision = nil
+			G.STATE = G.STATES.ROUND_EVAL
+			G.STATE_COMPLETE = false
 		end
 	end,
 	get_loc_debuff_text = function(self)

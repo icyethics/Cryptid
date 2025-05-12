@@ -2377,6 +2377,14 @@ return {
 					"gain a random {C:attention}Tag{}",
 				},
 			},
+			j_cry_pity_prize_modest = {
+				name = "Pity Prize",
+				text = {
+					"On skipping a {C:attention}Booster Pack{},",
+					"gain a random {C:attention}Tag{}",
+					"{C:red,E:2}Self destructs{}",
+				},
+			},
 			j_cry_pot_of_jokes = {
 				name = "Pot of Jokes",
 				text = {
@@ -3224,6 +3232,16 @@ return {
 					"applies the {C:attention}effects{}",
 					"and {C:attention}special effects{}",
 					"of all deck sleeves",
+					"{C:red}WIP",
+				},
+			},
+			sleeve_cry_antimatter_sleeve_balanced = {
+				name = "Antimatter Sleeve",
+				text = {
+					"applies the {C:attention}effects{}",
+					"and {C:attention}special effects{}",
+					"of {C:attention}every{} slevee won",
+					"with {C:gold}Gold Stake{}",
 					"{C:red}WIP",
 				},
 			},

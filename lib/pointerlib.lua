@@ -63,12 +63,12 @@ function Cryptid.pointerblistifytype(target, key, remove) -- eg: blacklists a ce
 		if Cryptid.pointerblisttype[target] then
 			for index, value in ipairs(Cryptid.pointerblisttype[target]) do
 				if key == value then
-					table.remove(Cryptid.pointerblisttype[target][index])
+					table.remove(Cryptid.pointerblisttype[target], index)
 					return true
 				end
 			end
 			if key == nil then
-				table.remove(Cryptid.pointerblisttype[target])
+				Cryptid.pointerblisttype[target] = nil
 				return true
 			end
 		end
@@ -91,10 +91,19 @@ function Cryptid.pointergetalias(target) -- "Is this alias legit?"
 		return string.lower(strn)
 	end
 	for _, group in pairs(G.localization.descriptions) do
-		if _ ~= "Back" then
+		if
+			_ ~= "Back"
+			and _ ~= "Content Set"
+			and _ ~= "Edition"
+			and _ ~= "Enhanced"
+			and _ ~= "Stake"
+			and _ ~= "Other"
+		then
 			for key, card in pairs(group) do
-				if apply_lower(card.name) == apply_lower(target) then
-					return key
+				if G.P_CENTERS[key] then
+					if apply_lower(card.name) == apply_lower(target) then
+						return key
+					end
 				end
 			end
 		end
