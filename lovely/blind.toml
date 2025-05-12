@@ -278,14 +278,3 @@ end
 '''
 match_indent = true
 
-## Trying to investigate the problem
-[[patches]]
-[patches.pattern]
-target = '''functions/state_events.lua'''
-pattern = '''G.FUNCS.draw_from_deck_to_hand = function(e)'''
-position = "after"
-payload = '''
-      print("DDDD")
-'''
-match_indent = true
-
