@@ -625,6 +625,7 @@ local pin = {
 				and card.config.center.rarity ~= 2
 				and card.config.center.rarity ~= 1
 				and card.config.center.rarity ~= 5
+				and card.config.center.rarity ~= nil
 			)
 		then
 			return true
@@ -802,10 +803,7 @@ local decision = {
 		G.GAME.cry_fastened = true
 		G.GAME.blind:wiggle()
 		G.GAME.blind.triggered = true
-		--PLACEHOLDER: Will open a random booster pack for now
-		--Booster will contain:
-		--4 cursed Jokers
-		--1 "tarot" to banish the rightmost joker
+		G.GAME.cry_make_a_decision = true
 		G.E_MANAGER:add_event(Event({
 			trigger = "before",
 			func = function()
