@@ -256,6 +256,7 @@ function Cryptid.forcetrigger(card, context)
 		-- page 4
 		if card.ability.name == "Egg" then
 			card.ability.extra_value = card.ability.extra_value + card.ability.extra
+			card:set_cost()
 		end
 		if card.ability.name == "Burglar" then
 			G.E_MANAGER:add_event(Event({
