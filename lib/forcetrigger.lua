@@ -415,7 +415,7 @@ function Cryptid.forcetrigger(card, context)
 					and pseudorandom_element(destructable_jokers, pseudoseed("madness"))
 				or nil
 
-			if joker_to_destroy and not (context.blueprint_card or self).getting_sliced then
+			if joker_to_destroy and not card.getting_sliced then
 				joker_to_destroy.getting_sliced = true
 				G.E_MANAGER:add_event(Event({
 					func = function()
@@ -464,22 +464,14 @@ function Cryptid.forcetrigger(card, context)
 		if card.ability.name == "Vampire" then
 			local check = nil
 			local enhanced = {}
-			if context.scoring_hand then
+			if context.scoring_hand and #context.scoring_hand > 0 then
 				for k, v in ipairs(context.scoring_hand) do
 					if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
 						enhanced[#enhanced + 1] = v
 						v.vampired = true
 						v:set_ability(G.P_CENTERS.c_base, nil, true)
-						G.E_MANAGER:add_event(Event({
-							trigger = "after",
-							delay = 0.4,
-							func = function()
-								v:juice_up()
-								v.vampired = nil
-								return true
-							end,
-						}))
 					end
+					v.vampired = nil
 				end
 				check = true
 			end
@@ -489,14 +481,8 @@ function Cryptid.forcetrigger(card, context)
 						enhanced[#enhanced + 1] = v
 						v.vampired = true
 						v:set_ability(G.P_CENTERS.c_base, nil, true)
-						G.E_MANAGER:add_event(Event({
-							func = function()
-								v:juice_up()
-								v.vampired = nil
-								return true
-							end,
-						}))
 					end
+					v.vampired = nil
 				end
 				check = true
 			end
@@ -1013,7 +999,7 @@ function Cryptid.forcetriggerVanillaCheck(card)
 		"Erosion",
 		"Reserved Parking",
 		"Mail-In Rebate",
-		"To the Moon",
+		-- "To the Moon",
 		"Hallucination",
 		"Fortune Teller",
 		"Juggler",
@@ -1042,7 +1028,7 @@ function Cryptid.forcetriggerVanillaCheck(card)
 		"Swashbuckler",
 		"Troubadour",
 		"Certificate",
-		"Smeared Joker",
+		-- "Smeared Joker",
 		"Throwback",
 		-- "Hanging Chad",
 		"Rough Gem",
