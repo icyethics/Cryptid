@@ -1444,7 +1444,7 @@ local rework =
 			return { vars = {} }
 		end,
 		can_use = function(self, card)
-			if not G.GAME.modifiers.cry_beta then
+			if not G.GAME.modifiers.cry_beta or card.area == G.pack_cards then
 				return #G.jokers.highlighted == 1
 					and not G.jokers.highlighted[1].ability.eternal
 					and G.jokers.highlighted[1].ability.name
@@ -1712,7 +1712,7 @@ local commit = { -- ://Commit, destroys a selected joker and creates a different
 	cost = 4,
 	order = 8,
 	can_use = function(self, card)
-		if not G.GAME.modifiers.cry_beta then
+		if not G.GAME.modifiers.cry_beta or card.area == G.pack_cards then
 			return #G.jokers.highlighted == 1
 				and not G.jokers.highlighted[1].ability.eternal
 				and not (
@@ -2369,8 +2369,8 @@ local hook = { -- Hook://, applies Hooked to two jokers
 	atlas = "atlasnotjokers",
 	order = 14,
 	can_use = function(self, card)
-		if not G.GAME.modifiers.cry_beta then
-			return (#G.jokers.highlighted == 2 and #G.consumeables.highlighted == 1)
+		if not G.GAME.modifiers.cry_beta or card.area == G.pack_cards then
+			return #G.jokers.highlighted == 2
 		else
 			return #G.jokers.highlighted == 3
 		end
@@ -3903,7 +3903,6 @@ local delete = {
 	can_use = function(self, card)
 		return G.STATE == G.STATES.SHOP
 			and card.area == (G.GAME.modifiers.cry_beta and G.jokers or G.consumeables)
-			and #G.jokers.highlighted + #G.consumeables.highlighted == 1
 			and #G.shop_jokers.highlighted + #G.shop_booster.highlighted + #G.shop_vouchers.highlighted == 1
 			and G.shop_jokers.highlighted[1] ~= card
 			and G.shop_booster.highlighted[1] ~= card
