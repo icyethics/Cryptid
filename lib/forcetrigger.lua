@@ -805,7 +805,7 @@ function Cryptid.forcetrigger(card, context)
 		-- page 10
 		if card.ability.name == "Stuntman" then
 			G.hand:change_size(-card.ability.extra.h_size)
-			results = { jokers = { chips = card.ability.chip_mod, card = card } }
+			results = { jokers = { chips = card.ability.extra.chip_mod, card = card } }
 		end
 		if card.ability.name == "Invisible Joker" then
 			card.ability.invis_rounds = card.ability.invis_rounds + 1
