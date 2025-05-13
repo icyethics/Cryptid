@@ -2168,10 +2168,10 @@ local jtron = {
 					type = "variable",
 					key = "a_powmult",
 					vars = {
-						number_format(1 + to_big(center.ability.extra.bonus)),
+						number_format(1 + to_big(card.ability.extra.bonus)),
 					},
 				}),
-				Emult_mod = lenient_bignum(1 + to_big(center.ability.extra.bonus)),
+				Emult_mod = lenient_bignum(1 + to_big(card.ability.extra.bonus)),
 				colour = G.C.DARK_EDITION,
 			}
 		end
