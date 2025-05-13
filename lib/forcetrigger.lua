@@ -414,7 +414,7 @@ function Cryptid.forcetrigger(card, context)
 					and pseudorandom_element(destructable_jokers, pseudoseed("madness"))
 				or nil
 
-			if joker_to_destroy and not (context.blueprint_card or self).getting_sliced then
+			if joker_to_destroy and not card.getting_sliced then
 				joker_to_destroy.getting_sliced = true
 				G.E_MANAGER:add_event(Event({
 					func = function()
@@ -1041,7 +1041,7 @@ function Cryptid.forcetriggerVanillaCheck(card)
 		"Swashbuckler",
 		"Troubadour",
 		"Certificate",
-		"Smeared Joker",
+		-- "Smeared Joker",
 		"Throwback",
 		-- "Hanging Chad",
 		"Rough Gem",
