@@ -352,7 +352,9 @@ return {
 		-- Disallow use of Debuffed Perishable consumables
 		local cuc = Card.can_use_consumeable
 		function Card:can_use_consumeable(any_state, skip_check)
-			if self.debuff then return false end
+			if self.debuff then
+				return false
+			end
 			return cuc(self, any_state, skip_check)
 		end
 		-- Overriding Steamodded's registering of Incantation/Familiar/Grim
