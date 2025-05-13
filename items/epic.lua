@@ -910,7 +910,7 @@ local boredom = {
 		if
 			context.retrigger_joker_check
 			and not context.retrigger_joker
-			and context.other_card.name ~= card.name
+			and context.other_card.ability.name ~= "cry-Boredom"
 		then
 			if
 				pseudorandom("cry_boredom_joker")
