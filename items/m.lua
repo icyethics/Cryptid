@@ -364,7 +364,7 @@ local mstack = {
 		info_queue[#info_queue + 1] = G.P_CENTERS.j_jolly
 		return {
 			vars = {
-				number_format(math.min(card.ability.extra.retriggers, card.ability.immutable.max_retriggers)),
+				number_format(math.min(center.ability.extra.retriggers, center.ability.immutable.max_retriggers)),
 				number_format(center.ability.extra.sell_req),
 				number_format(center.ability.extra.sell),
 			},
