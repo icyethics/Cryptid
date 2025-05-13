@@ -2387,6 +2387,7 @@ local demicolon = {
 	cost = 14,
 	order = 299,
 	blueprint_compat = false,
+	demicoloncompat = false,
 	atlas = "atlasepic",
 	pos = { x = 3, y = 5 },
 	config = { check = nil },
@@ -2453,7 +2454,7 @@ local demicolon = {
 		end
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main and not context.blueprint then
+		if context.joker_main and not context.blueprint and not context.forcetrigger then
 			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i] == card then
 					if Cryptid.demicolonGetTriggerable(G.jokers.cards[i + 1]) then
