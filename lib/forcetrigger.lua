@@ -464,22 +464,14 @@ function Cryptid.forcetrigger(card, context)
 		if card.ability.name == "Vampire" then
 			local check = nil
 			local enhanced = {}
-			if context.scoring_hand then
+			if context.scoring_hand and #context.scoring_hand > 0 then
 				for k, v in ipairs(context.scoring_hand) do
 					if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
 						enhanced[#enhanced + 1] = v
 						v.vampired = true
 						v:set_ability(G.P_CENTERS.c_base, nil, true)
-						G.E_MANAGER:add_event(Event({
-							trigger = "after",
-							delay = 0.4,
-							func = function()
-								v:juice_up()
-								v.vampired = nil
-								return true
-							end,
-						}))
 					end
+					v.vampired = nil
 				end
 				check = true
 			end
@@ -489,14 +481,8 @@ function Cryptid.forcetrigger(card, context)
 						enhanced[#enhanced + 1] = v
 						v.vampired = true
 						v:set_ability(G.P_CENTERS.c_base, nil, true)
-						G.E_MANAGER:add_event(Event({
-							func = function()
-								v:juice_up()
-								v.vampired = nil
-								return true
-							end,
-						}))
 					end
+					v.vampired = nil
 				end
 				check = true
 			end
