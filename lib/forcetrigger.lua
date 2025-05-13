@@ -251,11 +251,22 @@ function Cryptid.forcetrigger(card, context)
 			results = { jokers = { mult_mod = card.ability.mult, card = card } }
 		end
 		if card.ability.name == "Space Joker" then
-			if #G.hand.highlighted > 0 then 
+			if #G.hand.highlighted > 0 then
 				local text, disp_text = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
-				update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize(text, 'poker_hands'),chips = G.GAME.hands[text].chips, mult = G.GAME.hands[text].mult, level=G.GAME.hands[text].level})
+				update_hand_text(
+					{ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 },
+					{
+						handname = localize(text, "poker_hands"),
+						chips = G.GAME.hands[text].chips,
+						mult = G.GAME.hands[text].mult,
+						level = G.GAME.hands[text].level,
+					}
+				)
 				level_up_hand(card, text, nil, 1)
-				update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+				update_hand_text(
+					{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+					{ mult = 0, chips = 0, handname = "", level = "" }
+				)
 			elseif context.scoring_name then
 				level_up_hand(card, context.scoring_name)
 			end
@@ -812,8 +823,13 @@ function Cryptid.forcetrigger(card, context)
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						local chosen_joker = pseudorandom_element(jokers, pseudoseed("invisible"))
-						local card =
-							copy_card(chosen_joker, nil, nil, nil, chosen_joker.edition and chosen_joker.edition.negative)
+						local card = copy_card(
+							chosen_joker,
+							nil,
+							nil,
+							nil,
+							chosen_joker.edition and chosen_joker.edition.negative
+						)
 						if card.ability.invis_rounds then
 							card.ability.invis_rounds = 0
 						end
@@ -853,11 +869,22 @@ function Cryptid.forcetrigger(card, context)
 		end
 		-- if card.ability.name == "Astronomer" then results = { jokers = { } } end
 		if card.ability.name == "Burnt Joker" then
-			if #G.hand.highlighted > 0 then 
+			if #G.hand.highlighted > 0 then
 				local text, disp_text = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
-				update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize(text, 'poker_hands'),chips = G.GAME.hands[text].chips, mult = G.GAME.hands[text].mult, level=G.GAME.hands[text].level})
+				update_hand_text(
+					{ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 },
+					{
+						handname = localize(text, "poker_hands"),
+						chips = G.GAME.hands[text].chips,
+						mult = G.GAME.hands[text].mult,
+						level = G.GAME.hands[text].level,
+					}
+				)
 				level_up_hand(card, text, nil, 1)
-				update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+				update_hand_text(
+					{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+					{ mult = 0, chips = 0, handname = "", level = "" }
+				)
 			elseif context.scoring_name then
 				level_up_hand(card, context.scoring_name)
 			end
