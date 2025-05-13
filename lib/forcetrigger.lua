@@ -1013,7 +1013,7 @@ function Cryptid.forcetriggerVanillaCheck(card)
 		"Erosion",
 		"Reserved Parking",
 		"Mail-In Rebate",
-		"To the Moon",
+		-- "To the Moon",
 		"Hallucination",
 		"Fortune Teller",
 		"Juggler",
