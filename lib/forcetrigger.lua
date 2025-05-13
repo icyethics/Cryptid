@@ -353,7 +353,7 @@ function Cryptid.forcetrigger(card, context)
 				trigger = "after",
 				delay = 0.4,
 				func = function()
-					local card = create_card(card_type, G.consumeables, nil, nil, nil, nil, nil, "sup")
+					local card = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "sup")
 					card:add_to_deck()
 					G.consumeables:emplace(card)
 					G.GAME.consumeable_buffer = 0
