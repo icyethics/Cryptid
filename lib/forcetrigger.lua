@@ -804,7 +804,7 @@ function Cryptid.forcetrigger(card, context)
 			card.ability.invis_rounds = card.ability.invis_rounds + 1
 			local jokers = {}
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i] ~= self then
+				if G.jokers.cards[i] ~= card then
 					jokers[#jokers + 1] = G.jokers.cards[i]
 				end
 			end
