@@ -253,15 +253,12 @@ function Cryptid.forcetrigger(card, context)
 		if card.ability.name == "Space Joker" then
 			if #G.hand.highlighted > 0 then
 				local text, disp_text = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
-				update_hand_text(
-					{ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 },
-					{
-						handname = localize(text, "poker_hands"),
-						chips = G.GAME.hands[text].chips,
-						mult = G.GAME.hands[text].mult,
-						level = G.GAME.hands[text].level,
-					}
-				)
+				update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+					handname = localize(text, "poker_hands"),
+					chips = G.GAME.hands[text].chips,
+					mult = G.GAME.hands[text].mult,
+					level = G.GAME.hands[text].level,
+				})
 				level_up_hand(card, text, nil, 1)
 				update_hand_text(
 					{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
@@ -871,15 +868,12 @@ function Cryptid.forcetrigger(card, context)
 		if card.ability.name == "Burnt Joker" then
 			if #G.hand.highlighted > 0 then
 				local text, disp_text = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
-				update_hand_text(
-					{ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 },
-					{
-						handname = localize(text, "poker_hands"),
-						chips = G.GAME.hands[text].chips,
-						mult = G.GAME.hands[text].mult,
-						level = G.GAME.hands[text].level,
-					}
-				)
+				update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+					handname = localize(text, "poker_hands"),
+					chips = G.GAME.hands[text].chips,
+					mult = G.GAME.hands[text].mult,
+					level = G.GAME.hands[text].level,
+				})
 				level_up_hand(card, text, nil, 1)
 				update_hand_text(
 					{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
