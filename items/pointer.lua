@@ -1709,10 +1709,12 @@ local aliases = {
 		"Tag Charm",
 		"Tarot Tag",
 		"Acrana Tag",
+		"Arcana Tag",
 		"Tag Tarot",
 		"Tag Arcana",
 		"Charm Pack Tag",
 		"Tarot Pack Tag",
+		"Arcana Pack Tag",
 		"Acrana Pack Tag",
 	},
 	tag_meteor = {
