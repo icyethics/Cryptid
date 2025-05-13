@@ -15,6 +15,7 @@ new_card.from_copy = true
 match_indent = true
 
 # Update value of Monsters created via copy_card
+# Also make copied cards lose their hooks
 [[patches]]
 [patches.pattern]
 target = 'functions/common_events.lua'
@@ -22,6 +23,7 @@ pattern = "if not strip_edition then"
 position = 'before'
 payload = '''
 if new_card.ability.name == "cry-longboi" then new_card:set_ability(new_card.config.center) end
+if new_card.ability.cry_hooked then new_card.ability.cry_hooked = nil end
 '''
 match_indent = true
 
