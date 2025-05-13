@@ -809,15 +809,19 @@ function Cryptid.forcetrigger(card, context)
 				end
 			end
 			if #jokers > 0 then
-				local chosen_joker = pseudorandom_element(jokers, pseudoseed("invisible"))
-				local card =
-					copy_card(chosen_joker, nil, nil, nil, chosen_joker.edition and chosen_joker.edition.negative)
-				if card.ability.invis_rounds then
-					card.ability.invis_rounds = 0
-				end
-				card:add_to_deck()
-				G.jokers:emplace(card)
-				return nil, true
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						local chosen_joker = pseudorandom_element(jokers, pseudoseed("invisible"))
+						local card =
+							copy_card(chosen_joker, nil, nil, nil, chosen_joker.edition and chosen_joker.edition.negative)
+						if card.ability.invis_rounds then
+							card.ability.invis_rounds = 0
+						end
+						card:add_to_deck()
+						G.jokers:emplace(card)
+						return true
+					end,
+				}))
 			end
 		end
 		-- if card.ability.name == "Brainstorm" then results = { jokers = { } } end
