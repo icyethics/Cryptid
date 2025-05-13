@@ -250,8 +250,15 @@ function Cryptid.forcetrigger(card, context)
 			card.ability.mult = card.ability.mult + card.ability.extra
 			results = { jokers = { mult_mod = card.ability.mult, card = card } }
 		end
-		if card.ability.name == "Space Joker" and context.scoring_name then
-			level_up_hand(card, context.scoring_name)
+		if card.ability.name == "Space Joker" then
+			if #G.hand.highlighted > 0 then 
+				local text, disp_text = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
+				update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize(text, 'poker_hands'),chips = G.GAME.hands[text].chips, mult = G.GAME.hands[text].mult, level=G.GAME.hands[text].level})
+				level_up_hand(card, text, nil, 1)
+				update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+			elseif context.scoring_name then
+				level_up_hand(card, context.scoring_name)
+			end
 		end
 		-- page 4
 		if card.ability.name == "Egg" then
@@ -797,20 +804,24 @@ function Cryptid.forcetrigger(card, context)
 			card.ability.invis_rounds = card.ability.invis_rounds + 1
 			local jokers = {}
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i] ~= self then
+				if G.jokers.cards[i] ~= card then
 					jokers[#jokers + 1] = G.jokers.cards[i]
 				end
 			end
 			if #jokers > 0 then
-				local chosen_joker = pseudorandom_element(jokers, pseudoseed("invisible"))
-				local card =
-					copy_card(chosen_joker, nil, nil, nil, chosen_joker.edition and chosen_joker.edition.negative)
-				if card.ability.invis_rounds then
-					card.ability.invis_rounds = 0
-				end
-				card:add_to_deck()
-				G.jokers:emplace(card)
-				return nil, true
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						local chosen_joker = pseudorandom_element(jokers, pseudoseed("invisible"))
+						local card =
+							copy_card(chosen_joker, nil, nil, nil, chosen_joker.edition and chosen_joker.edition.negative)
+						if card.ability.invis_rounds then
+							card.ability.invis_rounds = 0
+						end
+						card:add_to_deck()
+						G.jokers:emplace(card)
+						return true
+					end,
+				}))
 			end
 		end
 		-- if card.ability.name == "Brainstorm" then results = { jokers = { } } end
@@ -841,9 +852,15 @@ function Cryptid.forcetrigger(card, context)
 			}))
 		end
 		-- if card.ability.name == "Astronomer" then results = { jokers = { } } end
-		if card.ability.name == "Burnt Joker" and context.scoring_name then
-			local text, disp_text = G.FUNCS.get_poker_hand_info(context.scoring_name)
-			level_up_hand(card, text, nil, 1)
+		if card.ability.name == "Burnt Joker" then
+			if #G.hand.highlighted > 0 then 
+				local text, disp_text = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
+				update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize(text, 'poker_hands'),chips = G.GAME.hands[text].chips, mult = G.GAME.hands[text].mult, level=G.GAME.hands[text].level})
+				level_up_hand(card, text, nil, 1)
+				update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+			elseif context.scoring_name then
+				level_up_hand(card, context.scoring_name)
+			end
 		end
 		if card.ability.name == "Bootstraps" then
 			results = {
@@ -1061,7 +1078,7 @@ function Cryptid.forcetriggerVanillaCheck(card)
 		-- "Astronomer",
 		"Burnt Joker",
 		"Bootstraps",
-		"Canio",
+		"Caino",
 		"Triboulet",
 		"Yorick",
 		"Chicot",

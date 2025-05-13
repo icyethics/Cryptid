@@ -2389,6 +2389,20 @@ local hook = { -- Hook://, applies Hooked to two jokers
 			end
 		end
 		if card1 and card2 then
+			if card1.ability.cry_hooked then
+				for _, v in ipairs(G.jokers.cards) do
+					if v.sort_id == card1.ability.cry_hook_id then
+						v.ability.cry_hooked = false
+					end
+				end
+			end
+			if card2.ability.cry_hooked then
+				for _, v in ipairs(G.jokers.cards) do
+					if v.sort_id == card2.ability.cry_hook_id then
+						v.ability.cry_hooked = false
+					end
+				end
+			end
 			card1.ability.cry_hooked = true
 			card2.ability.cry_hooked = true
 			card1.ability.cry_hook_id = card2.sort_id
