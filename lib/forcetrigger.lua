@@ -1074,7 +1074,7 @@ function Cryptid.forcetriggerVanillaCheck(card)
 		-- "Astronomer",
 		"Burnt Joker",
 		"Bootstraps",
-		"Canio",
+		"Caino",
 		"Triboulet",
 		"Yorick",
 		"Chicot",
