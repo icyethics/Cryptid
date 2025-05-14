@@ -558,9 +558,9 @@ local analog = {
 	name = "cry-Analog",
 	key = "analog",
 	pos = { x = 3, y = 0 },
-	config = { copies = 2, ante = 1 },
+	config = { copies = 2, ante = 1, immutable = { max_copies = 200, max_ante = 1e300 },},
 	loc_vars = function(self, info_queue, center)
-		return { vars = { math.min(center.ability.copies, 100), math.min(center.ability.ante, 1e300) } }
+		return { vars = { math.min(center.ability.copies, center.ability.immutable.max_copies), math.min(center.ability.ante, center.ability.immutable.max_ante) } }
 	end,
 	cost = 4,
 	order = 7,
@@ -592,7 +592,7 @@ local analog = {
 				return true
 			end,
 		}))
-		for i = 1, math.min(card.ability.copies, 100) do
+		for i = 1, math.min(card.ability.copies, card.ability.max_copies) do
 			G.E_MANAGER:add_event(Event({
 				trigger = "before",
 				delay = 0.4,
@@ -605,7 +605,7 @@ local analog = {
 				end,
 			}))
 		end
-		ease_ante(math.min(card.ability.ante, 1e300))
+		ease_ante(math.min(card.ability.ante, card.ability.max_ante))
 	end,
 }
 local typhoon = {
