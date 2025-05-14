@@ -833,7 +833,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 
 	local front = (
 		(_type == "Base" or _type == "Enhanced")
-		and pseudorandom_element(G.P_CARDS, ps("front" .. (key_append or "") .. G.GAME.round_resets.ante))
+		and (pseudorandom_element(G.P_CARDS, ps("front" .. (key_append or "") .. G.GAME.round_resets.ante)) or G.P_CARDS["S_T"])
 	) or nil
 
 	if area == "ERROR" then
