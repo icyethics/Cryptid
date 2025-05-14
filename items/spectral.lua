@@ -566,7 +566,7 @@ local analog = {
 	order = 7,
 	atlas = "atlasnotjokers",
 	can_use = function(self, card)
-		return #G.jokers.cards > 0
+		return #G.jokers.cards > (G.GAME.modifiers.cry_beta and 1 or 0)
 	end,
 	use = function(self, card, area, copier)
 		check_for_unlock({ cry_used_consumable = "c_cry_analog" })
@@ -592,7 +592,7 @@ local analog = {
 				return true
 			end,
 		}))
-		for i = 1, math.min(card.ability.copies, card.ability.max_copies) do
+		for i = 1, to_number(math.min(card.ability.copies, card.ability.immutable.max_copies)) do
 			G.E_MANAGER:add_event(Event({
 				trigger = "before",
 				delay = 0.4,
@@ -605,7 +605,7 @@ local analog = {
 				end,
 			}))
 		end
-		ease_ante(math.min(card.ability.ante, card.ability.max_ante))
+		ease_ante(math.min(card.ability.ante, card.ability.immutable.max_ante))
 	end,
 }
 local typhoon = {
