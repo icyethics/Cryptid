@@ -799,9 +799,6 @@ local loopy = {
 				card = card,
 			}
 		end
-		if context.end_of_round and not context.blueprint then
-			card.ability.extra.retrigger = 0
-		end
 	end,
 	cry_credits = {
 		idea = {
