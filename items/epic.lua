@@ -910,7 +910,7 @@ local boredom = {
 		if
 			context.retrigger_joker_check
 			and not context.retrigger_joker
-			and context.other_card.ability.name ~= "cry-Boredom"
+			and not (context.other_card.ability and context.other_card.ability.name == "cry-Boredom")
 		then
 			if
 				pseudorandom("cry_boredom_joker")
@@ -2441,11 +2441,11 @@ local demicolon = {
 				end
 			end
 			local m = Cryptid.demicolonGetTriggerable(other_joker)
-			if m[1] then
-				card.ability.demicoloncompat = "Compatible"
-				card.ability.check = true
-			elseif m[2] then
+			if m[2] then
 				card.ability.demicoloncompat = "Dangerous!"
+				card.ability.check = true
+			elseif m[1] then
+				card.ability.demicoloncompat = "Compatible"
 				card.ability.check = true
 			else
 				card.ability.demicoloncompat = "Incompatible"
@@ -2457,7 +2457,7 @@ local demicolon = {
 		if context.joker_main and not context.blueprint and not context.forcetrigger then
 			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i] == card then
-					if Cryptid.demicolonGetTriggerable(G.jokers.cards[i + 1]) then
+					if Cryptid.demicolonGetTriggerable(G.jokers.cards[i + 1])[1] then
 						local results = Cryptid.forcetrigger(G.jokers.cards[i + 1], context)
 						if results and results.jokers then
 							results.jokers.message = localize("cry_demicolon")
