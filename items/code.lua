@@ -3846,7 +3846,7 @@ local multiply = { -- ://Multiply, doubles a joker's values until the end of the
 	pos = { x = 10, y = 2 },
 	cost = 4,
 	can_use = function(self, card)
-		if not G.GAME.modifiers.cry_beta then
+		if not G.GAME.modifiers.cry_beta or card.area == G.pack_cards then
 			return #G.jokers.highlighted == 1 and not Card.no(G.jokers.highlighted[1], "immutable", true)
 		else
 			return #G.jokers.highlighted == 2

@@ -2196,9 +2196,24 @@ local aliases = {
 	-- Smaller Placeholder
 
 	-- Misc Jokers
+	j_cry_oil_lamp = {
+		"Oil Lamp",
+		"Oillamp",
+	},
+	j_cry_tropical_smoothie = {
+		"Tropical Smoothie",
+		"Tropical",
+		"Smoothie",
+	},
 	-- bigger placeholder
 
 	-- Epic Jokers
+	j_cry_altgoogol = {
+		"Nostalgic Googol Play Card",
+		"NGPC",
+		"Nostalgic Googol",
+		"Nostalgic Google Play Card",
+	},
 	-- epic placeholder
 
 	-- Exotic Jokers

@@ -8,17 +8,14 @@ SMODS.Sound({
 	path = "demitrigger.ogg",
 })
 function Cryptid.demicolonGetTriggerable(card)
-	local n = {}
+	local n = {false, false}
 	if not card then
-		return { false, false }
+		return n
 	end
-	if card and Card.no(card, "demicoloncompat", true) then
+	if Card.no(card, "demicoloncompat", true) or Cryptid.forcetriggerVanillaCheck(card) then
 		n[1] = true
 	else
 		n[1] = false
-	end
-	if Cryptid.forcetriggerVanillaCheck(card) then
-		n[1] = true
 	end
 	if card.ability.consumeable then
 		n[1] = true
@@ -947,7 +944,99 @@ function Cryptid.forcetrigger(card, context)
 			end
 		end
 	elseif card.ability.consumeable then
-		card:use_consumeable()
+		if card.ability.consumeable.max_highlighted or card.ability.name == "Aura" or card.ability.name == "cry-global" or card.ability.name == "cry-Inst" then --Cards that require cards in hand to be selected
+
+			local _cards = {}
+			local targets = {}
+			
+			--Get all cards that we can target
+			for k, v in ipairs(G.hand.cards) do
+				if 
+					not ((card.ability.name == "Aura" or card.ability.name == "cry-Ritual") and (v.edition or v.will_be_editioned))
+					and not v.will_be_destroyed
+				then 
+					_cards[#_cards+1] = v
+				end
+			end
+			
+			local highlight_count = to_number(math.min(#_cards, card.ability.consumeable.max_highlighted or 1))
+			
+			if highlight_count > 0 then 
+				--Choose random targets for consumable
+				for i = 1, highlight_count do
+					local selected_card, card_key = pseudorandom_element(_cards, pseudoseed('forcehighlight'))
+					if card.ability.name == "Aura" or card.ability.name == "cry-Ritual" then selected_card.will_be_editioned = true end
+					if card.ability.name == "The Hanged Man" then selected_card.will_be_destroyed = true end
+					targets[#targets+1] = table.remove(_cards, card_key)
+
+					--Dodgy way of doing this
+					--Basically we need to highlight the cards temporarily to ensure events are created correctly
+					G.hand:add_to_highlighted(selected_card, true)
+				end
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						for _, v in ipairs(targets) do
+							G.hand:add_to_highlighted(v, true)
+							play_sound('card1', 1)
+						end
+						return true
+					end,
+				}))
+
+				card:use_consumeable()
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						G.hand:unhighlight_all()
+						return true
+					end,
+				}))
+				
+				--Unhighlight once events are created
+				G.hand:unhighlight_all()
+
+			end
+			
+		elseif card.ability.name == "cry-Commit" or card.ability.name == "cry-Rework" or card.ability.name == "cry-Multiply" then --Cards that require Jokers to be selected
+
+			local _cards = {}
+
+			for k, v in ipairs(G.jokers.cards) do
+				if 
+					not v.will_be_destroyed
+				then 
+					_cards[#_cards+1] = v
+				end
+			end
+
+			if #_cards > 0 then
+				local selected_card, card_key = pseudorandom_element(_cards, pseudoseed('forcehighlight'))
+				if card.ability.name == "cry-Commit" or card.ability.name == "cry-Rework" then selected_card.will_be_destroyed = true end
+				G.jokers:add_to_highlighted(selected_card, true)
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						G.jokers:add_to_highlighted(selected_card, true)
+						play_sound('card1', 1)
+						return true
+					end,
+				}))
+
+				card:use_consumeable()
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						G.jokers:unhighlight_all()
+						return true
+					end,
+				}))
+
+				G.jokers:unhighlight_all()
+			end
+		else
+			card:use_consumeable()
+		end
 	end
 	return results
 end
