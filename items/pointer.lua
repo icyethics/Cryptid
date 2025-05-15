@@ -2204,8 +2204,7 @@ local aliases = {
 		"Tropical Smoothie",
 		"Tropical",
 		"Smoothie",
-		
-	}
+	},
 	-- bigger placeholder
 
 	-- Epic Jokers
