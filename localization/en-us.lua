@@ -485,101 +485,10 @@ return {
 			},
 		},
 		Code = {
-			c_cry_assemble = {
-				name = "://ASSEMBLE",
-				text = {
-					"Add {C:cry_code}Mult{} to the",
-					"{C:cry_code}selected hand{} equal to",
-					"how many jokers are owned",
-				},
-			},
-			c_cry_alttab = {
-				name = "://ALTTAB",
-				text = {
-					"Create the {C:cry_code}current{}",
-					"blind's skip tag",
-					"{C:inactive}(Current: {C:cry_code}#1#{C:inactive})",
-				},
-			},
-			c_cry_class = {
-				name = "://CLASS",
-				text = {
-					"Convert {C:cry_code}#1#{} selected card#<s>1#",
-					"to a {C:cry_code}chosen{} enhancement",
-				},
-			},
-			c_cry_commit = {
-				name = "://COMMIT",
-				text = {
-					"Destroy a {C:cry_code}selected{} Joker,",
-					"create a {C:cry_code}new{} Joker",
-					"of the {C:cry_code}same rarity",
-				},
-			},
 			c_cry_crash = {
 				name = "://CRASH",
 				text = {
 					"{C:cry_code,E:1}Don't.",
-				},
-			},
-			c_cry_ctrl_v = {
-				name = "://CTRL+V",
-				text = {
-					"Create a {C:cry_code}copy{} of a selected",
-					"playing card or consumable",
-				},
-			},
-			c_cry_delete = {
-				name = "://DELETE",
-				text = {
-					"{C:cry_code}Banish{} any {C:cry_code}selected{}",
-					"shop item, it will no longer",
-					"appear normally this run",
-				},
-			},
-			c_cry_divide = {
-				name = "://DIVIDE",
-				text = {
-					"{C:cry_code}Halve{} all listed prices",
-					"in current shop",
-				},
-			},
-			c_cry_exploit = {
-				name = "://EXPLOIT",
-				text = {
-					"{C:cry_code}Choose{} a {C:cry_code}currently visible{} poker hand,",
-					"next hand is {C:cry_code}calculated{} as that hand,",
-					"and gains {C:cry_code}one{} temp {C:cry_code}Ascension Power{}",
-				},
-			},
-			c_cry_cryfunction = {
-				name = "FUNCTION://",
-				text = {
-					"Saves the {C:cry_code}Last Three{} consumables used,",
-					"every future use creates a copy of",
-					"the first with a {C:cry_code}Function://{} sticker",
-				},
-			},
-			c_cry_global = {
-				name = "://GLOBAL",
-				text = {
-					"Select a playing card",
-					"to become {C:cry_code}Global{}",
-				},
-			},
-			c_cry_hook = {
-				name = "HOOK://",
-				text = {
-					"Apply {C:cry_code}Hooked{} to",
-					"2 selected Jokers",
-				},
-			},
-			c_cry_inst = {
-				name = "://INSTANTIATE",
-				text = {
-					"Draw a card with selected card's {C:cry_code}rank{}",
-					"and one with selected card's {C:cry_code}suit{}",
-					"{C:inactive}(if possible){}",
 				},
 			},
 			c_cry_keygen = {
@@ -590,53 +499,6 @@ return {
 					"voucher created this way.",
 				},
 			},
-			c_cry_crylog = {
-				name = "://LOG",
-				text = {
-					"To Be {C:cry_code}Implemented{}",
-					"in a future {C:cry_code}update{}",
-				},
-			},
-			c_cry_machinecode = {
-				name = "://MACHINECODE",
-				text = {
-					"",
-				},
-			},
-			c_cry_malware = {
-				name = "://MALWARE",
-				text = { "Add {C:dark_edition}Glitched{} to all", "cards {C:cry_code}held in hand" },
-			},
-			c_cry_merge = {
-				name = "://MERGE",
-				text = {
-					"Merge a selected {C:cry_code}consumable",
-					"with a selected {C:cry_code}playing card",
-				},
-			},
-			c_cry_multiply = {
-				name = "://MULTIPLY",
-				text = {
-					"{C:cry_code}Double{} all values of",
-					"a selected {C:cry_code}Joker{} until",
-					"end of round",
-				},
-			},
-			c_cry_nperror = {
-				name = "://NPERROR",
-				text = {
-					"Returns the {C:cry_code}last played hand{}",
-					"to your hand",
-				},
-			},
-			c_cry_patch = {
-				name = "://PATCH",
-				text = {
-					"Remove all {C:cry_code}debuffs",
-					"from currently visible items",
-					"{C:cry_code}Resets{} shop state",
-				},
-			},
 			c_cry_payload = {
 				name = "://PAYLOAD",
 				text = {
@@ -644,35 +506,26 @@ return {
 					"gives {C:cry_code}X#1#{} interest",
 				},
 			},
-			c_cry_oboe = {
-				name = "://OFFBYONE",
+			c_cry_exploit = {
+				name = "://EXPLOIT",
 				text = {
-					"Next {C:cry_code}Booster Pack{} has",
-					"{C:cry_code}#1#{} extra card#<s>1# and",
-					"{C:cry_code}#1#{} extra choice#<s>1#",
-					"{C:inactive}(Currently {C:cry_code}+#2#{C:inactive})",
+					"{C:cry_code}Choose{} a {C:cry_code}currently visible{} poker hand,",
+					"next hand is {C:cry_code}calculated{} as that hand,",
+					"and gains {C:cry_code}one{} temp {C:cry_code}Ascension Power{}",
 				},
 			},
-			c_cry_quantify = {
-				name = "://QUANTIFY",
-				text = { -- "{C:cry_code}J{C:cry_exotic}o{C:legendary}k{C:cry_epic}e{C:cry_candy}r{C:rare}i{C:uncommon}z{C:common}e{C:dark_edition}!{} an object",
-					"To Be {C:cry_code}Implemented{}",
-					"in a future {C:cry_code}update{}",
+			c_cry_malware = {
+				name = "://MALWARE",
+				text = {
+					"Add {C:dark_edition}Glitched{} to all",
+					"cards {C:cry_code}held in hand",
 				},
 			},
-			c_cry_reboot = {
-				name = "://REBOOT",
+			c_cry_nperror = {
+				name = "://NPERROR",
 				text = {
-					"Replenish {C:blue}Hands{} and {C:red}Discards{},",
-					"return {C:cry_code}all{} cards to deck",
-					"and draw a {C:cry_code}new{} hand",
-				},
-			},
-			c_cry_revert = {
-				name = "://REVERT",
-				text = {
-					"Set {C:cry_code}game state{} to",
-					"start of {C:cry_code}this Ante{}",
+					"Returns the {C:cry_code}last played hand{}",
+					"to your hand",
 				},
 			},
 			c_cry_rework = {
@@ -684,11 +537,32 @@ return {
 					"{C:inactive,s:0.8}Upgrades using order in the Collection",
 				},
 			},
-			c_cry_run = {
-				name = "://RUN",
+			c_cry_merge = {
+				name = "://MERGE",
 				text = {
-					"Visit a {C:cry_code}shop",
-					"during a {C:cry_code}Blind",
+					"Merge a selected {C:cry_code}consumable",
+					"with a selected {C:cry_code}playing card",
+				},
+			},
+			c_cry_commit = {
+				name = "://COMMIT",
+				text = {
+					"Destroy a {C:cry_code}selected{} Joker,",
+					"create a {C:cry_code}new{} Joker",
+					"of the {C:cry_code}same rarity",
+				},
+			},
+			c_cry_machinecode = {
+				name = "://MACHINECODE",
+				text = {
+					"",
+				},
+			},
+			c_cry_spaghetti = {
+				name = "://SPAGHETTI",
+				text = {
+					"Create a {C:cry_code}Glitched",
+					"Food Joker",
 				},
 			},
 			c_cry_seed = {
@@ -699,15 +573,12 @@ return {
 					"to become {C:cry_code}Rigged",
 				},
 			},
-			c_cry_semicolon = {
-				name = ";//",
-				text = { "Ends current non-Boss {C:cry_code}Blind{}", "{C:cry_code}without{} cashing out" },
-			},
-			c_cry_spaghetti = {
-				name = "://SPAGHETTI",
+			c_cry_patch = {
+				name = "://PATCH",
 				text = {
-					"Create a {C:cry_code}Glitched",
-					"Food Joker",
+					"Remove all {C:cry_code}debuffs",
+					"from currently visible items",
+					"{C:cry_code}Resets{} shop state",
 				},
 			},
 			c_cry_cryupdate = {
@@ -717,11 +588,146 @@ return {
 					"in a future {C:cry_code}update{}",
 				},
 			},
+			c_cry_hook = {
+				name = "HOOK://",
+				text = {
+					"Apply {C:cry_code}Hooked{} to",
+					"2 selected Jokers",
+				},
+			},
+			c_cry_oboe = {
+				name = "://OFFBYONE",
+				text = {
+					"Next {C:cry_code}Booster Pack{} has",
+					"{C:cry_code}#1#{} extra card#<s>1# and",
+					"{C:cry_code}#1#{} extra choice#<s>1#",
+					"{C:inactive}(Currently {C:cry_code}+#2#{C:inactive})",
+				},
+			},
+			c_cry_assemble = {
+				name = "://ASSEMBLE",
+				text = {
+					"Add {C:cry_code}Mult{} to the",
+					"{C:cry_code}selected hand{} equal to",
+					"how many jokers are owned",
+				},
+			},
+			c_cry_inst = {
+				name = "://INSTANTIATE",
+				text = {
+					"Draw a card with selected card's {C:cry_code}rank{}",
+					"and one with selected card's {C:cry_code}suit{}",
+					"{C:inactive}(if possible){}",
+				},
+			},
+			c_cry_revert = {
+				name = "://REVERT",
+				text = {
+					"Set {C:cry_code}game state{} to",
+					"start of {C:cry_code}this Ante{}",
+				},
+			},
+			c_cry_cryfunction = {
+				name = "FUNCTION://",
+				text = {
+					"Saves the {C:cry_code}Last Three{} consumables used,",
+					"using this card again creates a copy of",
+					"the first with a {C:cry_code}Function://{} sticker",
+				},
+			},
+			c_cry_run = {
+				name = "://RUN",
+				text = {
+					"Visit a {C:cry_code}shop",
+					"during a {C:cry_code}Blind",
+				},
+			},
+			c_cry_class = {
+				name = "://CLASS",
+				text = {
+					"Convert {C:cry_code}#1#{} selected card#<s>1#",
+					"to a {C:cry_code}chosen{} enhancement",
+				},
+			},
+			c_cry_global = {
+				name = "://GLOBAL",
+				text = {
+					"Select a playing card",
+					"to become {C:cry_code}Global{}",
+				},
+			},
 			c_cry_variable = {
 				name = "://VARIABLE",
 				text = {
 					"Convert {C:cry_code}#1#{} selected card#<s>1#",
 					"to a {C:cry_code}chosen{} rank",
+				},
+			},
+			c_cry_crylog = {
+				name = "://LOG",
+				text = {
+					"To Be {C:cry_code}Implemented{}",
+					"in a future {C:cry_code}update{}",
+				},
+			},
+			c_cry_quantify = {
+				name = "://QUANTIFY",
+				text = { -- "{C:cry_code}J{C:cry_exotic}o{C:legendary}k{C:cry_epic}e{C:cry_candy}r{C:rare}i{C:uncommon}z{C:common}e{C:dark_edition}!{} an object",
+					"To Be {C:cry_code}Implemented{}",
+					"in a future {C:cry_code}update{}",
+				},
+			},
+			c_cry_divide = {
+				name = "://DIVIDE",
+				text = {
+					"{C:cry_code}Halve{} all listed prices",
+					"in current shop",
+				},
+			},
+			c_cry_multiply = {
+				name = "://MULTIPLY",
+				text = {
+					"{C:cry_code}Double{} all values of",
+					"a selected {C:cry_code}Joker{} until",
+					"end of round",
+				},
+			},
+			c_cry_delete = {
+				name = "://DELETE",
+				text = {
+					"{C:cry_code}Banish{} any {C:cry_code}selected{}",
+					"shop item, it will no longer",
+					"appear normally this run",
+				},
+			},
+			c_cry_alttab = {
+				name = "://ALTTAB",
+				text = {
+					"Create the {C:cry_code}current{}",
+					"blind's skip tag",
+					"{C:inactive}(Current: {C:cry_code}#1#{C:inactive})",
+				},
+			},
+			c_cry_ctrl_v = {
+				name = "://CTRL+V",
+				text = {
+					"Create a {C:cry_code}copy{} of a selected",
+					"playing card or consumable",
+				},
+			},
+			c_cry_reboot = {
+				name = "://REBOOT",
+				text = {
+					"Replenish {C:blue}Hands{} and {C:red}Discards{},",
+					"return {C:cry_code}all{} cards to deck",
+					"and draw a {C:cry_code}new{} hand",
+				},
+			},
+			c_cry_semicolon = {
+				name = ";//",
+				text = {
+					"Ends current non-Boss {C:cry_code}Blind{}",
+					"{C:cry_code}without{} cashing out",
 				},
 			},
 		},
@@ -2972,7 +2978,83 @@ return {
 			},
 		},
 		Planet = {
-			c_cry_Klubi = {
+			c_cry_asteroidbelt = {
+				name = "Asteroid Belt",
+				text = {
+					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
+					"{C:attention}#2#",
+					"{C:mult}+#3#{} Mult and",
+					"{C:chips}+#4#{} chip#<s>4#",
+				},
+			},
+			c_cry_void = {
+				name = "Void",
+				text = {
+					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
+					"{C:attention}#2#",
+					"{C:mult}+#3#{} Mult and",
+					"{C:chips}+#4#{} chip#<s>4#",
+				},
+			},
+			c_cry_marsmoons = {
+				name = "Phobos & Deimos",
+				text = {
+					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
+					"{C:attention}#2#",
+					"{C:mult}+#3#{} Mult and",
+					"{C:chips}+#4#{} chip#<s>4#",
+				},
+			},
+			-- Reserved Spot For None Hand Planet
+			c_cry_universe = {
+				name = Cryptid_config.family_mode and "Universe" or "The Universe In Its Fucking Entirety",
+				text = {
+					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
+					"{C:attention}#2#",
+					"{C:mult}+#3#{} Mult and",
+					"{C:chips}+#4#{} chip#<s>4#",
+				},
+			},
+			c_cry_planetlua = {
+				name = "Planet.lua",
+				text = {
+					"{C:green}#1# in #2#{} chance to",
+					"upgrade every",
+					"{C:legendary,E:1}poker hand{}",
+					"by {C:attention}1{} level",
+				},
+			},
+			c_cry_nstar = {
+				name = "Neutron Star",
+				text = {
+					"Upgrade a random",
+					"poker hand by",
+					"{C:attention}1{} level for each",
+					"{C:attention}Neutron Star{} used",
+					"in this run",
+					"{C:inactive}(Currently{C:attention} #1#{C:inactive}){}",
+				},
+			},
+			c_cry_sunplanet = {
+				name = "Sol",
+				text = {
+					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){}",
+					"Increase power of",
+					"{C:attention}Ascended{} hands by {X:gold,C:white}#2#{}",
+					"{C:inactive}(Currently {X:gold,C:white}X(#3#^asc){C:inactive})",
+				},
+			},
+			c_cry_ruutu = {
+				name = "Ruutu",
+				text = {
+					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
+					"Level up",
+					"{C:attention}#1#{},",
+					"{C:attention}#2#{},",
+					"and {C:attention}#3#{}",
+				},
+			},
+			c_cry_risti = {
 				name = "Risti",
 				text = {
 					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
@@ -2982,7 +3064,17 @@ return {
 					"and {C:attention}#3#{}",
 				},
 			},
-			c_cry_Lapio = {
+			c_cry_hertta = {
+				name = "Hertta",
+				text = {
+					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
+					"Level up",
+					"{C:attention}#1#{},",
+					"{C:attention}#2#{},",
+					"and {C:attention}#3#{}",
+				},
+			},
+			c_cry_pata = {
 				name = "Pata",
 				text = {
 					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
@@ -3000,91 +3092,6 @@ return {
 					"{C:attention}#1#{},",
 					"{C:attention}#2#{},",
 					"and {C:attention}#3#{}",
-				},
-			},
-			c_cry_nstar = {
-				name = "Neutron Star",
-				text = {
-					"Upgrade a random",
-					"poker hand by",
-					"{C:attention}1{} level for each",
-					"{C:attention}Neutron Star{} used",
-					"in this run",
-					"{C:inactive}(Currently{C:attention} #1#{C:inactive}){}",
-				},
-			},
-			c_cry_planetlua = {
-				name = "Planet.lua",
-				text = {
-					"{C:green}#1# in #2#{} chance to",
-					"upgrade every",
-					"{C:legendary,E:1}poker hand{}",
-					"by {C:attention}1{} level",
-				},
-			},
-			c_cry_Sydan = {
-				name = "Hertta",
-				text = {
-					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
-					"Level up",
-					"{C:attention}#1#{},",
-					"{C:attention}#2#{},",
-					"and {C:attention}#3#{}",
-				},
-			},
-			c_cry_Timantti = {
-				name = "Ruutu",
-				text = {
-					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
-					"Level up",
-					"{C:attention}#1#{},",
-					"{C:attention}#2#{},",
-					"and {C:attention}#3#{}",
-				},
-			},
-			c_cry_marsmoons = {
-				name = "Phobos & Deimos",
-				text = {
-					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
-					"{C:attention}#2#",
-					"{C:mult}+#3#{} Mult and",
-					"{C:chips}+#4#{} chip#<s>4#",
-				},
-			},
-			c_cry_void = {
-				name = "Void",
-				text = {
-					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
-					"{C:attention}#2#",
-					"{C:mult}+#3#{} Mult and",
-					"{C:chips}+#4#{} chip#<s>4#",
-				},
-			},
-			c_cry_asteroidbelt = {
-				name = "Asteroid Belt",
-				text = {
-					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
-					"{C:attention}#2#",
-					"{C:mult}+#3#{} Mult and",
-					"{C:chips}+#4#{} chip#<s>4#",
-				},
-			},
-			c_cry_universe = {
-				name = Cryptid_config.family_mode and "Universe" or "The Universe In Its Fucking Entirety",
-				text = {
-					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
-					"{C:attention}#2#",
-					"{C:mult}+#3#{} Mult and",
-					"{C:chips}+#4#{} chip#<s>4#",
-				},
-			},
-			c_cry_sunplanet = {
-				name = "Sol",
-				text = {
-					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){}",
-					"Increase power of",
-					"{C:attention}Ascended{} hands by {X:gold,C:white}#2#{}",
-					"{C:inactive}(Currently {X:gold,C:white}X(#3#^asc){C:inactive})",
 				},
 			},
 		},
@@ -3833,41 +3840,7 @@ return {
 			},
 		},
 		Voucher = {
-			v_cry_asteroglyph = {
-				name = "Asteroglyph",
-				text = {
-					"Set Ante to {C:attention}#1#{}",
-				},
-				unlock = {
-					"Reach Ante {C:attention}36",
-				},
-			},
-			v_cry_blankcanvas = {
-				name = "Blank Canvas",
-				text = {
-					"{C:attention}+#1#{} hand size",
-				},
-				unlock = {
-					"Reduce your {C:attention}handsize",
-					"to {C:attention}0",
-				},
-			},
-			v_cry_clone_machine = {
-				name = "Clone Machine",
-				text = {
-					"Double Tags become",
-					"{C:attention}Quintuple Tags{} and",
-					"are {C:attention}4X{} as common",
-				},
-			},
-			v_cry_command_prompt = {
-				name = "Command Prompt",
-				text = {
-					"{C:cry_code}Code{} cards",
-					"can appear",
-					"in the {C:attention}shop{}",
-				},
-			},
+			-- Standard Vouchers
 			v_cry_copies = {
 				name = "Copies",
 				text = {
@@ -3876,38 +3849,33 @@ return {
 					"{C:attention}2X{} as common",
 				},
 			},
-			v_cry_curate = {
-				name = "Curate",
+			v_cry_tag_printer = {
+				name = "Tag Printer",
 				text = {
-					"All cards",
-					"appear with",
-					"an {C:dark_edition}Edition{}",
-				},
-				unlock = {
-					"Discover",
-					"all {C:attention}Editions",
+					"Double Tags become",
+					"{C:attention}Quadruple Tags{} and",
+					"are {C:attention}3X{} as common",
 				},
 			},
-			v_cry_dexterity = {
-				name = "Dexterity",
+			v_cry_pairing = {
+				name = "Pairing",
 				text = {
-					"Permanently",
-					"gain {C:blue}+#1#{} hand#<s>1#",
-					"each round",
-				},
-				unlock = {
-					"Play {C:attention}5000{}",
-					"{C:attention}Playing Cards{}",
-					"in total",
+					"{C:attention}Retrigger{} all M Jokers",
+					"if played hand is a {C:attention}Pair",
 				},
 			},
-			v_cry_double_down = {
-				name = "Double Down",
+			v_cry_repair_man = {
+				name = "Repair Man",
 				text = {
-					"After every round,",
-					"{X:dark_edition,C:white} X1.5 {} to all values",
-					"on the back of",
-					"{C:dark_edition}Double-Sided{} cards",
+					"{C:attention}Retrigger{} all M Jokers",
+					"if played hand contains a {C:attention}Pair",
+				},
+			},
+			v_cry_double_vision = {
+				name = "Double Vision",
+				text = {
+					"{C:dark_edition}Double-Sided{} cards appear",
+					"{C:attention}4X{} more frequently",
 				},
 			},
 			v_cry_double_slit = {
@@ -3918,48 +3886,37 @@ return {
 					"Arcana Packs",
 				},
 			},
-			v_cry_double_vision = {
-				name = "Double Vision",
+			v_cry_stickyhand = {
+				name = "Sticky Hand",
 				text = {
-					"{C:dark_edition}Double-Sided{} cards appear",
-					"{C:attention}4X{} more frequently",
+					"{C:attention}+#1#{} card selection limit",
 				},
 			},
-			v_cry_fabric = {
-				name = "Universal Fabric",
+			v_cry_grapplinghook = {
+				name = "Grappling Hook",
 				text = {
-					"{C:dark_edition}+#1#{} Joker slot#<s>1#",
-				},
-				unlock = {
-					"Redeem {C:dark_edition}Antimatter",
-					"{C:attention}10{} times",
+					"{C:attention}+#1#{} card selection limit",
+					"{C:inactive,s:0.7}You can do a lot more with this than you think.{}",
 				},
 			},
-			v_cry_massproduct = {
-				name = "Mass Production",
+			v_cry_command_prompt = {
+				name = "Command Prompt",
 				text = {
-					"All cards and packs",
-					"in shop cost {C:attention}$1{}",
-				},
-				unlock = {
-					"Redeem {C:attention}25",
-					"{C:attention}Vouchers",
-					"in one run",
+					"{C:cry_code}Code{} cards",
+					"can appear",
+					"in the {C:attention}shop{}",
 				},
 			},
-			v_cry_moneybean = {
-				name = "Money Beanstalk",
+			v_cry_satellite_uplink = {
+				name = "Satellite Uplink",
 				text = {
-					"Raise the cap on",
-					"interest earned in",
-					"each round to {C:money}$#1#{}",
-				},
-				unlock = {
-					"Max out the",
-					"{C:attention}interest earnings{}",
-					"for the {C:attention}whole run",
+					"{C:cry_code}Code{} cards may",
+					"appear in any of",
+					"the {C:attention}Celestial Packs{}",
 				},
 			},
+
+			-- T3 Vouchers
 			v_cry_overstock_multi = {
 				name = "Multistock",
 				text = {
@@ -3974,49 +3931,28 @@ return {
 					"in one run",
 				},
 			},
-			v_cry_pacclimator = {
-				name = "Planet Acclimator",
+			v_cry_massproduct = {
+				name = "Mass Production",
 				text = {
-					"{C:planet}Planet{} cards appear",
-					"{C:attention}X#1#{} more frequently",
-					"in the shop",
-					"Allows control of the",
-					"shop's {C:planet}Planet Rate{}",
-					"{C:inactive}(Check {C:attention}Run Info{C:inactive})",
+					"All cards and packs",
+					"in shop cost {C:attention}$1{}",
 				},
 				unlock = {
-					"Buy {C:attention}100{} {C:planet}Planet",
-					"cards total in",
-					"the shop",
+					"Redeem {C:attention}25",
+					"{C:attention}Vouchers",
+					"in one run",
 				},
 			},
-			v_cry_pairamount_plus = {
-				name = "Pairamount Plus",
+			v_cry_curate = {
+				name = "Curate",
 				text = {
-					"{C:attention}Retrigger{} all M Jokers",
-					"once for every Pair",
-					"{C:attention}contained{} in played hand",
+					"All cards",
+					"appear with",
+					"an {C:dark_edition}Edition{}",
 				},
-			},
-			v_cry_pairing = {
-				name = "Pairing",
-				text = {
-					"{C:attention}Retrigger{} all M Jokers",
-					"if played hand is a {C:attention}Pair",
-				},
-			},
-			v_cry_quantum_computing = {
-				name = "Quantum Computing",
-				text = {
-					"All future {C:cry_code}Code{} cards each",
-					"have {C:cry_code}+#1#{} Multiuse",
-				},
-			},
-			v_cry_repair_man = {
-				name = "Repair Man",
-				text = {
-					"{C:attention}Retrigger{} all M Jokers",
-					"if played hand contains a {C:attention}Pair",
+				unlock = {
+					"Discover",
+					"all {C:attention}Editions",
 				},
 			},
 			v_cry_rerollexchange = {
@@ -4032,27 +3968,47 @@ return {
 					"in one run",
 				},
 			},
-			v_cry_satellite_uplink = {
-				name = "Satellite Uplink",
+			-- RESERVATION FOR CRYSTAL BALL T3
+			-- RESERVATION FOR TELESCOPE T3
+			-- v_cry_scope = {
+			-- 	name = "Galactic Scope",
+			-- 	text = {
+			-- 		"Create the {C:planet}Planet",
+			-- 		"card for played",
+			-- 		"{C:attention}poker hand{}",
+			-- 		"{C:inactive}(Must have room){}",
+			-- 	},
+			-- 	unlock = {
+			-- 		"Use {C:attention}50{} {C:planet}Planet",
+			-- 		"cards from",
+			-- 		"{C:attention}Booster Packs{}",
+			-- 		"in one run",
+			-- 	},
+			-- },
+			v_cry_dexterity = {
+				name = "Dexterity",
 				text = {
-					"{C:cry_code}Code{} cards may",
-					"appear in any of",
-					"the {C:attention}Celestial Packs{}",
-				},
-			},
-			v_cry_scope = {
-				name = "Galactic Scope",
-				text = {
-					"Create the {C:planet}Planet",
-					"card for played",
-					"{C:attention}poker hand{}",
-					"{C:inactive}(Must have room){}",
+					"Permanently",
+					"gain {C:blue}+#1#{} hand#<s>1#",
+					"each round",
 				},
 				unlock = {
-					"Use {C:attention}50{} {C:planet}Planet",
-					"cards from",
-					"{C:attention}Booster Packs{}",
-					"in one run",
+					"Play {C:attention}5000{}",
+					"{C:attention}Playing Cards{}",
+					"in total",
+				},
+			},
+			v_cry_threers = {
+				name = "The 3 Rs",
+				text = {
+					"Permanently",
+					"gain {C:red}+#1#{} discard#<s>1#",
+					"each round",
+				},
+				unlock = {
+					"Discard {C:attention}5000{}",
+					"{C:attention}Playing Cards{}",
+					"in total",
 				},
 			},
 			v_cry_tacclimator = {
@@ -4071,38 +4027,90 @@ return {
 					"the shop",
 				},
 			},
-			v_cry_tag_printer = {
-				name = "Tag Printer",
+			v_cry_pacclimator = {
+				name = "Planet Acclimator",
 				text = {
-					"Double Tags become",
-					"{C:attention}Quadruple Tags{} and",
-					"are {C:attention}3X{} as common",
-				},
-			},
-			v_cry_threers = {
-				name = "The 3 Rs",
-				text = {
-					"Permanently",
-					"gain {C:red}+#1#{} discard#<s>1#",
-					"each round",
+					"{C:planet}Planet{} cards appear",
+					"{C:attention}X#1#{} more frequently",
+					"in the shop",
+					"Allows control of the",
+					"shop's {C:planet}Planet Rate{}",
+					"{C:inactive}(Check {C:attention}Run Info{C:inactive})",
 				},
 				unlock = {
-					"Discard {C:attention}5000{}",
-					"{C:attention}Playing Cards{}",
-					"in total",
+					"Buy {C:attention}100{} {C:planet}Planet",
+					"cards total in",
+					"the shop",
 				},
 			},
-			v_cry_stickyhand = {
-				name = "Sticky Hand",
+			v_cry_moneybean = {
+				name = "Money Beanstalk",
 				text = {
-					"{C:attention}+#1#{} card selection limit",
+					"Raise the cap on",
+					"interest earned in",
+					"each round to {C:money}$#1#{}",
+				},
+				unlock = {
+					"Max out the",
+					"{C:attention}interest earnings{}",
+					"for the {C:attention}whole run",
 				},
 			},
-			v_cry_grapplinghook = {
-				name = "Grappling Hook",
+			v_cry_fabric = {
+				name = "Universal Fabric",
 				text = {
-					"{C:attention}+#1#{} card selection limit",
-					"{C:inactive,s:0.7}You can do a lot more with this than you think.{}",
+					"{C:dark_edition}+#1#{} Joker slot#<s>1#",
+				},
+				unlock = {
+					"Redeem {C:dark_edition}Antimatter",
+					"{C:attention}10{} times",
+				},
+			},
+			-- RESERVATION FOR MAGIC TRICK T3
+			v_cry_asteroglyph = {
+				name = "Asteroglyph",
+				text = {
+					"Set Ante to {C:attention}#1#{}",
+				},
+				unlock = {
+					"Reach Ante {C:attention}36",
+				},
+			},
+			-- RESERVATION FOR DIRECTOR'S CUT T3
+			v_cry_blankcanvas = {
+				name = "Blank Canvas",
+				text = {
+					"{C:attention}+#1#{} hand size",
+				},
+				unlock = {
+					"Reduce your {C:attention}handsize",
+					"to {C:attention}0",
+				},
+			},
+			-- Cryptid Voucher T3
+			v_cry_clone_machine = {
+				name = "Clone Machine",
+				text = {
+					"Double Tags become",
+					"{C:attention}Quintuple Tags{} and",
+					"are {C:attention}4X{} as common",
+				},
+			},
+			v_cry_pairamount_plus = {
+				name = "Pairamount Plus",
+				text = {
+					"{C:attention}Retrigger{} all M Jokers",
+					"once for every Pair",
+					"{C:attention}contained{} in played hand",
+				},
+			},
+			v_cry_double_down = {
+				name = "Double Down",
+				text = {
+					"After every round,",
+					"{X:dark_edition,C:white} X1.5 {} to all values",
+					"on the back of",
+					"{C:dark_edition}Double-Sided{} cards",
 				},
 			},
 			v_cry_hyperspacetether = {
@@ -4111,6 +4119,13 @@ return {
 					"{C:attention}+#1#{} card selection limit",
 					"All selected cards contribute power",
 					"to {C:attention}Ascended Hands{}",
+				},
+			},
+			v_cry_quantum_computing = {
+				name = "Quantum Computing",
+				text = {
+					"All future {C:cry_code}Code{} cards each",
+					"have {C:cry_code}+#1#{} Multiuse",
 				},
 			},
 		},
