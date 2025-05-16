@@ -988,6 +988,8 @@ function Cryptid.forcetrigger(card, context)
 					func = function()
 						for _, v in ipairs(targets) do
 							G.hand:add_to_highlighted(v, true)
+							v.will_be_editioned = nil
+							v.will_be_destroyed = nil
 							play_sound("card1", 1)
 						end
 						return true
@@ -995,6 +997,19 @@ function Cryptid.forcetrigger(card, context)
 				}))
 
 				card:use_consumeable()
+
+				--Not sure how to do input correctly, so random is what you get.
+				if card.ability.name == "cry-Class" then
+					local choices = {"bonus", "mult", "wild", "glass", "steel", "stone", "gold", "lucky", "echo", "light", "abstract"}
+					G.ENTERED_ENH = pseudorandom_element(choices, pseudoseed("forceclass"))
+					G.FUNCS.class_cancel()
+					G.FUNCS.class_apply()
+				elseif card.ability.name == "cry-Variable" then
+					local choices = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"}
+					G.ENTERED_RANK = pseudorandom_element(choices, pseudoseed("forceclass"))
+					G.FUNCS.variable_cancel()
+					G.FUNCS.variable_apply()
+				end
 
 				G.E_MANAGER:add_event(Event({
 					func = function()
@@ -1029,6 +1044,7 @@ function Cryptid.forcetrigger(card, context)
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						G.jokers:add_to_highlighted(selected_card, true)
+						selected_card.will_be_destroyed = nil
 						play_sound("card1", 1)
 						return true
 					end,
@@ -1046,7 +1062,13 @@ function Cryptid.forcetrigger(card, context)
 				G.jokers:unhighlight_all()
 			end
 		else
+			-- Copy rigged code to guarantee WoF and Planet.lua
+
+			local ggpn = G.GAME.probabilities.normal
+			G.GAME.probabilities.normal = 1e9
 			card:use_consumeable()
+			G.GAME.probabilities.normal = ggpn
+
 		end
 	end
 	return results
