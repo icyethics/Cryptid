@@ -1398,22 +1398,21 @@ local crynperror = {
 	end,
 	use = function(self, card, area, copier)
 		for i = 1, #G.GAME.last_hand_played_cards do
-			local check = true
-			for j = 1, #G.hand.cards do
-				if G.GAME.last_hand_played_cards[i] == G.hand.cards[j] then
-					check = nil
+			for _, v in pairs(G.discard.cards) do
+				if v.sort_id == G.GAME.last_hand_played_cards[i] then
+					if v.facing == "back" then
+						v:flip()
+					end
+					draw_card(G.discard, G.hand, i * 100 / 5, "up", nil, v)
 				end
 			end
-			if G.discard.cards[i] and check then
-				if G.discard.cards[i].facing == "back" then
-					G.discard.cards[i]:flip()
+			for _, v in pairs(G.deck.cards) do
+				if v.sort_id == G.GAME.last_hand_played_cards[i] then
+					if v.facing == "back" then
+						v:flip()
+					end
+					draw_card(G.deck, G.hand, i * 100 / 5, "up", nil, v)
 				end
-				draw_card(G.discard, G.hand, i * 100 / 5, "up", nil, G.GAME.last_hand_played_cards[i])
-			elseif G.deck.cards[i] and check then
-				if G.deck.cards[i].facing == "back" then
-					G.deck.cards[i]:flip()
-				end
-				draw_card(G.deck, G.hand, i * 100 / 5, "up", nil, G.GAME.last_hand_played_cards[i])
 			end
 		end
 	end,
