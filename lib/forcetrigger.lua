@@ -1000,12 +1000,24 @@ function Cryptid.forcetrigger(card, context)
 
 				--Not sure how to do input correctly, so random is what you get.
 				if card.ability.name == "cry-Class" then
-					local choices = {"bonus", "mult", "wild", "glass", "steel", "stone", "gold", "lucky", "echo", "light", "abstract"}
+					local choices = {
+						"bonus",
+						"mult",
+						"wild",
+						"glass",
+						"steel",
+						"stone",
+						"gold",
+						"lucky",
+						"echo",
+						"light",
+						"abstract",
+					}
 					G.ENTERED_ENH = pseudorandom_element(choices, pseudoseed("forceclass"))
 					G.FUNCS.class_cancel()
 					G.FUNCS.class_apply()
 				elseif card.ability.name == "cry-Variable" then
-					local choices = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"}
+					local choices = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" }
 					G.ENTERED_RANK = pseudorandom_element(choices, pseudoseed("forceclass"))
 					G.FUNCS.variable_cancel()
 					G.FUNCS.variable_apply()
@@ -1068,7 +1080,6 @@ function Cryptid.forcetrigger(card, context)
 			G.GAME.probabilities.normal = 1e9
 			card:use_consumeable()
 			G.GAME.probabilities.normal = ggpn
-
 		end
 	end
 	return results
