@@ -309,7 +309,7 @@ match_indent = true
 # Emerald Stake - flipped vouchers
 [[patches]]
 [patches.pattern]
-target = "=[SMODS _ "src/utils.lua"]"
+target = """=[SMODS _ "src/utils.lua"]"""
 pattern = "create_shop_card_ui(card, 'Voucher', G.shop_vouchers)"
 position = "before"
 payload = '''
