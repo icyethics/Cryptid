@@ -502,7 +502,7 @@ end
 local sppref = set_profile_progress
 function set_profile_progress()
 	sppref()
-	if not Cryptid.shinytagdata then 
+	if not Cryptid.shinytagdata then
 		Cryptid.shinytagdata = {}
 	end
 	if not Cryptid.shinytagdata.init then
