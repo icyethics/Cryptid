@@ -1402,9 +1402,13 @@ local nice = {
 		if context.cardarea == G.jokers and context.joker_main then
 			local aaa, bbb = nil, nil
 			for i = 1, #context.full_hand do
-				if context.full_hand[i]:get_id() == 6 then aaa = true end
-				if context.full_hand[i]:get_id() == 9 then bbb = true end
-			end	
+				if context.full_hand[i]:get_id() == 6 then
+					aaa = true
+				end
+				if context.full_hand[i]:get_id() == 9 then
+					bbb = true
+				end
+			end
 			if aaa and bbb then
 				return {
 					message = localize({
