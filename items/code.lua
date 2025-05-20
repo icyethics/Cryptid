@@ -971,7 +971,7 @@ local payload = {
 		if not card then
 			return{ vars = { self.config.interest_mult } }
 		end
-		return { vars = { card.config.interest_mult } }
+		return { vars = { card.ability.interest_mult } }
 	end,
 	cost = 4,
 	atlas = "atlasnotjokers",
