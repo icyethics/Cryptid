@@ -4171,7 +4171,8 @@ local ctrl_v = {
 		return {}
 	end,
 	can_use = function(self, card)
-		return #G.hand.highlighted + #G.consumeables.highlighted + (G.pack_cards and #G.pack_cards.highlighted or 0) == 2
+		return #G.hand.highlighted + #G.consumeables.highlighted + (G.pack_cards and #G.pack_cards.highlighted or 0)
+			== 2
 	end,
 	use = function(self, card, area, copier)
 		if area then
