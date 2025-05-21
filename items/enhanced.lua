@@ -475,7 +475,8 @@ return {
 			local editions = {}
 			for i, v in pairs(pool_table[center.edeck_type]) do
 				if v.key ~= "e_base" and not v.no_edeck then
-					editions[#editions + 1] = {index=i, center=(center.edeck_type == "edition" and v.key:sub(3)) or v.key}
+					editions[#editions + 1] =
+						{ index = i, center = (center.edeck_type == "edition" and v.key:sub(3)) or v.key }
 				end
 			end
 			local page = (actual_page and actual_page * count_per_page or count_per_page) - (count_per_page - 1)
@@ -485,7 +486,10 @@ return {
 			end
 			local modification_options = {}
 			for i = 1, max_pages do
-				table.insert(modification_options, localize('k_page')..' '..tostring(i)..'/'..tostring(max_pages))
+				table.insert(
+					modification_options,
+					localize("k_page") .. " " .. tostring(i) .. "/" .. tostring(max_pages)
+				)
 			end
 			for i = page, math.min(page + count_per_page-1, #editions) do
 				local _center = Cryptid.deep_copy(center)
@@ -508,9 +512,22 @@ return {
 						config = { align = "cm", minw = 2.5, padding = 0.1, r = 0.1, colour = G.C.BLACK, emboss = 0.05 },
 						nodes = { deck_tables },
 					},
-					{n=G.UIT.R, config={align = "cm"}, nodes={
-					create_option_cycle({options = modification_options, w = 4.5, cycle_shoulders = true, opt_callback = 'edeck_page', current_option = actual_page, colour = G.C.RED, no_pips = true, focus_args = {snap_to = true, nav = 'wide'}})
-					}}
+					{
+						n = G.UIT.R,
+						config = { align = "cm" },
+						nodes = {
+							create_option_cycle({
+								options = modification_options,
+								w = 4.5,
+								cycle_shoulders = true,
+								opt_callback = "edeck_page",
+								current_option = actual_page,
+								colour = G.C.RED,
+								no_pips = true,
+								focus_args = { snap_to = true, nav = "wide" },
+							}),
+						},
+					},
 				},
 			})
 			G.FUNCS.overlay_menu({
@@ -518,7 +535,10 @@ return {
 			})
 		end
 		G.FUNCS.edeck_page = function(args)
-			Cryptid.enhancement_config_UI(Galdur and self.config.center or G.GAME.viewed_back.effect.center, args.cycle_config.current_option)
+			Cryptid.enhancement_config_UI(
+				Galdur and self.config.center or G.GAME.viewed_back.effect.center,
+				args.cycle_config.current_option
+			)
 		end
 	end,
 	items = { e_deck, et_deck, sk_deck, st_deck, sl_deck, atlasedition },
