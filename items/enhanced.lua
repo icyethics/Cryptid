@@ -480,7 +480,7 @@ return {
 			end
 			local page = (actual_page and actual_page * count_per_page or count_per_page) - (count_per_page - 1)
 			local max_pages = math.floor(#editions/count_per_page)
-			if max_pages * 5 < #editions then
+			if max_pages * count_per_page < #editions then --idk why this is needed but it is
 				max_pages = max_pages + 1
 			end
 			local modification_options = {}
