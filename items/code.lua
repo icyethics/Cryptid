@@ -2386,11 +2386,11 @@ local hook = {
 	atlas = "atlasnotjokers",
 	order = 414,
 	can_use = function(self, card)
-		if not G.GAME.modifiers.cry_beta or card.area == G.pack_cards then
-			return #G.jokers.highlighted == 2
-		else
-			return #G.jokers.highlighted == 3
+		local count = 0
+		for _, v in ipairs(G.jokers.highlighted) do
+			if not v.ability.consumeable then count = count + 1 end
 		end
+		return G.GAME.modifiers.cry_beta and count == 3 or count == 2
 	end,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = { key = "cry_hooked", set = "Other", vars = { "hooked Joker" } }
@@ -2399,9 +2399,9 @@ local hook = {
 		local card1 = nil
 		local card2 = nil
 		for i = 1, #G.jokers.highlighted do
-			if not card1 and G.jokers.highlighted[i] ~= card then
+			if not card1 and G.jokers.highlighted[i] ~= card and not G.jokers.highlighted[i].ability.consumeable then
 				card1 = G.jokers.highlighted[i]
-			elseif G.jokers.highlighted[i] ~= card then
+			elseif G.jokers.highlighted[i] ~= card and not G.jokers.highlighted[i].ability.consumeable then
 				card2 = G.jokers.highlighted[i]
 			end
 		end
