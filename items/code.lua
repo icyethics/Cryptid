@@ -4252,20 +4252,20 @@ local ctrl_v = {
 				}))
 			end
 			if G.pack_cards.highlighted[1] then
-			G.E_MANAGER:add_event(Event({
-				func = function()
-					local card = copy_card(G.pack_cards.highlighted[1])
-					if card.ability.name and card.ability.name == "cry-Chambered" then
-						card.ability.extra.num_copies = 1
-					end
-					card:add_to_deck()
-					if Incantation then
-						card:setQty(1)
-					end
-					G.consumeables:emplace(card)
-					return true
-				end,
-			    }))
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						local card = copy_card(G.pack_cards.highlighted[1])
+						if card.ability.name and card.ability.name == "cry-Chambered" then
+							card.ability.extra.num_copies = 1
+						end
+						card:add_to_deck()
+						if Incantation then
+							card:setQty(1)
+						end
+						G.consumeables:emplace(card)
+						return true
+					end,
+				}))
 			end
 		end
 	end,
