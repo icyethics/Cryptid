@@ -2388,7 +2388,9 @@ local hook = {
 	can_use = function(self, card)
 		local count = 0
 		for _, v in ipairs(G.jokers.highlighted) do
-			if not v.ability.consumeable then count = count + 1 end
+			if not v.ability.consumeable then
+				count = count + 1
+			end
 		end
 		return G.GAME.modifiers.cry_beta and count == 3 or count == 2
 	end,
