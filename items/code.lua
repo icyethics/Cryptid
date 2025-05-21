@@ -2390,7 +2390,7 @@ local hook = {
 		for _, v in ipairs(G.jokers.highlighted) do
 			if not v.ability.consumeable then count = count + 1 end
 		end
-		return count == 2
+		return G.GAME.modifiers.cry_beta and count == 3 or count == 2
 	end,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = { key = "cry_hooked", set = "Other", vars = { "hooked Joker" } }
