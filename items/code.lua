@@ -4524,7 +4524,7 @@ local green_seal = {
 				v.cry_green_incompat = true
 			end
 			for k, v in ipairs(context.full_hand) do
-				if not v.cry_green_incompat then
+				if not v.cry_green_incompat and v == card then
 					G.E_MANAGER:add_event(Event({
 						func = function()
 							if G.consumeables.config.card_limit > #G.consumeables.cards then
