@@ -925,7 +925,7 @@ local stella_mortis = {
 							vars = {
 								number_format(
 									lenient_bignum(
-										card.ability.extra.Emult + to_big(card.ability.extra.Emult_mod) * quota
+										card.ability.extra.Emult
 									)
 								),
 							},
