@@ -537,10 +537,7 @@ return {
 			})
 		end
 		G.FUNCS.edeck_page = function(args)
-			Cryptid.enhancement_config_UI(
-				G.cry_edeck_center,
-				args.cycle_config.current_option
-			)
+			Cryptid.enhancement_config_UI(G.cry_edeck_center, args.cycle_config.current_option)
 		end
 	end,
 	items = { e_deck, et_deck, sk_deck, st_deck, sl_deck, atlasedition },
