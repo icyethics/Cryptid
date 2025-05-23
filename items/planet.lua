@@ -177,11 +177,11 @@ local nibiru = {
 	atlas = "atlasnotjokers",
 	aurinko = true,
 	set_card_type_badge = function(self, card, badges)
-		--use whichever of these fits best, the second literally just removes the badge, and the first is blank
-		badges[1] = create_badge("", get_type_colour(self or card.config, card), nil, 1.2)
+		--use whichever of these fits best, the second literally just removes the badge, and the first is a blank badge
+		--badges[1] = create_badge("", get_type_colour(self or card.config, card), nil, 1.2)
 
-		-- if badges[1] and badges[1].remove then badges[1]:remove() end
-		-- badges[1] = nil
+		if badges[1] and badges[1].remove then badges[1]:remove() end
+		badges[1] = nil
 	end,
 	loc_vars = function(self, info_queue, center)
 		local levelone = G.GAME.hands["cry_None"].level or 1
