@@ -5015,6 +5015,7 @@ local python = {
 			context.using_consumeable
 			and context.consumeable.ability.set == "Code"
 			and not context.consumeable.beginning_end
+			and not context.blueprint
 		then
 			card.ability.extra.Xmult = lenient_bignum(to_big(card.ability.extra.Xmult) + card.ability.extra.Xmult_mod)
 			G.E_MANAGER:add_event(Event({
