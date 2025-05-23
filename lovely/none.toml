@@ -57,18 +57,18 @@ match_indent = true
 [patches.pattern]
 target = "functions/state_events.lua"
 pattern = '''
-        func = (function()  update_hand_text({delay = 0, immediate = true}, {mult = 0, chips = 0, chip_total = G.GAME.blind.cry_cap_score and G.GAME.blind:cry_cap_score(math.floor(hand_chips*mult)) or math.floor(hand_chips*mult), level = '', handname = ''});play_sound('button', 0.9, 0.6);return true end)
+        func = (function()  update_hand_text({delay = 0, immediate = true}, {mult = 0, chips = 0, chip_total = G.GAME.blind.cry_cap_score and G.GAME.blind:cry_cap_score(math.floor(hand_chips*mult)) or math.floor(hand_chips*mult), level = '', handname = ''});return true end)
 '''
 position = "at"
 payload = '''
         func = (function()  
         
         if G.GAME.hands["cry_None"].visible then
-        update_hand_text({delay = 0, immediate = true}, {mult = 0, chips = 0, chip_total = G.GAME.blind.cry_cap_score and G.GAME.blind:cry_cap_score(math.floor(hand_chips*mult)) or math.floor(hand_chips*mult), level = '', handname = ''});play_sound('button', 0.9, 0.6);
+        update_hand_text({delay = 0, immediate = true}, {mult = 0, chips = 0, chip_total = G.GAME.blind.cry_cap_score and G.GAME.blind:cry_cap_score(math.floor(hand_chips*mult)) or math.floor(hand_chips*mult), level = '', handname = ''});
             G.reset_to_none = true
-
+            
         else    
-            update_hand_text({delay = 0, immediate = true}, {mult = 0, chips = 0, chip_total = G.GAME.blind.cry_cap_score and G.GAME.blind:cry_cap_score(math.floor(hand_chips*mult)) or math.floor(hand_chips*mult), level = '', handname = ''});play_sound('button', 0.9, 0.6);
+            update_hand_text({delay = 0, immediate = true}, {mult = 0, chips = 0, chip_total = G.GAME.blind.cry_cap_score and G.GAME.blind:cry_cap_score(math.floor(hand_chips*mult)) or math.floor(hand_chips*mult), level = '', handname = ''});
         end
         return true end)
 '''
@@ -87,7 +87,7 @@ payload = '''
     if highlighted_count > 0 then 
         if G.GAME.hands["cry_None"].visible then
             update_hand_text({immediate = true, nopulse = true, delay = 0}, {mult = G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
-
+            
         else
             update_hand_text({immediate = true, nopulse = true, delay = 0}, {mult = 0, chips = 0, level = '', handname = ''})
         end
@@ -100,17 +100,17 @@ match_indent = true
 target = "card.lua"
 pattern = '''
                 level_up_hand(context.blueprint_card or self, text, nil, 1)
-                update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+                update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
                 return nil, true
 '''
 position = "at"
 payload = '''
                 level_up_hand(context.blueprint_card or self, text, nil, 1)
                 if G.GAME.hands["cry_None"].visible then
-                    update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
-
+                    update_hand_text({delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
+                    
                 else
-                    update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+                    update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
                 end
                 return nil, true
 '''
@@ -121,21 +121,21 @@ match_indent = true
 target = "card.lua"
 pattern = '''
     if self.ability.consumeable.hand_type then
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize(self.ability.consumeable.hand_type, 'poker_hands'),chips = G.GAME.hands[self.ability.consumeable.hand_type].chips, mult = G.GAME.hands[self.ability.consumeable.hand_type].mult, level=G.GAME.hands[self.ability.consumeable.hand_type].level})
+        update_hand_text({delay = 0.3}, {handname=localize(self.ability.consumeable.hand_type, 'poker_hands'),chips = G.GAME.hands[self.ability.consumeable.hand_type].chips, mult = G.GAME.hands[self.ability.consumeable.hand_type].mult, level=G.GAME.hands[self.ability.consumeable.hand_type].level})
         level_up_hand(used_tarot, self.ability.consumeable.hand_type)
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+        update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
     end
 '''
 position = "at"
 payload = '''
     if self.ability.consumeable.hand_type then
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize(self.ability.consumeable.hand_type, 'poker_hands'),chips = G.GAME.hands[self.ability.consumeable.hand_type].chips, mult = G.GAME.hands[self.ability.consumeable.hand_type].mult, level=G.GAME.hands[self.ability.consumeable.hand_type].level})
+        update_hand_text({delay = 0.3}, {handname=localize(self.ability.consumeable.hand_type, 'poker_hands'),chips = G.GAME.hands[self.ability.consumeable.hand_type].chips, mult = G.GAME.hands[self.ability.consumeable.hand_type].mult, level=G.GAME.hands[self.ability.consumeable.hand_type].level})
         level_up_hand(used_tarot, self.ability.consumeable.hand_type)
         if G.GAME.hands["cry_None"].visible then
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
-
+            update_hand_text({delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
+                    
         else
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+            update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
         end
     end
 '''
@@ -148,7 +148,7 @@ pattern = '''
         for k, v in pairs(G.GAME.hands) do
             level_up_hand(self, k, true)
         end
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+        update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
 '''
 position = "at"
 payload = '''
@@ -156,10 +156,10 @@ payload = '''
             level_up_hand(self, k, true)
         end
         if G.GAME.hands["cry_None"].visible then
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
-
+            update_hand_text({delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
+                    
         else
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+            update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
         end
 '''
 match_indent = true
@@ -176,10 +176,10 @@ position = "at"
 payload = '''
     if self.ability.consumeable.max_highlighted then
         if G.GAME.hands["cry_None"].visible then
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
-
+            update_hand_text({delay = 0}, {G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")})
+                    
         else
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+            update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
         end
     end
 '''
