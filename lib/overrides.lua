@@ -1681,5 +1681,28 @@ G.FUNCS.play_cards_from_highlighted = function(e)
 		G.PROFILES[G.SETTINGS.profile].cry_none = true
 		print("nonelock stuff here")
 	end
+	if G.PROFILES[G.SETTINGS.profile].cry_none and #G.hand.highlighted == 0 then
+		G.GAME.hands["cry_None"].visible = true
+	end
 	play_ref(e)
+end
+
+local use_cardref = G.FUNCS.use_card
+G.FUNCS.use_card = function(e, mute, nosave)
+	use_cardref(e,mute,nosave)
+	if G.STATE == G.STATES.SELECTING_HAND then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                func = function()
+                    G.hand:parse_highlighted()
+                    return true
+                end
+            }))
+	else
+		update_hand_text({delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+	end
+end
+local emplace_ref = CardArea.emplace
+function CardArea:emplace(card, location, stay_flipped)
+	return emplace_ref(self, card or {}, location, stay_flipped)
 end
