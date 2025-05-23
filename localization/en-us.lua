@@ -4656,6 +4656,7 @@ return {
 			["cry_UltPair"] = "Ultimate Pair",
 			["cry_WholeDeck"] = Cryptid_config.family_mode and "The Entire Deck" or "The Entire Fucking Deck",
 			["cry-Cluster Bulwark"] = "Clusterwark",
+			["cry_None"] = "None",
 		},
 		poker_hand_descriptions = {
 			["cry_Bulwark"] = {
@@ -4675,6 +4676,7 @@ return {
 				"card found in a 52-card deck.",
 				"Are you insane?",
 			},
+			["cry_None"] = {"A hand containing 0 cards"},
 		},
 		achievement_names = {
 			ach_cry_ace_in_crash = "Pocket ACE",
