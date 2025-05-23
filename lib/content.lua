@@ -270,7 +270,7 @@ SMODS.PokerHand({
 
 SMODS.PokerHand({
 	key = "None",
-	visible = true,
+	visible = false,
 	chips = 0,
 	mult = 0,
 	l_chips = 5,
