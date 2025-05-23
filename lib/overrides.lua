@@ -1675,3 +1675,118 @@ G.FUNCS.play_cards_from_highlighted = function(e)
 	end
 	play_ref(e)
 end
+
+--none stuff
+local set_blindref = Blind.set_blind
+function Blind:set_blind(blind, reset, silent)
+    set_blindref(self, blind, reset, silent)
+    if G.GAME.hands["none_None"].visible and G.STATE ~= G.STATES.ROUND_EVAL then
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function() 
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["none_None"].mult, chips = G.GAME.hands["none_None"].chips, level = G.GAME.hands["none_None"].level, handname = localize('none_None', "poker_hands")});play_sound('button', 0.9, 0.6);
+				return true
+			end
+		}))
+    end
+end
+
+local end_roundref = end_round
+function end_round()
+    end_roundref()
+	G.E_MANAGER:add_event(Event({
+		trigger = 'after',
+		func = function() 
+			update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+
+			return true
+		end
+	}))
+end
+
+local after_ref = evaluate_play_after
+function evaluate_play_after(text, disp_text, poker_hands, scoring_hand, non_loc_disp_text, percent, percent_delta)
+	local ret = after_ref(text, disp_text, poker_hands, scoring_hand, non_loc_disp_text, percent, percent_delta)
+	if G.GAME.hands["none_None"].visible then G.reset_to_none = true end
+	return ret
+end
+local update_handref = Game.update_selecting_hand
+function Game:update_selecting_hand(dt)
+	local ret = update_handref(self, dt)
+	if G.reset_to_none then
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function() 
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["none_None"].mult, chips = G.GAME.hands["none_None"].chips, level = G.GAME.hands["none_None"].level, handname = localize('none_None', "poker_hands")});play_sound('button', 0.9, 0.6);
+
+				return true
+			end
+		}))
+		G.reset_to_none = nil
+	end
+	return ret
+end
+
+local blind_loadref = Blind.load
+function Blind:load(blindTable)
+	blind_loadref(self, blindTable)
+	if G.GAME.hands["none_None"].visible and self.blind_set and G.STATE ~= G.STATES.ROUND_EVAL then 
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function() 
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["none_None"].mult, chips = G.GAME.hands["none_None"].chips, level = G.GAME.hands["none_None"].level, handname = localize('none_None', "poker_hands")});play_sound('button', 0.9, 0.6);
+
+				return true
+			end
+		}))
+	end
+end
+
+local evaluate_ref = G.FUNCS.evaluate_round
+G.FUNCS.evaluate_round = function()
+	evaluate_ref()
+	update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+	G.E_MANAGER:add_event(Event({
+		trigger = 'after',
+		func = function() 
+			update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+			return true
+		end
+	}))
+end
+
+local discard_ref = G.FUNCS.discard_cards_from_highlighted
+G.FUNCS.discard_cards_from_highlighted = function(e, hook)
+	discard_ref(e, hook)
+	local highlighted_count = math.min(#G.hand.highlighted, G.discard.config.card_limit - #G.play.cards)
+	if highlighted_count <= 0 then
+        table.sort(G.hand.highlighted, function(a,b) return a.T.x < b.T.x end)
+        check_for_unlock({type = 'discard_custom', cards = {}})
+		for j = 1, #G.jokers.cards do
+            G.jokers.cards[j]:calculate_joker({pre_discard = true, full_hand = G.hand.highlighted, hook = hook})
+        end
+        if not hook then
+            if G.GAME.modifiers.discard_cost then
+                ease_dollars(-G.GAME.modifiers.discard_cost)
+            end
+            ease_discard(-1)
+            G.GAME.current_round.discards_used = G.GAME.current_round.discards_used + 1
+            G.STATE = G.STATES.DRAW_TO_HAND
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = function()
+                    G.STATE_COMPLETE = false
+                    return true
+                end
+            }))
+        end
+	end
+end
+local play_ref = G.FUNCS.play_cards_from_highlighted
+G.FUNCS.play_cards_from_highlighted = function(e)
+	if G.GAME.stamp_mod and not G.PROFILES[G.SETTINGS.profile].cry_none then
+		G.PROFILES[G.SETTINGS.profile].cry_none = true
+		print("nonelock stuff here")
+	end
+	play_ref(e)
+end
