@@ -5842,7 +5842,7 @@ local the = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
-			--"c_cry_marsmoons", none planet
+			"c_cry_nibiru",
 		},
 	},
 	name = "cry-the",
@@ -6560,7 +6560,7 @@ local undefined = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
-			--"c_cry_marsmoons", nibiru here
+			"c_cry_nibiru",
 		},
 	},
 	name = "cry-undefined Joker",
@@ -7215,7 +7215,7 @@ local nebulous = {
 	dependencies = {
 		items = {
 			"set_cry_poker_hand_stuff",
-			--"c_cry_marsmoons", none planet
+			"c_cry_nibiru",
 		},
 	},
 	name = "cry-nebulous Joker",
