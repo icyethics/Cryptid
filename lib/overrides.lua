@@ -1563,7 +1563,7 @@ end
 local set_blindref = Blind.set_blind
 function Blind:set_blind(blind, reset, silent)
     set_blindref(self, blind, reset, silent)
-    if G.GAME.hands["cry_None"].visible and G.STATE == G.STATES.SELECTING_HAND and #G.hand.highlighted == 0 then
+    if G.GAME.hands["cry_None"].visible and (G.STATE == G.STATES.SELECTING_HAND or G.STATE == G.STATES.DRAW_TO_HAND) and #G.hand.highlighted == 0 then
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function() 
@@ -1614,12 +1614,11 @@ end
 local blind_loadref = Blind.load
 function Blind:load(blindTable)
 	blind_loadref(self, blindTable)
-	if G.GAME.hands["cry_None"].visible and self.blind_set and G.STATE == G.STATES.SELECTING_HAND then 
+	if G.GAME.hands["cry_None"].visible and self.blind_set and (G.STATE == G.STATES.SELECTING_HAND or G.STATE == G.STATES.DRAW_TO_HAND) then 
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function() 
 				update_hand_text({delay = 0, immediate = true, volume=0.01}, {mult = G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")});
-				print(10)
 				return true
 			end
 		}))
