@@ -1680,11 +1680,11 @@ end
 local set_blindref = Blind.set_blind
 function Blind:set_blind(blind, reset, silent)
     set_blindref(self, blind, reset, silent)
-    if G.GAME.hands["none_None"].visible and G.STATE ~= G.STATES.ROUND_EVAL then
+    if G.GAME.hands["cry_None"].visible and G.STATE ~= G.STATES.ROUND_EVAL then
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function() 
-				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["none_None"].mult, chips = G.GAME.hands["none_None"].chips, level = G.GAME.hands["none_None"].level, handname = localize('none_None', "poker_hands")});play_sound('button', 0.9, 0.6);
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")});play_sound('button', 0.9, 0.6);
 				return true
 			end
 		}))
@@ -1707,7 +1707,7 @@ end
 local after_ref = evaluate_play_after
 function evaluate_play_after(text, disp_text, poker_hands, scoring_hand, non_loc_disp_text, percent, percent_delta)
 	local ret = after_ref(text, disp_text, poker_hands, scoring_hand, non_loc_disp_text, percent, percent_delta)
-	if G.GAME.hands["none_None"].visible then G.reset_to_none = true end
+	if G.GAME.hands["cry_None"].visible then G.reset_to_none = true end
 	return ret
 end
 local update_handref = Game.update_selecting_hand
@@ -1717,7 +1717,7 @@ function Game:update_selecting_hand(dt)
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function() 
-				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["none_None"].mult, chips = G.GAME.hands["none_None"].chips, level = G.GAME.hands["none_None"].level, handname = localize('none_None', "poker_hands")});play_sound('button', 0.9, 0.6);
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")});play_sound('button', 0.9, 0.6);
 
 				return true
 			end
@@ -1730,11 +1730,11 @@ end
 local blind_loadref = Blind.load
 function Blind:load(blindTable)
 	blind_loadref(self, blindTable)
-	if G.GAME.hands["none_None"].visible and self.blind_set and G.STATE ~= G.STATES.ROUND_EVAL then 
+	if G.GAME.hands["cry_None"].visible and self.blind_set and G.STATE ~= G.STATES.ROUND_EVAL then 
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function() 
-				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["none_None"].mult, chips = G.GAME.hands["none_None"].chips, level = G.GAME.hands["none_None"].level, handname = localize('none_None', "poker_hands")});play_sound('button', 0.9, 0.6);
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")});play_sound('button', 0.9, 0.6);
 
 				return true
 			end

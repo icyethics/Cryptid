@@ -1335,6 +1335,18 @@ return {
 					"an {E:1,C:attention}Ultimate Pair",
 				},
 			},
+			j_cry_the = {
+				name = "The",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult if played",
+					"hand is {C:attention}#2#",
+				},
+				unlock = {
+					"Win a run with",
+					"your final hand being",
+					"a {E:1,C:attention}None",
+				},
+			},
 			j_cry_clicked_cookie = {
 				name = "Clicked Cookie",
 				text = {
@@ -1740,6 +1752,13 @@ return {
 					"{C:red}+#1#{} Mult if played",
 					"hand contains",
 					"an {C:attention}#2#",
+				},
+			},
+			j_cry_undefined = {
+				name = "Undefined Joker",
+				text = {
+					"{C:red}+#1#{} Mult if played",
+					"hand is {C:attention}#2#",
 				},
 			},
 			j_cry_formidiulosus = {
@@ -2787,6 +2806,13 @@ return {
 					"{C:chips}+#1#{} Chip#<s>1# if played",
 					"hand contains",
 					"an {C:attention}#2#",
+				},
+			},
+			j_cry_nebulous = {
+				name = "Nebulous Joker",
+				text = {
+					"{C:chips}+#1#{} Chip#<s>1# if played",
+					"hand is {C:attention}#2#",
 				},
 			},
 			j_cry_trick_or_treat = {

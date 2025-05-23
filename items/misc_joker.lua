@@ -5836,6 +5836,81 @@ local clash = {
 	end,
 	unlocked = false,
 }
+
+local the = {
+	object_type = "Joker",
+	dependencies = {
+		items = {
+			"set_cry_poker_hand_stuff",
+			--"c_cry_marsmoons", none planet
+		},
+	},
+	name = "cry-the",
+	key = "the",
+	order = 121.6,
+	pos = { x = 4, y = 7 },
+	config = {
+		extra = {
+			Xmult = 2,
+			type = "cry_None",
+		},
+	},
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				number_format(card.ability.extra.Xmult),
+				localize(card.ability.extra.type, "poker_hands"),
+			},
+		}
+	end,
+	atlas = "atlasthree",
+	rarity = 3,
+	cost = 8,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function(self, card, context)
+		if context.joker_main and (to_big(card.ability.extra.Xmult) > to_big(1)) then
+			if context.scoring_name == "cry_None" then
+				return {
+					message = localize({
+						type = "variable",
+						key = "a_xmult",
+						vars = { number_format(card.ability.extra.Xmult) },
+					}),
+					colour = G.C.RED,
+					Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
+				}
+			end
+		end
+		if context.forcetrigger then
+			return {
+				message = localize({
+					type = "variable",
+					key = "a_xmult",
+					vars = { number_format(card.ability.extra.Xmult) },
+				}),
+				colour = G.C.RED,
+				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
+			}
+		end
+	end,
+	in_pool = function(self)
+		if G.GAME.hands["cry_None"].played > 0 then
+			return true
+		end
+		return false
+	end,
+	check_for_unlock = function(self, args)
+		if args.type == "win" and G.GAME.last_hand_played == "cry_None" then
+			return true
+		end
+	end,
+	unlocked = false,
+	cry_credits = {
+		art = {"MarioFan597"}
+	}
+}
+
 local filler = {
 	object_type = "Joker",
 	dependencies = {
@@ -6479,6 +6554,66 @@ local foolhardy = {
 		return false
 	end,
 }
+
+local undefined = {
+	object_type = "Joker",
+	dependencies = {
+		items = {
+			"set_cry_poker_hand_stuff",
+			--"c_cry_marsmoons", nibiru here
+		},
+	},
+	name = "cry-undefined Joker",
+	key = "undefined",
+	pos = { x = 2, y = 7 },
+	order = 115.5,
+	config = {
+		extra = {
+			t_mult = 5,
+			type = "cry_None",
+		},
+	},
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				number_format(card.ability.extra.t_mult),
+				localize(card.ability.extra.type, "poker_hands"),
+			},
+		}
+	end,
+	atlas = "atlasthree",
+	rarity = 1,
+	effect = "Cry Type Mult",
+	cost = 4,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function(self, card, context)
+		if
+			(context.joker_main and scoring_name == "cry_None")
+			or context.forcetrigger
+		then
+			return {
+				message = localize({
+					type = "variable",
+					key = "a_mult",
+					vars = { number_format(card.ability.extra.t_mult) },
+				}),
+				colour = G.C.RED,
+				mult_mod = lenient_bignum(card.ability.extra.t_mult),
+			}
+		end
+	end,
+	in_pool = function(self)
+		if G.GAME.hands["cry_None"].played > 0 then
+			return true
+		end
+		return false
+	end,
+	cry_credits = {
+		art = {"unexian"},
+	}
+}
+
 local dubious = {
 	object_type = "Joker",
 	dependencies = {
@@ -7075,6 +7210,65 @@ local treacherous = {
 		return false
 	end,
 }
+local nebulous = {
+	object_type = "Joker",
+	dependencies = {
+		items = {
+			"set_cry_poker_hand_stuff",
+			--"c_cry_marsmoons", none planet
+		},
+	},
+	name = "cry-nebulous Joker",
+	key = "nebulous",
+	pos = { x = 3, y = 7 },
+	effect = "Cry Type Chips",
+	order = 118.5,
+	config = {
+		extra = {
+			t_chips = 30,
+			type = "cry_None",
+		},
+	},
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				number_format(card.ability.extra.t_chips),
+				localize(card.ability.extra.type, "poker_hands"),
+			},
+		}
+	end,
+	atlas = "atlasthree",
+	rarity = 1,
+	cost = 4,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function(self, card, context)
+		if
+			(context.joker_main and context.scoring_name == "cry_None")
+			or context.forcetrigger
+		then
+			return {
+				message = localize({
+					type = "variable",
+					key = "a_chips",
+					vars = { number_format(card.ability.extra.t_chips) },
+				}),
+				colour = G.C.BLUE,
+				chip_mod = lenient_bignum(card.ability.extra.t_chips),
+			}
+		end
+	end,
+	in_pool = function(self)
+		if G.GAME.hands["cry_None"].played > 0 then
+			return true
+		end
+		return false
+	end,
+	cry_credits = {
+		art = {"unexian"}
+	}
+}
+
 local coin = {
 	object_type = "Joker",
 	dependencies = {
@@ -9985,6 +10179,9 @@ local miscitems = {
 	stronghold,
 	wtf,
 	clash,
+	the,
+	undefined,
+	nebulous,
 	adroit,
 	penetrating,
 	treacherous,
