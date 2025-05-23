@@ -1664,6 +1664,16 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
             }))
         end
 	end
+	if G.GAME.hands["cry_None"].visible then
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function() 
+				update_hand_text({delay = 0, immediate = true}, {mult = G.GAME.hands["cry_None"].mult, chips = G.GAME.hands["cry_None"].chips, level = G.GAME.hands["cry_None"].level, handname = localize('cry_None', "poker_hands")});
+				
+				return true
+			end
+		}))
+	end
 end
 local play_ref = G.FUNCS.play_cards_from_highlighted
 G.FUNCS.play_cards_from_highlighted = function(e)
