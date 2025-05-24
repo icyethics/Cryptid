@@ -249,6 +249,7 @@ local universe = {
 				colours = {
 					(
 						to_big(G.GAME.hands["cry_WholeDeck"].level) == to_big(1) and G.C.UI.TEXT_DARK
+		
 						or G.C.HAND_LEVELS[to_big(math.min(7, G.GAME.hands["cry_WholeDeck"].level)):to_number()]
 					),
 				},
@@ -256,6 +257,10 @@ local universe = {
 		}
 	end,
 	generate_ui = 0,
+	cry_credits = {
+		art = {"cassknows"},
+		code = {"lord-ruby"}
+	}
 }
 
 -- Planet.lua

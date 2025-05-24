@@ -5907,7 +5907,8 @@ local the = {
 	end,
 	unlocked = false,
 	cry_credits = {
-		art = {"MarioFan597"}
+		art = {"MarioFan597"},
+		code = {"lord-ruby"}
 	}
 }
 
@@ -6589,7 +6590,7 @@ local undefined = {
 	demicoloncompat = true,
 	calculate = function(self, card, context)
 		if
-			(context.joker_main and scoring_name == "cry_None")
+			(context.joker_main and context.scoring_name == "cry_None")
 			or context.forcetrigger
 		then
 			return {
@@ -6611,6 +6612,7 @@ local undefined = {
 	end,
 	cry_credits = {
 		art = {"unexian"},
+		code = {"lord-ruby"}
 	}
 }
 
@@ -7265,7 +7267,8 @@ local nebulous = {
 		return false
 	end,
 	cry_credits = {
-		art = {"unexian"}
+		art = {"unexian"},
+		code = {"lord-ruby"}
 	}
 }
 
