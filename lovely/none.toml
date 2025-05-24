@@ -247,3 +247,41 @@ payload = '''
     G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + G.GAME.hands[hand].l_chips*amount
 '''
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+    if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then
+        end_round()
+    end
+'''
+position = "at"
+payload = '''
+    if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 and not G.PROFILES[G.SETTINGS.profile].cry_none then
+        end_round()
+    end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+        if #G.hand.cards < 1 and #G.deck.cards < 1 then
+            end_round()
+        else
+            save_run()
+            G.CONTROLLER:recall_cardarea_focus('hand')
+        end
+'''
+position = "at"
+payload = '''
+        if #G.hand.cards < 1 and #G.deck.cards < 1 and not G.PROFILES[G.SETTINGS.profile].cry_none then
+            end_round()
+        else
+            save_run()
+            G.CONTROLLER:recall_cardarea_focus('hand')
+        end
+'''
+match_indent = true
