@@ -2815,6 +2815,30 @@ return {
 					"hand is {C:attention}#2#",
 				},
 			},
+			j_cry_words_cant_even = {
+				name = "Words cant even describe this Joker",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult if played",
+					"hand contains",
+					"a {C:attention}#2#",
+				},
+			},
+			j_cry_many_lost_minds = {
+				name = "Many have lost their minds comprehending this Joker",
+				text = {
+					"{X:blue,C:white}X#1#{} Chips if played",
+					"hand contains",
+					"a {C:attention}#2#",
+				},
+			},
+			j_cry_annihalation = {
+				name = "The complete and utter annihalation of everything that makes Balatro sacred",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult if played",
+					"hand contains",
+					"a {C:attention}#2#",
+				},
+			},
 			j_cry_trick_or_treat = {
 				name = "Trick-or-Treat",
 				text = {
