@@ -1677,9 +1677,10 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
 end
 local play_ref = G.FUNCS.play_cards_from_highlighted
 G.FUNCS.play_cards_from_highlighted = function(e)
-	if G.GAME.stamp_mod and not G.PROFILES[G.SETTINGS.profile].cry_none then
+	if G.GAME.stamp_mod and not G.PROFILES[G.SETTINGS.profile].cry_none and #G.hand.highlighted == 1 then
 		G.PROFILES[G.SETTINGS.profile].cry_none = true
 		print("nonelock stuff here")
+		G.GAME.hands["cry_None"].visible = true
 	end
 	if G.PROFILES[G.SETTINGS.profile].cry_none and #G.hand.highlighted == 0 then
 		G.GAME.hands["cry_None"].visible = true
