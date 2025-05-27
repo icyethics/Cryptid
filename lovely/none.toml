@@ -7,13 +7,13 @@ priority = 0
 [patches.pattern]
 target = "functions/button_callbacks.lua"
 pattern = '''
-if #G.hand.highlighted <= (G.GAME.stamp_mod and 1 or 0) or G.GAME.blind.block_play then
+if #G.hand.highlighted <= 0 or G.GAME.blind.block_play or #G.hand.highlighted > math.max(G.GAME.starting_params.play_limit, 1) then 
 '''
 position = "at"
 payload = '''
 local num = 0
 if G.PROFILES[G.SETTINGS.profile].cry_none then num = -1 end
-if #G.hand.highlighted <= num or G.GAME.blind.block_play then
+if #G.hand.highlighted <= num or G.GAME.blind.block_play or #G.hand.highlighted > math.max(G.GAME.starting_params.play_limit, 1) then 
 '''
 match_indent = true
 
@@ -29,7 +29,7 @@ payload = '''
   G.FUNCS.can_discard = function(e)
     local num = 0
     if G.PROFILES[G.SETTINGS.profile].cry_none then num = -1 end
-    if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= num then 
+    if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= num or #G.hand.highlighted > math.max(G.GAME.starting_params.discard_limit, 0) then 
 '''
 match_indent = true
 
