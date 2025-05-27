@@ -4814,6 +4814,7 @@ return {
 			--Why aren't these in vanilla?
 			b_tag = "Tag",
 			b_blind = "Blind",
+			rush_hour_reminder = "Enable the Clock and Lavender loop to play Rush Hour",
 
 			b_tarot_rate = "Tarot Rate",
 			b_planet_rate = "Planet Rate",
