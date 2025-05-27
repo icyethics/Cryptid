@@ -870,9 +870,7 @@ local lavender_loop = {
 			and G.GAME.cry_ach_conditions.patience_virtue_earnable ~= true
 		then
 			G.GAME.cry_ach_conditions.patience_virtue_timer = G.GAME.cry_ach_conditions.patience_virtue_timer
-				- dt
-					* (G.SETTINGS.paused and 0 or 1)
-					* G.SETTINGS.GAMESPEED
+				- dt * (G.SETTINGS.paused and 0 or 1) * G.SETTINGS.GAMESPEED
 		elseif G.GAME.current_round.hands_played == 0 then
 			G.GAME.cry_ach_conditions.patience_virtue_earnable = true
 		end
