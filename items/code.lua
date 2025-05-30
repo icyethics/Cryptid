@@ -4171,12 +4171,16 @@ local ctrl_v = {
 		return {}
 	end,
 	can_use = function(self, card)
-		if (G.pack_cards and G.pack_cards.highlighted) then
+		if G.pack_cards and G.pack_cards.highlighted then
 			for i = 1, #G.pack_cards.highlighted do
-				if G.pack_cards.highlighted[i].ability and 
-				(G.pack_cards.highlighted[i].ability.consumeable or
-				G.pack_cards.highlighted[i].ability.set == "Default" or
-				G.pack_cards.highlighted[i].ability.set == "Enhanced") then
+				if
+					G.pack_cards.highlighted[i].ability
+					and (
+						G.pack_cards.highlighted[i].ability.consumeable
+						or G.pack_cards.highlighted[i].ability.set == "Default"
+						or G.pack_cards.highlighted[i].ability.set == "Enhanced"
+					)
+				then
 					-- nothing
 				else
 					return false
