@@ -5901,9 +5901,9 @@ local the = {
 	end,
 	unlocked = false,
 	cry_credits = {
-		art = {"MarioFan597"},
-		code = {"lord-ruby"}
-	}
+		art = { "MarioFan597" },
+		code = { "lord-ruby" },
+	},
 }
 
 local annihalation = {
@@ -5966,9 +5966,9 @@ local annihalation = {
 	end,
 	unlocked = false,
 	cry_credits = {
-		art = {"luigicat11"},
-		code = {"lord-ruby"}
-	}
+		art = { "luigicat11" },
+		code = { "lord-ruby" },
+	},
 }
 
 local filler = {
@@ -6648,10 +6648,7 @@ local undefined = {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	calculate = function(self, card, context)
-		if
-			(context.joker_main and context.scoring_name == "cry_None")
-			or context.forcetrigger
-		then
+		if (context.joker_main and context.scoring_name == "cry_None") or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",
@@ -6670,9 +6667,9 @@ local undefined = {
 		return false
 	end,
 	cry_credits = {
-		art = {"unexian"},
-		code = {"lord-ruby"}
-	}
+		art = { "unexian" },
+		code = { "lord-ruby" },
+	},
 }
 
 local wordscanteven = {
@@ -6708,10 +6705,7 @@ local wordscanteven = {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	calculate = function(self, card, context)
-		if
-			(context.joker_main and next(context.poker_hands["cry_WholeDeck"]))
-			or context.forcetrigger
-		then
+		if (context.joker_main and next(context.poker_hands["cry_WholeDeck"])) or context.forcetrigger then
 			return {
 				colour = G.C.RED,
 				xmult = lenient_bignum(card.ability.extra.x_mult),
@@ -6725,9 +6719,9 @@ local wordscanteven = {
 		return false
 	end,
 	cry_credits = {
-		art = {"luigicat11"},
-		code = {"lord-ruby"}
-	}
+		art = { "luigicat11" },
+		code = { "lord-ruby" },
+	},
 }
 
 local dubious = {
@@ -7359,10 +7353,7 @@ local nebulous = {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	calculate = function(self, card, context)
-		if
-			(context.joker_main and context.scoring_name == "cry_None")
-			or context.forcetrigger
-		then
+		if (context.joker_main and context.scoring_name == "cry_None") or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",
@@ -7381,9 +7372,9 @@ local nebulous = {
 		return false
 	end,
 	cry_credits = {
-		art = {"unexian"},
-		code = {"lord-ruby"}
-	}
+		art = { "unexian" },
+		code = { "lord-ruby" },
+	},
 }
 
 local manylostminds = {
@@ -7419,10 +7410,7 @@ local manylostminds = {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	calculate = function(self, card, context)
-		if
-			(context.joker_main and next(context.poker_hands["cry_WholeDeck"]))
-			or context.forcetrigger
-		then
+		if (context.joker_main and next(context.poker_hands["cry_WholeDeck"])) or context.forcetrigger then
 			return {
 				colour = G.C.BLUE,
 				xchips = lenient_bignum(card.ability.extra.x_chips),
@@ -7436,9 +7424,9 @@ local manylostminds = {
 		return false
 	end,
 	cry_credits = {
-		art = {"luigicat11"},
-		code = {"lord-ruby"}
-	}
+		art = { "luigicat11" },
+		code = { "lord-ruby" },
+	},
 }
 
 local coin = {
