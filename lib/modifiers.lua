@@ -884,9 +884,8 @@ function G.UIDEF.used_vouchers()
 	)
 
 	-- Code by IcyEthics: Generates sliders dynamically
+	local cryptid_voucher_nodes = {}
 	if silent then
-		local cryptid_voucher_nodes = {}
-
 		for i, _info in ipairs(Cryptid.voucher_acclimator_data) do
 			if next(SMODS.find_card(_info.voucher_key)) then
 				cryptid_voucher_nodes[#cryptid_voucher_nodes + 1] = {
