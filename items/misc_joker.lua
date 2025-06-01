@@ -10277,15 +10277,14 @@ local yarnball = { -- +1 to all listed probabilities for the highest cat tag lev
 	end,
 
 	calculate = function(self, card, context)
-
-		if (true) then
+		if true then
 			local highest = 0
 			for i, tag in pairs(G.GAME.tags) do
 				local lvl = tag.ability.level
 				if lvl == nil then
 					lvl = 1
 				end
-					-- print("trying comparison of " .. tostring(lvl) .. " > " .. tostring(highest))
+				-- print("trying comparison of " .. tostring(lvl) .. " > " .. tostring(highest))
 				if tag.key == "tag_cry_cat" and lvl > highest then
 					highest = lvl
 					-- get highest cat tag level
@@ -10296,10 +10295,10 @@ local yarnball = { -- +1 to all listed probabilities for the highest cat tag lev
 			-- print(card.ability.immutable.lasthighest, highest)
 			if highest ~= card.ability.immutable.lasthighest then
 				for k, v in pairs(G.GAME.probabilities) do
-					G.GAME.probabilities[k] = (v - (card.ability.immutable.lasthighest)) + highest
+					G.GAME.probabilities[k] = (v - card.ability.immutable.lasthighest) + highest
 					-- im not fully sure on this, but we're having fun :)
 					-- i dont even know if you have to iterate through all of them, but this is what oa6 does
-					end
+				end
 				card.ability.immutable.lasthighest = highest
 			end
 		end
