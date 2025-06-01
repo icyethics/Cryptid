@@ -3028,6 +3028,26 @@ local run = {
 }
 -- ://Class
 -- Change a selected card's enhancement to one of your choosing (or nil)
+
+local enh_table = {
+	m_bonus = { "bonus" },
+	m_mult = { "mult", "red" },
+	m_wild = { "wild", "suit" },
+	m_glass = { "glass", "xmult" },
+	m_steel = { "steel", "metal", "grey" },
+	m_stone = { "stone", "chip", "chips" },
+	m_gold = { "gold", "money", "yellow" },
+	m_lucky = { "lucky", "rng" },
+	m_cry_echo = { "echo", "retrigger", "retriggers" },
+	m_cry_abstract = { "abstract", "abstracted", "tadc", "theamazingdigitalcircus", "kaufumo" }, --why him? he was the first person we see get abstracted
+	m_cry_light = { "light" },
+	ccd = { "ccd" },
+	null = { "nil" },
+}
+
+Cryptid.load_enhancement_aliases(enh_table)
+
+
 local class = {
 	cry_credits = {
 		idea = {
@@ -3153,21 +3173,22 @@ local class = {
 		end
 		--todo: mod support
 		G.FUNCS.class_apply = function()
-			local enh_table = {
-				m_bonus = { "bonus" },
-				m_mult = { "mult", "red" },
-				m_wild = { "wild", "suit" },
-				m_glass = { "glass", "xmult" },
-				m_steel = { "steel", "metal", "grey" },
-				m_stone = { "stone", "chip", "chips" },
-				m_gold = { "gold", "money", "yellow" },
-				m_lucky = { "lucky", "rng" },
-				m_cry_echo = { "echo", "retrigger", "retriggers" },
-				m_cry_abstract = { "abstract", "abstracted", "tadc", "theamazingdigitalcircus", "kaufumo" }, --why him? he was the first person we see get abstracted
-				m_cry_light = { "light" },
-				ccd = { "ccd" },
-				null = { "nil" },
-			}
+			-- local enh_table = {
+			-- 	m_bonus = { "bonus" },
+			-- 	m_mult = { "mult", "red" },
+			-- 	m_wild = { "wild", "suit" },
+			-- 	m_glass = { "glass", "xmult" },
+			-- 	m_steel = { "steel", "metal", "grey" },
+			-- 	m_stone = { "stone", "chip", "chips" },
+			-- 	m_gold = { "gold", "money", "yellow" },
+			-- 	m_lucky = { "lucky", "rng" },
+			-- 	m_cry_echo = { "echo", "retrigger", "retriggers" },
+			-- 	m_cry_abstract = { "abstract", "abstracted", "tadc", "theamazingdigitalcircus", "kaufumo" }, --why him? he was the first person we see get abstracted
+			-- 	m_cry_light = { "light" },
+			-- 	ccd = { "ccd" },
+			-- 	null = { "nil" },
+			-- }
+			local enh_table = Cryptid.enhancement_alias_list
 
 			local enh_suffix = nil
 
@@ -3417,10 +3438,11 @@ local global_sticker = {
 	calculate = function(self, card, context)
 		-- Added by IcyEthics
 		if context.cry_shuffling_area and context.cardarea == G.deck and context.cry_post_shuffle then
+
 			local _targetpos = nil
 			local _selfpos = nil
 
-			-- Iterate through every card in the deck to find both the location
+			-- Iterate through every card in the deck to find both the location 
 			-- of the stickered card, and the highest placed non-stickered card
 			for i, _playingcard in ipairs(G.deck.cards) do
 				if _playingcard == card then
@@ -3430,15 +3452,12 @@ local global_sticker = {
 				end
 			end
 
-			if _targetpos == nil then
-				_targetpos = #G.deck.cards
-			end
-			if _selfpos == nil then
-				_selfpos = #G.deck.cards
-			end
+			if _targetpos == nil then _targetpos = #G.deck.cards end
+			if _selfpos == nil then _selfpos = #G.deck.cards end
 
 			-- Swaps the positions of the selected cards
 			G.deck.cards[_selfpos], G.deck.cards[_targetpos] = G.deck.cards[_targetpos], G.deck.cards[_selfpos]
+
 		end
 	end,
 }
@@ -5332,6 +5351,10 @@ return {
 			end
 			yc(e)
 		end
+
+		-- code to set up base Cryptid enhancement keys
+
+
 	end,
 	items = code_cards,
 }
