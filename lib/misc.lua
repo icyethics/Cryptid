@@ -361,6 +361,7 @@ function Card:no(m, no_no)
 	return Card.no(self, "no_" .. m, true)
 end
 
+-- Checks for specific qualities to blacklist
 function Cryptid.no(center, m, key, no_no)
 	if no_no then
 		return center[m] or (G.GAME and G.GAME[m] and G.GAME[m][key]) or false

@@ -761,13 +761,23 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		end
 		ps = Cryptid.predict_pseudoseed
 	end
+
+	-- NOTE: Why is this center set?
 	local center = G.P_CENTERS.b_red
+
+	-- Force key to be RNJoker
 	if (_type == "Joker" or _type == "Meme") and G.GAME and G.GAME.modifiers and G.GAME.modifiers.all_rnj then
 		forced_key = "j_cry_rnjoker"
 	end
+
+	-- Entirely unclear as to what this accomplishes
 	local function aeqviable(center)
+		if center == G.P_CENTERS.b_red then print("this is b red") end
 		return center.unlocked and not Cryptid.no(center, "doe") and not (center.rarity == "cry_exotic")
 	end
+
+	-- very awkward check specifically for the ace aequilibrium generation
+	-- NOTE: I think this can be reworked to just rely on key_append
 	if _type == "Joker" and not _rarity and not legendary then
 		if not G.GAME.aequilibriumkey then
 			G.GAME.aequilibriumkey = 1
@@ -786,6 +796,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			forced_key = G.P_CENTER_POOLS["Joker"][aeqactive].key
 		end
 	end
+
 	--should pool be skipped with a forced key
 	if not forced_key and soulable and not G.GAME.banned_keys["c_soul"] then
 		for _, v in ipairs(SMODS.Consumable.legendaries) do
@@ -816,6 +827,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		end
 	end
 
+	-- Forces a base card
 	if _type == "Base" then
 		forced_key = "c_base"
 	end
@@ -862,6 +874,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		return ret --the config.center.key stuff prevents a crash with Jen's Almanac hook
 	end
 
+	-- Creates the card object
 	local card = Card(
 		area and (area.T.x + area.T.w / 2) or 0,
 		area and area.T.y or 0,
@@ -884,6 +897,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			bypass_back = G.GAME.selected_back.pos,
 		}
 	)
+
+	-- Checks forcing quality onto cards
 	if front and G.GAME.modifiers.cry_force_suit then
 		card:change_suit(G.GAME.modifiers.cry_force_suit)
 	end
@@ -896,9 +911,13 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	if front and G.GAME.modifiers.cry_force_seal then
 		card:set_seal(G.GAME.modifiers.cry_force_seal)
 	end
+
+	-- Starts generating the sticker
 	if card.ability.consumeable and not skip_materialize then
 		card:start_materialize()
 	end
+
+	-- Checks for stickers to apply
 	for k, v in ipairs(SMODS.Sticker.obj_buffer) do
 		local sticker = SMODS.Stickers[v]
 		if
@@ -909,6 +928,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			sticker:apply(card, true)
 		end
 	end
+
+	-- Checks if there's an eternal to force
 	if
 		G.GAME.modifiers.cry_force_sticker == "eternal"
 		or (
@@ -921,6 +942,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		card:set_eternal(true)
 		card.ability.eternal = true
 	end
+
+	-- Checks for perishable to force
 	if
 		G.GAME.modifiers.cry_force_sticker == "perishable"
 		or (
@@ -934,6 +957,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		card.ability.perish_tally = G.GAME.perishable_rounds -- set_perishable should be doing this? whatever
 		card.ability.perishable = true
 	end
+
+	-- Checks for rental to force
 	if
 		G.GAME.modifiers.cry_force_sticker == "rental"
 		or (
@@ -946,6 +971,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		card:set_rental(true)
 		card.ability.rental = true
 	end
+
+	-- Checks for pinned to force
 	if
 		G.GAME.modifiers.cry_force_sticker == "pinned"
 		or (
@@ -957,6 +984,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	then
 		card.pinned = true
 	end
+
+	-- Checks to force the banana sticker
 	if
 		G.GAME.modifiers.cry_force_sticker == "banana"
 		or (
@@ -968,6 +997,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	then
 		card.ability.banana = true
 	end
+
+	-- Applies stickers set by game rules
 	if G.GAME.modifiers.cry_sticker_sheet_plus and not (_type == "Base" or _type == "Enhanced") then
 		for k, v in pairs(SMODS.Stickers) do
 			if v.apply and not v.no_sticker_sheet then
@@ -976,9 +1007,12 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		end
 	end
 
+	-- Makes cube always eternal (Can this be done in the set_ability of the joker?)
 	if card.ability.name == "cry-Cube" then
 		card:set_eternal(true)
 	end
+
+	-- Force a bunch of potential stickers
 	if _type == "Joker" or (G.GAME.modifiers.cry_any_stickers and not G.GAME.modifiers.cry_sticker_sheet) then
 		if G.GAME.modifiers.all_eternal then
 			card:set_eternal(true)
@@ -995,11 +1029,15 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 		if G.GAME.modifiers.cry_all_banana then
 			card.ability.banana = true
 		end
+
+		-- Checks location and acts depending on the intended area
 		if (area == G.shop_jokers) or (area == G.pack_cards) then
 			local eternal_perishable_poll = pseudorandom("cry_et" .. (key_append or "") .. G.GAME.round_resets.ante)
+
 			if G.GAME.modifiers.enable_eternals_in_shop and eternal_perishable_poll > 0.7 then
 				card:set_eternal(true)
 			end
+
 			if G.GAME.modifiers.enable_perishables_in_shop then
 				if
 					not G.GAME.modifiers.cry_eternal_perishable_compat
@@ -1014,18 +1052,21 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 					card:set_perishable(true)
 				end
 			end
+
 			if
 				G.GAME.modifiers.enable_rentals_in_shop
 				and pseudorandom("cry_ssjr" .. (key_append or "") .. G.GAME.round_resets.ante) > 0.7
 			then
 				card:set_rental(true)
 			end
+
 			if
 				G.GAME.modifiers.cry_enable_pinned_in_shop
 				and pseudorandom("cry_pin" .. (key_append or "") .. G.GAME.round_resets.ante) > 0.7
 			then
 				card.pinned = true
 			end
+
 			if
 				not G.GAME.modifiers.cry_eternal_perishable_compat
 				and G.GAME.modifiers.enable_banana
@@ -1034,6 +1075,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			then
 				card.ability.banana = true
 			end
+
 			if
 				G.GAME.modifiers.cry_eternal_perishable_compat
 				and G.GAME.modifiers.enable_banana
@@ -1041,6 +1083,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			then
 				card.ability.banana = true
 			end
+
 			if G.GAME.modifiers.cry_sticker_sheet then
 				for k, v in pairs(SMODS.Stickers) do
 					if v.apply and not v.no_sticker_sheet then
@@ -1048,6 +1091,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 					end
 				end
 			end
+
 			if
 				not card.ability.eternal
 				and G.GAME.modifiers.cry_enable_flipped_in_shop
@@ -1062,6 +1106,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			check_for_unlock({ type = "have_edition" })
 		end
 	end
+
+	-- Sets multiuse based on quantum computing numbers
 	if (card.ability.set == "Code") and G.GAME.used_vouchers.v_cry_quantum_computing then
 		local tot = 0
 		for k, v in pairs(SMODS.find_card("v_cry_quantum_computing")) do
@@ -1073,6 +1119,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			card.ability.cry_multiuse = tot + 1
 		end
 	end
+
+	-- Force random edition
 	if
 		G.GAME.modifiers.cry_force_edition
 		and not G.GAME.modifiers.cry_force_random_edition
@@ -1080,18 +1128,26 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	then
 		card:set_edition(nil, true)
 	end
+
+	-- Force random edition 
 	if G.GAME.modifiers.cry_force_random_edition and area ~= G.pack_cards then
 		local edition = Cryptid.poll_random_edition()
 		card:set_edition(edition, true)
 	end
+
+	-- Not sure what this does
 	if not (card.edition and (card.edition.cry_oversat or card.edition.cry_glitched)) then
 		Cryptid.misprintize(card)
 	end
+
+	-- Multiplies values by X for Common jokers
 	if card.ability.set == "Joker" and G.GAME.modifiers.cry_common_value_quad then
 		if card.config.center.rarity == 1 then
 			Cryptid.misprintize(card, { min = 4, max = 4 }, nil, true)
 		end
 	end
+
+	-- Multiplies values by X for Uncommon jokers
 	if card.ability.set == "Joker" and G.GAME.modifiers.cry_uncommon_value_quad then
 		if card.config.center.rarity == 2 then
 			Cryptid.misprintize(card, { min = 4, max = 4 }, nil, true)
@@ -1100,6 +1156,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	if card.ability.consumeable and card.pinned then -- counterpart is in Sticker.toml
 		G.GAME.cry_pinned_consumeables = G.GAME.cry_pinned_consumeables + 0
 	end
+
+	-- Checks if specific joker, then sets editions
 	if next(find_joker("Cry-topGear")) and card.config.center.rarity == 1 then
 		if
 			card.ability.name ~= "cry-meteor"
@@ -1110,6 +1168,8 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			card:set_edition("e_polychrome", true, nil, true)
 		end
 	end
+
+	-- Force editions on creation
 	if card.ability.name == "cry-meteor" then
 		card:set_edition("e_foil", true, nil, true)
 	end
@@ -1122,6 +1182,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	if card.ability.name == "cry-universe" then
 		card:set_edition("e_cry_astral", true, nil, true)
 	end
+
 	-- Certain jokers such as Steel Joker and Driver's License depend on values set
 	-- during the update function. Cryptid can create jokers mid-scoring, meaning
 	-- those values will be unset during scoring unless update() is manually called.
