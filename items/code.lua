@@ -3047,7 +3047,6 @@ local enh_table = {
 
 Cryptid.load_enhancement_aliases(enh_table)
 
-
 local class = {
 	cry_credits = {
 		idea = {
@@ -5351,10 +5350,6 @@ return {
 			end
 			yc(e)
 		end
-
-		-- code to set up base Cryptid enhancement keys
-
-
 	end,
 	items = code_cards,
 }

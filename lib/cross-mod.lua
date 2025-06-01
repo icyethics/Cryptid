@@ -151,7 +151,6 @@ function Card:is_suit_force_enhancement(suit, bypass_debuff, flush_calc)
 	return ref
 end
 
-
 -- === Cross mod access for Cryptid === --
 -- IcyEthics: Adding this section to collect functions that are intended to help other mods
 -- interact with Cryptid's functionality in some way
@@ -168,7 +167,6 @@ function Cryptid.load_enhancement_aliases(list)
 	end
 end
 
-
 -- Acclimator Voucher API functions
 -- This should allow other mods to set up their own tier 3 vouchers in the style of
 -- the Tarot Acclimator voucher by setting up the voucher and just initializing
@@ -176,13 +174,11 @@ end
 
 Cryptid.voucher_acclimator_data = {}
 
-
 ---@param voucher_key string
 ---@param localization_key string
 ---@param ref_value string
 ---@param colour any
 function Cryptid.setup_voucher_rate_adjuster(voucher_key, localization_key, ref_value, colour)
-
 	-- Necessary values:
 	-- Voucher key
 	-- localize key
@@ -197,7 +193,7 @@ function Cryptid.setup_voucher_rate_adjuster(voucher_key, localization_key, ref_
 		voucher_key = voucher_key,
 		localization_key = localization_key,
 		ref_value = ref_value,
-		colour = colour
+		colour = colour,
 	}
 	print(Cryptid.voucher_acclimator_data[#Cryptid.voucher_acclimator_data])
 end
