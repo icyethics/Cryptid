@@ -7391,14 +7391,14 @@ local manylostminds = {
 	order = 118.75,
 	config = {
 		extra = {
-			x_chips = 8.0658175e67, --52!
+			chips = 8.0658175e67, --52!
 			type = "cry_WholeDeck",
 		},
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				number_format(card.ability.extra.x_chips),
+				number_format(card.ability.extra.chips),
 				localize(card.ability.extra.type, "poker_hands"),
 			},
 		}
@@ -7413,7 +7413,7 @@ local manylostminds = {
 		if (context.joker_main and next(context.poker_hands["cry_WholeDeck"])) or context.forcetrigger then
 			return {
 				colour = G.C.BLUE,
-				xchips = lenient_bignum(card.ability.extra.x_chips),
+				xchips = lenient_bignum(card.ability.extra.chips),
 			}
 		end
 	end,

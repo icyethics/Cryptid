@@ -2833,9 +2833,7 @@ return {
 			j_cry_many_lost_minds = {
 				name = "Many have lost their minds comprehending this Joker",
 				text = {
-					"{X:blue,C:white}X#1#{} Chips if played",
-					"hand contains",
-					"a {C:attention}#2#",
+					"{X:blue,C:white}X#1#{} Chips if played hand contains {C:attention}#2#",
 				},
 			},
 			j_cry_annihalation = {
