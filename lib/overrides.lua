@@ -1759,7 +1759,7 @@ end
 local emplace_ref = CardArea.emplace
 function CardArea:emplace(card, location, stay_flipped)
 	return emplace_ref(self, card or {}, location, stay_flipped)
-
+end
 -- Added by IcyEthics: Adding a hook to the shuffle function so that there can be a context to modify randomization
 -- Any card using this will most likely want to use cry_post_shuffle.
 -- added cry_pre_shuffle for posterity
