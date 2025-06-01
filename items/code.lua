@@ -2581,11 +2581,9 @@ local assemble = {
 	end,
 	use = function(self, card, area, copier)
 		local upgrade_hand
-		local num = 0
-		if G.PROFILES[G.SETTINGS.profile].cry_none then num = -1 end
-		if #G.hand.highlighted > num then
+		if #G.hand.highlighted > 0 then
 			upgrade_hand = G.GAME.hands[G.FUNCS.get_poker_hand_info(G.hand.highlighted)]
-		elseif #G.play.cards > num then
+		elseif #G.play.cards > 0 then
 			upgrade_hand = G.GAME.hands[G.FUNCS.get_poker_hand_info(G.play.cards)]
 		end
 		if upgrade_hand then
@@ -3440,10 +3438,11 @@ local global_sticker = {
 	calculate = function(self, card, context)
 		-- Added by IcyEthics
 		if context.cry_shuffling_area and context.cardarea == G.deck and context.cry_post_shuffle then
+
 			local _targetpos = nil
 			local _selfpos = nil
 
-			-- Iterate through every card in the deck to find both the location
+			-- Iterate through every card in the deck to find both the location 
 			-- of the stickered card, and the highest placed non-stickered card
 			for i, _playingcard in ipairs(G.deck.cards) do
 				if _playingcard == card then
@@ -3453,15 +3452,12 @@ local global_sticker = {
 				end
 			end
 
-			if _targetpos == nil then
-				_targetpos = #G.deck.cards
-			end
-			if _selfpos == nil then
-				_selfpos = #G.deck.cards
-			end
+			if _targetpos == nil then _targetpos = #G.deck.cards end
+			if _selfpos == nil then _selfpos = #G.deck.cards end
 
 			-- Swaps the positions of the selected cards
 			G.deck.cards[_selfpos], G.deck.cards[_targetpos] = G.deck.cards[_targetpos], G.deck.cards[_selfpos]
+
 		end
 	end,
 }
