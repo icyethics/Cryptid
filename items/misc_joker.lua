@@ -1462,7 +1462,7 @@ local seal_the_deal = {
 	calculate = function(self, card, context)
 		if
 			context.after
-			and G.GAME.current_round.hands_left == 0
+			and (G.GAME.current_round.hands_left == 0 or next(find_joker("cry-panopticon")))
 			and not context.blueprint
 			and not context.retrigger_joker
 		then
@@ -1489,17 +1489,11 @@ local seal_the_deal = {
 		end
 	end,
 	set_ability = function(self, card, initial, delay_sprites)
-		local sealtable = { "blue", "red", "purple" }
-		if Cryptid.enabled("cry_azure") then
-			sealtable[#sealtable + 1] = "azure"
-		end
-		if Cryptid.enabled("cry_green") then
-			sealtable[#sealtable + 1] = "green"
-		end
+		local sealtable = { "blue", "red", "purple", "azure", "green" }
 		card.ability.extra = pseudorandom_element(sealtable, pseudoseed("abc"))
-		if self.discovered then
+		if self.discovered and not (card.area and card.area.config.collection) then
 			--Gold (ULTRA RARE!!!!!!!!)
-			if pseudorandom("xyz") <= 0.000001 and not (card.area and card.area.config.collection) then
+			if pseudorandom("xyz") <= 0.000001 then
 				card.children.center:set_sprite_pos({ x = 6, y = 4 })
 			--Others
 			elseif card.ability.extra == "red" then
