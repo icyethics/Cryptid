@@ -248,10 +248,10 @@ local universe = {
 				G.GAME.hands["cry_WholeDeck"].l_mult,
 				G.GAME.hands["cry_WholeDeck"].l_chips,
 				colours = {
-					(to_big(G.GAME.hands["cry_WholeDeck"].level) == to_big(1) and G.C.UI.TEXT_DARK
- or G.C.HAND_LEVELS[to_big(
-						math.min(7, G.GAME.hands["cry_WholeDeck"].level)
-					):to_number()]),
+					(
+						to_big(G.GAME.hands["cry_WholeDeck"].level) == to_big(1) and G.C.UI.TEXT_DARK
+						or G.C.HAND_LEVELS[to_big(math.min(7, G.GAME.hands["cry_WholeDeck"].level)):to_number()]
+					),
 				},
 			},
 		}

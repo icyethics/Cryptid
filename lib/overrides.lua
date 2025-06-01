@@ -1624,15 +1624,12 @@ function Blind:set_blind(blind, reset, silent)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-				update_hand_text(
-					{ delay = 0, immediate = true },
-					{
-						mult = G.GAME.hands["cry_None"].mult,
-						chips = G.GAME.hands["cry_None"].chips,
-						level = G.GAME.hands["cry_None"].level,
-						handname = localize("cry_None", "poker_hands"),
-					}
-				)
+				update_hand_text({ delay = 0, immediate = true }, {
+					mult = G.GAME.hands["cry_None"].mult,
+					chips = G.GAME.hands["cry_None"].chips,
+					level = G.GAME.hands["cry_None"].level,
+					handname = localize("cry_None", "poker_hands"),
+				})
 
 				return true
 			end,
@@ -1668,15 +1665,12 @@ function Game:update_selecting_hand(dt)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-				update_hand_text(
-					{ delay = 0, immediate = true },
-					{
-						mult = G.GAME.hands["cry_None"].mult,
-						chips = G.GAME.hands["cry_None"].chips,
-						level = G.GAME.hands["cry_None"].level,
-						handname = localize("cry_None", "poker_hands"),
-					}
-				)
+				update_hand_text({ delay = 0, immediate = true }, {
+					mult = G.GAME.hands["cry_None"].mult,
+					chips = G.GAME.hands["cry_None"].chips,
+					level = G.GAME.hands["cry_None"].level,
+					handname = localize("cry_None", "poker_hands"),
+				})
 
 				return true
 			end,
@@ -1697,15 +1691,12 @@ function Blind:load(blindTable)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-				update_hand_text(
-					{ delay = 0, immediate = true, volume = 0.01 },
-					{
-						mult = G.GAME.hands["cry_None"].mult,
-						chips = G.GAME.hands["cry_None"].chips,
-						level = G.GAME.hands["cry_None"].level,
-						handname = localize("cry_None", "poker_hands"),
-					}
-				)
+				update_hand_text({ delay = 0, immediate = true, volume = 0.01 }, {
+					mult = G.GAME.hands["cry_None"].mult,
+					chips = G.GAME.hands["cry_None"].chips,
+					level = G.GAME.hands["cry_None"].level,
+					handname = localize("cry_None", "poker_hands"),
+				})
 				return true
 			end,
 		}))
@@ -1757,15 +1748,12 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-				update_hand_text(
-					{ delay = 0, immediate = true },
-					{
-						mult = G.GAME.hands["cry_None"].mult,
-						chips = G.GAME.hands["cry_None"].chips,
-						level = G.GAME.hands["cry_None"].level,
-						handname = localize("cry_None", "poker_hands"),
-					}
-				)
+				update_hand_text({ delay = 0, immediate = true }, {
+					mult = G.GAME.hands["cry_None"].mult,
+					chips = G.GAME.hands["cry_None"].chips,
+					level = G.GAME.hands["cry_None"].level,
+					handname = localize("cry_None", "poker_hands"),
+				})
 
 				return true
 			end,
