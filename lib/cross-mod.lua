@@ -162,7 +162,6 @@ end
 Cryptid.enhancement_alias_list = {}
 
 ---@param list table
----@return boolean?
 function Cryptid.load_enhancement_aliases(list)
 	for _enhancementkey, _listofaliases in pairs(list) do
 		Cryptid.enhancement_alias_list[_enhancementkey] = _listofaliases
@@ -177,6 +176,11 @@ end
 
 Cryptid.voucher_acclimator_data = {}
 
+
+---@param voucher_key string
+---@param localization_key string
+---@param ref_value string
+---@param colour any
 function Cryptid.setup_voucher_rate_adjuster(voucher_key, localization_key, ref_value, colour)
 
 	-- Necessary values:
@@ -184,6 +188,10 @@ function Cryptid.setup_voucher_rate_adjuster(voucher_key, localization_key, ref_
 	-- localize key
 	-- ref value
 	-- colour
+
+	if not voucher_key or not localization_key or not ref_value or not colour then
+		print("Cryptid.setup_voucher_rate_adjuster was improperly called")
+	end
 
 	Cryptid.voucher_acclimator_data[#Cryptid.voucher_acclimator_data + 1] = {
 		voucher_key = voucher_key,
