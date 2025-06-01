@@ -3047,7 +3047,6 @@ local enh_table = {
 
 Cryptid.load_enhancement_aliases(enh_table)
 
-
 local class = {
 	cry_credits = {
 		idea = {
@@ -3438,11 +3437,10 @@ local global_sticker = {
 	calculate = function(self, card, context)
 		-- Added by IcyEthics
 		if context.cry_shuffling_area and context.cardarea == G.deck and context.cry_post_shuffle then
-
 			local _targetpos = nil
 			local _selfpos = nil
 
-			-- Iterate through every card in the deck to find both the location 
+			-- Iterate through every card in the deck to find both the location
 			-- of the stickered card, and the highest placed non-stickered card
 			for i, _playingcard in ipairs(G.deck.cards) do
 				if _playingcard == card then
@@ -3452,12 +3450,15 @@ local global_sticker = {
 				end
 			end
 
-			if _targetpos == nil then _targetpos = #G.deck.cards end
-			if _selfpos == nil then _selfpos = #G.deck.cards end
+			if _targetpos == nil then
+				_targetpos = #G.deck.cards
+			end
+			if _selfpos == nil then
+				_selfpos = #G.deck.cards
+			end
 
 			-- Swaps the positions of the selected cards
 			G.deck.cards[_selfpos], G.deck.cards[_targetpos] = G.deck.cards[_targetpos], G.deck.cards[_selfpos]
-
 		end
 	end,
 }
@@ -5353,8 +5354,6 @@ return {
 		end
 
 		-- code to set up base Cryptid enhancement keys
-
-
 	end,
 	items = code_cards,
 }
