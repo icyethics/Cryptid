@@ -927,10 +927,10 @@ function G.UIDEF.used_vouchers()
 			},
 		}
 
-		cryptid_voucher_nodes[#cryptid_voucher_nodes + 1] = { 
-			n = G.UIT.R, 
-			config = { align = "cm", minh = 0.5 }, 
-			nodes = {} 
+		cryptid_voucher_nodes[#cryptid_voucher_nodes + 1] = {
+			n = G.UIT.R,
+			config = { align = "cm", minh = 0.5 },
+			nodes = {},
 		}
 
 		cryptid_voucher_nodes[#cryptid_voucher_nodes + 1] = {
@@ -946,7 +946,7 @@ function G.UIDEF.used_vouchers()
 			and {
 				n = G.UIT.ROOT,
 				config = { align = "cm", colour = G.C.CLEAR },
-				nodes = cryptid_voucher_nodes
+				nodes = cryptid_voucher_nodes,
 			}
 		or {
 			n = G.UIT.ROOT,
