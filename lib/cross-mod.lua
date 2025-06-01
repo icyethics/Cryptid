@@ -168,3 +168,31 @@ function Cryptid.load_enhancement_aliases(list)
 		Cryptid.enhancement_alias_list[_enhancementkey] = _listofaliases
 	end
 end
+
+
+-- Acclimator Voucher API functions
+-- This should allow other mods to set up their own tier 3 vouchers in the style of
+-- the Tarot Acclimator voucher by setting up the voucher and just initializing
+-- a call to this function in their initialization
+
+Cryptid.voucher_acclimator_data = {}
+
+function Cryptid.setup_voucher_rate_adjuster(voucher_key, localization_key, ref_value, colour)
+
+	-- Necessary values:
+	-- Voucher key
+	-- localize key
+	-- ref value
+	-- colour
+
+	Cryptid.voucher_acclimator_data[#Cryptid.voucher_acclimator_data + 1] = {
+		voucher_key = voucher_key,
+		localization_key = localization_key,
+		ref_value = ref_value,
+		colour = colour
+	}
+	print(Cryptid.voucher_acclimator_data[#Cryptid.voucher_acclimator_data])
+end
+
+Cryptid.setup_voucher_rate_adjuster("v_cry_tacclimator", "b_tarot_rate", "tarot", G.C.SECONDARY_SET.Tarot)
+Cryptid.setup_voucher_rate_adjuster("v_cry_pacclimator", "b_planet_rate", "planet", G.C.SECONDARY_SET.Planet)
