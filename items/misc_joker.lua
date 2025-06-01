@@ -5848,7 +5848,7 @@ local the = {
 	name = "cry-the",
 	key = "the",
 	order = 121.5,
-	pos = { x = 4, y = 7 },
+	pos = { x = 5, y = 7 },
 	config = {
 		extra = {
 			Xmult = 2,
@@ -5923,7 +5923,7 @@ local annihalation = {
 	name = "cry-annihalation",
 	key = "annihalation",
 	order = 121.75,
-	pos = { x = 7, y = 7 },
+	pos = { x = 8, y = 7 },
 	config = {
 		extra = {
 			emult = 5.2,
@@ -6631,7 +6631,7 @@ local undefined = {
 	},
 	name = "cry-undefined Joker",
 	key = "undefined",
-	pos = { x = 2, y = 7 },
+	pos = { x = 3, y = 7 },
 	order = 115.5,
 	config = {
 		extra = {
@@ -6691,7 +6691,7 @@ local wordscanteven = {
 	},
 	name = "cry-Words Cant Even",
 	key = "words_cant_even",
-	pos = { x = 5, y = 7 },
+	pos = { x = 6, y = 7 },
 	effect = "Cry Type Chips",
 	order = 115.75,
 	config = {
@@ -7342,7 +7342,7 @@ local nebulous = {
 	},
 	name = "cry-nebulous Joker",
 	key = "nebulous",
-	pos = { x = 3, y = 7 },
+	pos = { x = 4, y = 7 },
 	effect = "Cry Type Chips",
 	order = 118.5,
 	config = {
@@ -7402,7 +7402,7 @@ local manylostminds = {
 	},
 	name = "cry-Many Lost Minds",
 	key = "many_lost_minds",
-	pos = { x = 6, y = 7 },
+	pos = { x = 7, y = 7 },
 	order = 118.75,
 	config = {
 		extra = {
