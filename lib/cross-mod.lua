@@ -150,3 +150,21 @@ function Card:is_suit_force_enhancement(suit, bypass_debuff, flush_calc)
 	local ref = self:is_suit(suit, bypass_debuff, flush_calc)
 	return ref
 end
+
+
+-- === Cross mod access for Cryptid === --
+-- IcyEthics: Adding this section to collect functions that are intended to help other mods
+-- interact with Cryptid's functionality in some way
+
+-- ://CLASS API
+-- This function allows another mod to set up a name and alias that's accessible by the ://CLASS Code Card
+-- It's also set up more generically so that other mods can access the same information
+Cryptid.enhancement_alias_list = {}
+
+---@param list table
+---@return boolean?
+function Cryptid.load_enhancement_aliases(list)
+	for _enhancementkey, _listofaliases in pairs(list) do
+		Cryptid.enhancement_alias_list[_enhancementkey] = _listofaliases
+	end
+end
