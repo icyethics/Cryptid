@@ -9944,7 +9944,13 @@ local yarnball = { -- +1 to all listed probabilities for the highest cat tag lev
 		end
 		return r
 
-	end
+	end,
+
+	remove_from_deck = function(self, card, from_debuff)
+		for k, v in pairs(G.GAME.probabilities) do 
+			G.GAME.probabilities[k] = (v - card.ability.immutable.lasthighest)
+		end
+	end	
 }
 
 
