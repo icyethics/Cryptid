@@ -9891,7 +9891,7 @@ local yarnball = { -- +1 to all listed probabilities for the highest cat tag lev
 	object_type = "Joker",
 	dependencies = {
 		items = {
-			"set_cry_misc_joker",
+			"tag_cry_cat",
 		},
 	},
 	name = "cry_yarnball",
