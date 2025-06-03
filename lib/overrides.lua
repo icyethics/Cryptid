@@ -1647,7 +1647,7 @@ function Blind:set_blind(blind, reset, silent)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-					Cryptid.reset_to_none()
+				Cryptid.reset_to_none()
 				return true
 			end,
 		}))
@@ -1703,7 +1703,7 @@ function Blind:load(blindTable)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-					Cryptid.reset_to_none()
+				Cryptid.reset_to_none()
 				return true
 			end,
 		}))
@@ -1755,7 +1755,7 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			func = function()
-					Cryptid.reset_to_none()
+				Cryptid.reset_to_none()
 				return true
 			end,
 		}))
